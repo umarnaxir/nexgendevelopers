@@ -294,6 +294,29 @@ export function getTermsSEO(): Metadata {
 }
 
 /**
+ * Contact Us Page SEO
+ */
+export function getContactUsSEO(): Metadata {
+  return generateMetadata({
+    title: "Contact Us - NexGen Developers",
+    description: "Get in touch with NexGen Developers. We work remotely with a team of freelancers. Send a message or connect on social media.",
+    keywords: [
+      "contact nexgen developers",
+      "freelance contact",
+      "get in touch",
+      "remote team",
+    ],
+    canonical: "/contact-us",
+    openGraph: {
+      type: "website",
+      title: "Contact Us - NexGen Developers",
+      description: "Get in touch with NexGen Developers. We work remotely with a team of freelancers.",
+      url: "/contact-us",
+    },
+  });
+}
+
+/**
  * Service Page SEO (dynamic: top-level or digital-marketing sub)
  * Includes canonical, OpenGraph, Twitter, and OG image.
  */

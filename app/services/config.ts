@@ -889,6 +889,41 @@ export function getServicesNavItems(): NavServiceItem[] {
   return items;
 }
 
+/** Flat list of all service pages (label + href) for footer "Other Pages" etc. */
+export function getAllServicePagesForFooter(): { label: string; href: string }[] {
+  const items: { label: string; href: string }[] = [];
+  const navItems = getServicesNavItems();
+  navItems.forEach((item) => {
+    items.push({ label: item.label, href: item.href });
+    item.children?.forEach((child) => {
+      items.push({ label: child.label, href: child.href });
+    });
+  });
+  return items;
+}
+
+/** Development service pages (all top-level except digital-marketing) for footer */
+export function getDevelopmentServicesForFooter(): { label: string; href: string }[] {
+  return TOP_LEVEL_SLUG_LIST.filter((slug) => slug !== "digital-marketing").map((slug) => {
+    const def = TOP_LEVEL_SERVICES[slug];
+    return { label: def.label, href: `/services/${slug}` };
+  });
+}
+
+/** Digital marketing service pages (main + sub-pages) for footer */
+export function getDigitalMarketingServicesForFooter(): { label: string; href: string }[] {
+  const main = TOP_LEVEL_SERVICES["digital-marketing"];
+  const items: { label: string; href: string }[] = [
+    { label: main.label, href: "/services/digital-marketing" },
+  ];
+  DIGITAL_MARKETING_SUB_SLUG_LIST.forEach((subSlug) => {
+    const sub = DIGITAL_MARKETING_SERVICES[subSlug];
+    const label = subSlug === "seo" ? "Search Engine Optimization" : sub.label;
+    items.push({ label, href: `/services/digital-marketing/${subSlug}` });
+  });
+  return items;
+}
+
 /** Get related service definitions for internal linking */
 export function getRelatedServices(relatedSlugs: string[] | undefined): ServiceDefinition[] {
   if (!relatedSlugs?.length) return [];

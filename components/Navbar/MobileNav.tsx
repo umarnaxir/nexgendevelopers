@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import Link from "next/link";
-import { Settings, LogOut, User as UserIcon } from "lucide-react";
+import { Settings, LogOut, User as UserIcon, Image as ImageIcon, MessageSquare } from "lucide-react";
 import NavLinks from "./NavLinks";
 import NavLogo from "./NavLogo";
 import Hamburger from "./Hamburger";
@@ -66,8 +66,8 @@ export default function MobileNav({
           {isAuthenticated && user ? (
             <>
               {/* User Info */}
-              <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg mb-3">
-                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+              <div className="flex items-center gap-3 p-4 bg-black text-white rounded-lg mb-3">
+                <div className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center overflow-hidden border-2 border-white">
                   {user.avatar ? (
                     <img
                       src={user.avatar}
@@ -75,14 +75,34 @@ export default function MobileNav({
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <UserIcon className="w-5 h-5 text-gray-600" />
+                    <UserIcon className="w-5 h-5 text-white" />
                   )}
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">{user.name}</p>
-                  <p className="text-sm text-gray-500">{user.email}</p>
+                  <p className="font-medium text-white">{user.name}</p>
+                  <p className="text-sm text-gray-300">{user.email}</p>
                 </div>
               </div>
+
+              {/* Stories Link */}
+              <Link
+                href="/stories"
+                onClick={onLinkClick}
+                className="flex items-center justify-center gap-2 w-full py-3 px-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-md hover:bg-gray-50 transition-all duration-200"
+              >
+                <ImageIcon className="w-4 h-4" />
+                Stories
+              </Link>
+
+              {/* Posts Link */}
+              <Link
+                href="/posts"
+                onClick={onLinkClick}
+                className="flex items-center justify-center gap-2 w-full py-3 px-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-md hover:bg-gray-50 transition-all duration-200"
+              >
+                <MessageSquare className="w-4 h-4" />
+                Posts
+              </Link>
 
               {/* Admin Panel Link */}
               {canAccessAdmin(user.role) && (

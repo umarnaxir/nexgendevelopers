@@ -55,7 +55,9 @@ export type Permission =
   | "manage_settings"
   | "delete_users"
   | "delete_blogs"
-  | "assign_roles";
+  | "assign_roles"
+  | "manage_stories"
+  | "manage_posts";
 
 // Role permissions mapping - Employee is read-only; Admin cannot create/assign/delete Super Admin (enforced in lib/rbac + authService)
 export const RolePermissions: Record<UserRole, Permission[]> = {
@@ -73,6 +75,8 @@ export const RolePermissions: Record<UserRole, Permission[]> = {
     "delete_users",
     "delete_blogs",
     "assign_roles",
+    "manage_stories",
+    "manage_posts",
   ],
   [UserRole.ADMIN]: [
     "view_dashboard",
@@ -86,6 +90,8 @@ export const RolePermissions: Record<UserRole, Permission[]> = {
     "manage_pages",
     "manage_settings",
     "assign_roles",
+    "manage_stories",
+    "manage_posts",
     // No delete_users or delete_blogs — only Super Admin can delete
   ],
   [UserRole.EMPLOYEE]: [
@@ -95,6 +101,8 @@ export const RolePermissions: Record<UserRole, Permission[]> = {
     "view_pages",
     "view_settings",
     "view_analytics",
+    "manage_stories",
+    "manage_posts",
   ],
   [UserRole.CLIENT]: [],
 };

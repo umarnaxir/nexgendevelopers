@@ -39,7 +39,7 @@ const socialLinks: SocialLink[] = [
 
 export default function FooterSocials() {
   return (
-    <div className="flex space-x-3">
+    <div className="flex flex-nowrap items-center gap-3">
       {socialLinks.map((social) => (
         <a
           key={social.ariaLabel}

@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import FooterLogo from "./FooterLogo";
 import FooterLinks from "./FooterLinks";
 import FooterSocials from "./FooterSocials";
+import {
+  getDevelopmentServicesForFooter,
+  getDigitalMarketingServicesForFooter,
+} from "@/app/services/config";
 
 interface FooterLink {
   label: string;
@@ -18,19 +22,22 @@ export default function Footer() {
     { label: "About Us", href: "/about" },
     { label: "Projects", href: "/projects" },
     { label: "Services", href: "/services" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Contact Us", href: "/contact-us" },
   ];
 
   const otherPages: FooterLink[] = [
+
+    { label: "Team", href: "/team" },
+    { label: "Blogs", href: "/blogs" },
+    { label: "Posts", href: "/posts" },
+    { label: "Stories", href: "/stories" },
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
-    { label: "Blogs", href: "/blogs" },
-    { label: "Team", href: "/team" },
   ];
 
-  const legalLinks: FooterLink[] = [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-  ];
+  const developmentServices: FooterLink[] = getDevelopmentServicesForFooter();
+  const digitalMarketingServices: FooterLink[] = getDigitalMarketingServicesForFooter();
 
   const [email, setEmail] = useState("");
   const [showAlert, setShowAlert] = useState(false);
@@ -48,6 +55,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-100 border-t border-gray-200 pt-8 sm:pt-6 pb-3" data-aos="fade-up">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Row 1: Page links */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 pb-4 sm:pb-5">
           {/* Logo Section */}
           <div className="hidden sm:flex sm:col-span-2 lg:col-span-1 items-center justify-start">
@@ -56,49 +64,61 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col">
-            <FooterLinks title="Quick Links" links={quickLinks} index={0} />
+            <FooterLinks title="Quick Links" links={quickLinks} />
           </div>
 
           {/* Other Pages */}
           <div className="flex flex-col">
-            <FooterLinks title="Other Pages" links={otherPages} index={1} />
+            <FooterLinks title="Other Pages" links={otherPages} />
           </div>
 
-          {/* Contact */}
+          {/* Development Services */}
           <div className="flex flex-col">
+            <FooterLinks title="Development Services" links={developmentServices} />
+          </div>
+
+          {/* Digital Marketing Services */}
+          <div className="flex flex-col">
+            <FooterLinks title="Digital Marketing" links={digitalMarketingServices} />
+          </div>
+        </div>
+
+        {/* Row 2: Contact and Subscribe */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 pb-4 sm:pb-5 items-start">
+          {/* Contact - left aligned */}
+          <div className="flex flex-col items-start w-full">
             <div className="mb-2">
               <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-gray-900">
                 Contact
               </h3>
             </div>
-            <div className="space-y-1.5 text-xs sm:text-sm text-gray-700 mb-3">
-              <a 
-                href="tel:6006161726" 
+            <div className="space-y-1.5 text-xs sm:text-sm text-gray-700 text-left">
+              <a
+                href="tel:6006161726"
                 className="hover:text-black transition-colors block font-medium hover:translate-x-0.5"
               >
                 Call on +91 600-616-1726
               </a>
-              <a 
-                href="mailto:nexgendevelopers11@gmail.com" 
+              <a
+                href="mailto:nexgendevelopers11@gmail.com"
                 className="hover:text-black transition-colors font-medium break-all block hover:translate-x-0.5"
               >
                 nexgendevelopers11@gmail.com
               </a>
             </div>
-            {/* Social Icons */}
             <div className="mt-3">
               <FooterSocials />
             </div>
           </div>
 
-          {/* Email Subscription */}
-          <div className="relative flex flex-col">
-            <div className="mb-2">
+          {/* Subscribe - right aligned */}
+          <div className="relative flex flex-col items-end w-full md:max-w-md md:ml-auto">
+            <div className="mb-2 w-full md:w-auto">
               <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-gray-900">
                 Subscribe
               </h3>
             </div>
-            <form onSubmit={handleSubscribe} className="space-y-2">
+            <form onSubmit={handleSubscribe} className="space-y-2 w-full">
               <input
                 type="email"
                 value={email}
@@ -114,8 +134,6 @@ export default function Footer() {
                 Subscribe
               </button>
             </form>
-            
-            {/* Alert Message */}
             {showAlert && (
               <div className="absolute top-full left-0 right-0 mt-2 p-3 bg-black text-white text-xs sm:text-sm rounded-lg shadow-lg z-10">
                 Thank you for subscribing! We'll keep you updated.

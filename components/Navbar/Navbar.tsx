@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { LogOut, Settings, User as UserIcon } from "lucide-react";
+import { LogOut, Settings, User as UserIcon, Image as ImageIcon, MessageSquare } from "lucide-react";
 import NavLogo from "./NavLogo";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
@@ -126,9 +126,9 @@ export default function Navbar() {
                       e.stopPropagation();
                       setIsUserMenuOpen(!isUserMenuOpen);
                     }}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-black text-white hover:bg-gray-800 transition-colors"
                   >
-                    <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                    <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center overflow-hidden border-1 border-white">
                       {user.avatar ? (
                         <img
                           src={user.avatar}
@@ -136,10 +136,10 @@ export default function Navbar() {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <UserIcon className="w-5 h-5 text-gray-600" />
+                        <UserIcon className="w-5 h-5 text-white" />
                       )}
                     </div>
-                    <span className="text-sm font-medium text-gray-900 max-w-[100px] truncate">
+                    <span className="text-sm font-medium text-white max-w-[100px] truncate">
                       {user.name}
                     </span>
                   </button>
@@ -147,6 +147,22 @@ export default function Navbar() {
                   {/* User Dropdown Menu */}
                   {isUserMenuOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                      <Link
+                        href="/stories"
+                        className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
+                        <ImageIcon className="w-4 h-4" />
+                        Stories
+                      </Link>
+                      <Link
+                        href="/posts"
+                        className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
+                        <MessageSquare className="w-4 h-4" />
+                        Posts
+                      </Link>
                       {canAccessAdmin(user.role) && (
                         <Link
                           href="/admin"

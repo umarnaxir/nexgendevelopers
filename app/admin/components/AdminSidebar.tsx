@@ -14,6 +14,8 @@ import {
   ChevronLeft,
   ChevronRight,
   ScrollText,
+  Image as ImageIcon,
+  MessageSquare,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { getRoleDisplayName, getRoleBadgeColor } from "@/types/auth";
@@ -41,6 +43,16 @@ const menuItems = [
     name: "Blogs",
     href: "/admin/blogs",
     icon: BookOpen,
+  },
+  {
+    name: "Stories",
+    href: "/admin/stories",
+    icon: ImageIcon,
+  },
+  {
+    name: "Posts",
+    href: "/admin/posts",
+    icon: MessageSquare,
   },
   {
     name: "Pages",
