@@ -9,7 +9,7 @@ import { seoConfig } from "./config";
 export function getHomeSEO(): Metadata {
   return generateMetadata({
     title: "NexGen Developers — Build, Launch & Grow Your Business",
-    description: "A creative platform to build, launch, and grow your business. We help startups and local brands with AI/ML, chatbots, web & app development, and digital marketing — crafting digital experiences that stand out and deliver results.",
+    description: "A creative platform to build, launch, and grow your business. We help startups and local brands with AI/ML, chatbots, web & app development, and more",
     keywords: [
       "freelance developers",
       "web development services",
@@ -275,7 +275,7 @@ export function getPrivacySEO(): Metadata {
 export function getTermsSEO(): Metadata {
   return generateMetadata({
     title: "Terms of Service - NexGen",
-    description: "Read our terms of service for using NexGen — a creative platform to build, launch, and grow your business. Covers blogs, posts, stories, and content guidelines.",
+    description: "Read our terms of service for using NexGen — a creative platform to build, launch, and grow your business. blogs, posts, stories, and more.",
     keywords: [
       "terms of service",
       "terms and conditions",
@@ -289,7 +289,7 @@ export function getTermsSEO(): Metadata {
     openGraph: {
       type: "website",
       title: "Terms of Service - NexGen",
-      description: "Read our terms of service for using NexGen — a creative platform to build, launch, and grow your business. Covers blogs, posts, stories, and content guidelines.",
+      description: "Read our terms of service for using NexGen — a creative platform to build, launch, and grow your business. blogs, posts, stories, and content guidelines.",
       url: "/terms",
     },
   });
@@ -325,7 +325,7 @@ export function getContactUsSEO(): Metadata {
 export function getPostsSEO(): Metadata {
   return generateMetadata({
     title: "Community Posts — Share Thoughts, Updates & Ideas",
-    description: "Explore the NexGen Developers community feed. Share thoughts, updates, and ideas on web development, app development, AI/ML, and digital marketing. Stay connected with our team and fellow creators.",
+    description: "Explore the NexGen Developers community feed. Share thoughts, updates, and ideas. Stay connected with our team and fellow creators.",
     keywords: [
       "community posts",
       "nexgen developers feed",
@@ -355,7 +355,7 @@ export function getPostsSEO(): Metadata {
 export function getStoriesSEO(): Metadata {
   return generateMetadata({
     title: "Stories — Latest Updates & Highlights from NexGen",
-    description: "View the latest stories and highlights from NexGen Developers. Quick updates, behind-the-scenes, and insights on web development, AI/ML, chatbots, and digital projects.",
+    description: "View the latest stories and highlights from NexGen Developers. Quick updates, behind-the-scenes, and insights on web development, AI/ML, and more.",
     keywords: [
       "nexgen stories",
       "developer updates",

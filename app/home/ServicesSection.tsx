@@ -182,7 +182,7 @@ export default function ServicesSection() {
                 href={service.href}
                 className="group flex flex-col items-center text-center bg-white p-5 sm:p-6 md:p-7 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 min-h-[260px] justify-center"
                 data-aos="zoom-in"
-                data-aos-delay={index * 80}
+                data-aos-delay="0"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
                   <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black" style={{ filter: "drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))" }} />
