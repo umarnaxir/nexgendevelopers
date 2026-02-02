@@ -39,7 +39,8 @@ export default function ContactSection() {
     const timeoutId = setTimeout(() => controller.abort(), 35000); // 35s so server has time to connect to SMTP
 
     try {
-      const response = await fetch("/api/contact", {
+      const apiUrl = typeof window !== "undefined" ? `${window.location.origin}/api/contact` : "/api/contact";
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -93,7 +94,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20" data-aos="fade-up">
+    <section id="contact" className="py-6 sm:py-8" data-aos="fade-up">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div 
           className="mb-10 sm:mb-12 md:mb-16"

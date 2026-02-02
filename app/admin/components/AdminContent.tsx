@@ -1,17 +1,19 @@
 "use client";
 
-import { 
-  Users, 
-  FileText, 
+import {
+  Users,
+  FileText,
   BookOpen,
-  FileCheck,
   ArrowUpRight,
   ArrowDownRight,
+  Newspaper,
+  ImageIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 import { getUsers } from "@/services/authService";
-import { getPages } from "@/services/pagesService";
+import { getPosts } from "@/services/postsService";
+import { getStories } from "@/services/storiesService";
 import { useEffect, useState } from "react";
 
 interface StatCard {
@@ -20,7 +22,6 @@ interface StatCard {
   change: string;
   trend: "up" | "down";
   icon: React.ElementType;
-  color: string;
 }
 
 export default function AdminContent() {
@@ -32,7 +33,8 @@ export default function AdminContent() {
     const blogsData = localStorage.getItem("nexgen_blogs");
     const blogs = blogsData ? JSON.parse(blogsData) : [];
     const publishedBlogs = blogs.filter((b: { status?: string }) => b.status === "published");
-    const pages = getPages();
+    const posts = getPosts();
+    const stories = getStories();
 
     setStats([
       {
@@ -41,7 +43,6 @@ export default function AdminContent() {
         change: `${users.filter((u: { isActive: boolean }) => u.isActive).length} active`,
         trend: "up",
         icon: Users,
-        color: "bg-blue-500",
       },
       {
         title: "Total Blogs",
@@ -49,23 +50,20 @@ export default function AdminContent() {
         change: `${publishedBlogs.length} published`,
         trend: "up",
         icon: BookOpen,
-        color: "bg-green-500",
       },
       {
-        title: "Published Blogs",
-        value: publishedBlogs.length || 0,
-        change: `${blogs.length - publishedBlogs.length} drafts`,
+        title: "Total Posts",
+        value: posts.length || 0,
+        change: `${posts.filter((p: { status: string }) => p.status === "active").length} active`,
         trend: "up",
-        icon: FileCheck,
-        color: "bg-purple-500",
+        icon: Newspaper,
       },
       {
-        title: "Manageable Pages",
-        value: pages.length || 0,
-        change: "Editable in admin",
+        title: "Total Stories",
+        value: stories.length || 0,
+        change: `${stories.filter((s: { status: string }) => s.status === "active").length} active`,
         trend: "up",
-        icon: FileText,
-        color: "bg-orange-500",
+        icon: ImageIcon,
       },
     ]);
   }, []);
@@ -73,6 +71,8 @@ export default function AdminContent() {
   const quickLinks = [
     { name: "Manage Users", href: "/admin/users", icon: Users },
     { name: "Manage Blogs", href: "/admin/blogs", icon: BookOpen },
+    { name: "Manage Posts", href: "/admin/posts", icon: Newspaper },
+    { name: "Manage Stories", href: "/admin/stories", icon: ImageIcon },
     { name: "Manage Pages", href: "/admin/pages", icon: FileText },
   ];
 
@@ -81,6 +81,8 @@ export default function AdminContent() {
     { action: "Blog post published", time: "4 hours ago", type: "blog" },
     { action: "Privacy page updated", time: "1 day ago", type: "page" },
     { action: "New blog draft saved", time: "2 days ago", type: "blog" },
+    { action: "New post published", time: "3 days ago", type: "post" },
+    { action: "Story added to feed", time: "4 days ago", type: "story" },
   ];
 
   return (
@@ -102,14 +104,14 @@ export default function AdminContent() {
           return (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow"
+              className="bg-black rounded-xl shadow-sm p-6 hover:shadow-[0_0_20px_rgba(20,184,166,0.5)] transition-shadow duration-300"
             >
               <div className="flex items-center justify-between">
-                <div className={`p-3 rounded-lg ${stat.color}`}>
+                <div className="p-3 rounded-lg bg-white/10">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <div className={`flex items-center gap-1 text-sm ${
-                  stat.trend === "up" ? "text-green-600" : "text-red-600"
+                  stat.trend === "up" ? "text-teal-400" : "text-red-400"
                 }`}>
                   {stat.trend === "up" ? (
                     <ArrowUpRight className="w-4 h-4" />
@@ -120,8 +122,8 @@ export default function AdminContent() {
                 </div>
               </div>
               <div className="mt-4">
-                <h3 className="text-3xl font-bold text-gray-900">{stat.value}</h3>
-                <p className="text-gray-600 text-sm mt-1">{stat.title}</p>
+                <h3 className="text-3xl font-bold text-white">{stat.value}</h3>
+                <p className="text-gray-300 text-sm mt-1">{stat.title}</p>
               </div>
             </div>
           );
@@ -164,7 +166,10 @@ export default function AdminContent() {
                 <div className="flex items-center gap-3">
                   <div className={`w-2 h-2 rounded-full ${
                     activity.type === "user" ? "bg-blue-500" :
-                    activity.type === "blog" ? "bg-green-500" : "bg-purple-500"
+                    activity.type === "blog" ? "bg-green-500" :
+                    activity.type === "page" ? "bg-purple-500" :
+                    activity.type === "post" ? "bg-amber-500" :
+                    "bg-cyan-500"
                   }`} />
                   <span className="text-gray-700">{activity.action}</span>
                 </div>
