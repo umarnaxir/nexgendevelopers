@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import StoriesViewer from "./StoriesViewer";
+import { getStoriesSEO } from "@/lib/seo/page-seo";
 
-export const metadata: Metadata = {
-  title: "Stories | NexGen Developer",
-  description: "View our latest stories",
-  robots: { index: false, follow: true },
-};
+export const metadata = getStoriesSEO();
 
 export default function StoriesPage() {
   return <StoriesViewer />;

@@ -8,7 +8,10 @@ export default function PrivacySections() {
     <>
       <PrivacySection icon={Shield} title="1. Introduction" delay={0}>
         <p className="mb-3 sm:mb-4">
-          NexGen Developers (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or participate in our &quot;Write for Us&quot; program.
+          NexGen (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is a creative platform to build, launch, and grow your business. We help startups and local brands with AI/ML, chatbots, web &amp; app development, and digital marketing — crafting digital experiences that stand out and deliver results. We are committed to protecting your privacy and ensuring the security of your personal information.
+        </p>
+        <p className="mb-3 sm:mb-4">
+          This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, create or view blogs, posts, or stories, use our definitions and other pages, or participate in our &quot;Write for Us&quot; program.
         </p>
         <p>By using our Service, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, please do not use our Service.</p>
       </PrivacySection>
@@ -46,9 +49,9 @@ export default function PrivacySections() {
         <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 mb-4 sm:mb-6">
           <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
             <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-            Content Submission Data (Write for Us Program)
+            User-Generated Content &amp; Submission Data
           </h3>
-          <p className="mb-2 sm:mb-3">When you participate in our &quot;Write for Us&quot; program, we collect: submitted blog posts, author bio, website URLs for backlinks, social media profiles (if provided), and communication history regarding submissions.</p>
+          <p className="mb-2 sm:mb-3">When you create content on our platform or participate in our &quot;Write for Us&quot; program, we may collect: blogs, posts, and stories you publish; author bio and profile; website URLs for backlinks; social media profiles (if provided); and communication history regarding submissions. We also collect data related to your use of our definitions, stories, and posts pages.</p>
         </div>
         <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200">
           <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
@@ -60,11 +63,11 @@ export default function PrivacySections() {
       </PrivacySection>
 
       <PrivacySection icon={Eye} title="3. How We Use Your Information" delay={0.2}>
-        <p className="mb-4 sm:mb-6">We use the information we collect for various purposes including service delivery, communication, analytics & improvement, and content management. We process your personal information based on: your consent, performance of a contract, compliance with legal obligations, protection of vital interests, legitimate business interests, and public interest.</p>
+        <p className="mb-4 sm:mb-6">We use the information we collect for various purposes including service delivery, communication, analytics &amp; improvement, content management (including displaying and moderating your blogs, posts, and stories), and operating our definitions, stories, and posts pages. We process your personal information based on: your consent, performance of a contract, compliance with legal obligations, protection of vital interests, legitimate business interests, and public interest.</p>
       </PrivacySection>
 
       <PrivacySection icon={Share2} title="4. Information Sharing and Disclosure" delay={0.3} altBg>
-        <p className="mb-3 sm:mb-4">We do not sell, trade, or rent your personal information to third parties. We may share your information with service providers, in business transfers, when required by law, and for published content (Write for Us) attribution.</p>
+        <p className="mb-3 sm:mb-4">We do not sell, trade, or rent your personal information to third parties. We may share your information with service providers, in business transfers, when required by law, and for published content (including your blogs, posts, stories, and Write for Us submissions) attribution.</p>
       </PrivacySection>
 
       <PrivacySection icon={Lock} title="5. Data Security" delay={0.4}>

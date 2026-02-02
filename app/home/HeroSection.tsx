@@ -88,18 +88,23 @@ export default function HeroSection() {
           </div>
           
           {/* Description Text */}
-          <p 
+          <div
             style={{
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-              lineHeight: 1.5,
+              fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+              lineHeight: 1.6,
               marginTop: 'clamp(1.5rem, 4vh, 2.5rem)',
               marginBottom: 'clamp(2rem, 5vh, 3rem)',
               textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)'
             }}
-            className="mt-4 md:mt-6 text-gray-700 max-w-4xl mx-auto text-center leading-tight"
+            className="mt-4 md:mt-6 text-gray-700 max-w-6xl mx-auto text-center leading-tight"
           >
-            We are freelancers helping startups and local businesses with AI/ML, chatbots, web & app development, SEO, and graphic design to create stunning digital experiences that make a lasting impact.
-          </p>
+            <p className="mb-3">
+              A creative platform to <span className="hero-highlight-word">build</span>, <span className="hero-highlight-word">launch</span>, and <span className="hero-highlight-word">grow</span> your business.
+            </p>
+            <p>
+              We help startups and local brands with <span className="hero-service-word">AI/ML</span>, <span className="hero-service-word">chatbots</span>, <span className="hero-service-word">web & app development</span>, and <span className="hero-service-word">digital marketing</span> — crafting digital experiences that stand out and deliver results.
+            </p>
+          </div>
 
           {/* Action Buttons - Mobile: Vertical stack, Desktop: Horizontal */}
           <div 

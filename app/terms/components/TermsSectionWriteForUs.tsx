@@ -13,9 +13,9 @@ export default function TermsSectionWriteForUs() {
           <PenTool className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
         </div>
         <div className="flex-1 w-full">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">4. Write for Us Program</h2>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">5. User-Generated Content &amp; Write for Us Program</h2>
           <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4 sm:mb-6">
-            NexGen Developers offers a &quot;Write for Us&quot; program that allows content creators, bloggers, and businesses to submit guest posts and articles to our platform. This program provides opportunities for backlinks, business promotion, and content distribution.
+            NexGen is a creative platform where users can add blogs, posts, and stories. We also offer a &quot;Write for Us&quot; program that allows content creators, bloggers, and businesses to submit guest posts and articles. All user content must be appropriate, lawful, and aligned with our content guidelines (see Section 8). This program and the Platform provide opportunities for backlinks, business promotion, and content distribution focused on technology and business development.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div className="bg-gray-900 p-4 sm:p-5 rounded-lg border border-gray-700">
@@ -26,7 +26,7 @@ export default function TermsSectionWriteForUs() {
             <div className="bg-gray-900 p-4 sm:p-5 rounded-lg border border-gray-700">
               <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white mb-2 sm:mb-3" />
               <h3 className="font-bold text-sm sm:text-base text-white mb-2">Promote Your Business</h3>
-              <p className="text-xs sm:text-sm text-gray-300">Showcase your expertise and promote your business to our engaged audience of developers and entrepreneurs.</p>
+              <p className="text-xs sm:text-sm text-gray-300">Showcase your expertise and promote your business to our engaged audience. Content should focus on tech and business ideas development only.</p>
             </div>
             <div className="bg-gray-900 p-4 sm:p-5 rounded-lg border border-gray-700">
               <UserCheck className="w-6 h-6 sm:w-8 sm:h-8 text-white mb-2 sm:mb-3" />
@@ -51,7 +51,7 @@ export default function TermsSectionWriteForUs() {
                 <p className="text-xs sm:text-sm text-yellow-200 font-semibold mb-1">Important Guidelines:</p>
                 <ul className="text-xs sm:text-sm text-yellow-100 space-y-1 list-disc pl-4 sm:pl-5">
                   <li>All content must be original and not previously published elsewhere</li>
-                  <li>Content should be relevant to technology, development, business, or related topics</li>
+                  <li>Content must be relevant to technology, development, business ideas, or related tech topics only — no off-topic or inappropriate content</li>
                   <li>We reserve the right to edit, modify, or reject any submission</li>
                   <li>Approval is at our sole discretion and not guaranteed</li>
                   <li>Self-promotional content must be balanced with valuable, educational information</li>

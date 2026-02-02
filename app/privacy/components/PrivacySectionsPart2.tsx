@@ -11,7 +11,7 @@ export default function PrivacySectionsPart2() {
       </PrivacySection>
 
       <PrivacySection icon={Database} title="7. Data Retention" delay={0.6}>
-        <p className="mb-3 sm:mb-4">We will retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy. Retention periods: Account Information (while active + 3 years after closure), Published Content (indefinitely), Transaction Records (7 years), Marketing Data (until unsubscribe), Analytics Data (aggregated indefinitely).</p>
+        <p className="mb-3 sm:mb-4">We will retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy. Retention periods: Account Information (while active + 3 years after closure), Published Content including blogs, posts, and stories (indefinitely unless removed), Transaction Records (7 years), Marketing Data (until unsubscribe), Analytics Data (aggregated indefinitely).</p>
       </PrivacySection>
 
       <PrivacySection icon={Globe} title="8. International Data Transfers" delay={0.7} altBg>
@@ -29,7 +29,7 @@ export default function PrivacySectionsPart2() {
       <PrivacySection icon={Mail} title="11. Contact Us" delay={1.0} dark>
         <p className="mb-4 sm:mb-6">If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
         <div className="bg-gray-900 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-700">
-          <p className="mb-2 sm:mb-3"><strong className="text-white">NexGen Developers</strong></p>
+          <p className="mb-2 sm:mb-3"><strong className="text-white">NexGen</strong></p>
           <p className="mb-2"><strong className="text-white">Email:</strong> nexgendevelopers11@gmail.com</p>
           <p className="mb-2"><strong className="text-white">Phone:</strong> +91 600-616-1726</p>
           <p><strong className="text-white">Location:</strong> Srinagar, Jammu and Kashmir, India</p>

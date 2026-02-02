@@ -189,6 +189,19 @@ body {
   animation: float404 3s ease-in-out infinite;
 }
 
+/* Hero highlight words - solid teal, no animation */
+.hero-highlight-word {
+  font-weight: 800;
+  color: #0d9488;
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+
+.hero-service-word {
+  font-weight: 700;
+  color: #0d9488;
+}
+
 @keyframes movingLightShadow {
   0%, 100% {
     transform: translate(0, 0) scale(1);

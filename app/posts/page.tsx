@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import PostsFeed from "./PostsFeed";
+import { getPostsSEO } from "@/lib/seo/page-seo";
 
-export const metadata: Metadata = {
-  title: "Posts | NexGen Developer",
-  description: "Community feed — share thoughts and stay connected",
-  robots: { index: false, follow: true },
-};
+export const metadata = getPostsSEO();
 
 export default function PostsPage() {
   return <PostsFeed />;

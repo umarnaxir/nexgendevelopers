@@ -4,11 +4,12 @@ import { seoConfig } from "./config";
 
 /**
  * Home Page SEO
+ * Aligned with hero: Team of Freelancers, build/launch/grow, AI/ML, chatbots, web & app, digital marketing.
  */
 export function getHomeSEO(): Metadata {
   return generateMetadata({
-    title: "NexGen Developers - The Team of Freelancers",
-    description: "We are freelancers helping startups and local businesses with AI/ML, chatbots, web & app development, Digital Marketing and more.",
+    title: "NexGen Developers — Build, Launch & Grow Your Business",
+    description: "A creative platform to build, launch, and grow your business. We help startups and local brands with AI/ML, chatbots, web & app development, and digital marketing — crafting digital experiences that stand out and deliver results.",
     keywords: [
       "freelance developers",
       "web development services",
@@ -16,12 +17,13 @@ export function getHomeSEO(): Metadata {
       "chatbot development",
       "digital marketing",
       "startup development",
+      "build launch grow",
     ],
     canonical: "/",
     openGraph: {
       type: "website",
-      title: "NexGen Developers - The Team of Freelancers",
-      description: "We are freelancers helping startups and local businesses with AI/ML, chatbots, SEO, web & app development, and more.",
+      title: "NexGen Developers — Build, Launch & Grow Your Business",
+      description: "A creative platform to build, launch, and grow your business. We help startups and local brands with AI/ML, chatbots, web & app development, and digital marketing.",
       url: "/",
     },
   });
@@ -246,8 +248,8 @@ export function getPricingSEO(): Metadata {
  */
 export function getPrivacySEO(): Metadata {
   return generateMetadata({
-    title: "Privacy Policy - NexGen Developers",
-    description: "Read our privacy policy to understand how NexGen Developers collects, uses, and protects your personal information.",
+    title: "Privacy Policy - NexGen",
+    description: "Read our privacy policy to understand how NexGen collects, uses, and protects your personal information when you use our services, blogs, posts, and stories.",
     keywords: [
       "privacy policy",
       "data protection",
@@ -260,8 +262,8 @@ export function getPrivacySEO(): Metadata {
     },
     openGraph: {
       type: "website",
-      title: "Privacy Policy - NexGen Developers",
-      description: "Read our privacy policy to understand how NexGen Developers collects, uses, and protects your personal information.",
+      title: "Privacy Policy - NexGen",
+      description: "Read our privacy policy to understand how NexGen collects, uses, and protects your personal information when you use our services, blogs, posts, and stories.",
       url: "/privacy",
     },
   });
@@ -272,8 +274,8 @@ export function getPrivacySEO(): Metadata {
  */
 export function getTermsSEO(): Metadata {
   return generateMetadata({
-    title: "Terms of Service - NexGen Developers",
-    description: "Read our terms of service to understand the terms and conditions for using NexGen Developers' services.",
+    title: "Terms of Service - NexGen",
+    description: "Read our terms of service for using NexGen — a creative platform to build, launch, and grow your business. Covers blogs, posts, stories, and content guidelines.",
     keywords: [
       "terms of service",
       "terms and conditions",
@@ -286,8 +288,8 @@ export function getTermsSEO(): Metadata {
     },
     openGraph: {
       type: "website",
-      title: "Terms of Service - NexGen Developers",
-      description: "Read our terms of service to understand the terms and conditions for using NexGen Developers' services.",
+      title: "Terms of Service - NexGen",
+      description: "Read our terms of service for using NexGen — a creative platform to build, launch, and grow your business. Covers blogs, posts, stories, and content guidelines.",
       url: "/terms",
     },
   });
@@ -312,6 +314,66 @@ export function getContactUsSEO(): Metadata {
       title: "Contact Us - NexGen Developers",
       description: "Get in touch with NexGen Developers. We work remotely with a team of freelancers.",
       url: "/contact-us",
+    },
+  });
+}
+
+/**
+ * Posts Page SEO
+ * Community feed — indexable with proper title, description, and canonical.
+ */
+export function getPostsSEO(): Metadata {
+  return generateMetadata({
+    title: "Community Posts — Share Thoughts, Updates & Ideas",
+    description: "Explore the NexGen Developers community feed. Share thoughts, updates, and ideas on web development, app development, AI/ML, and digital marketing. Stay connected with our team and fellow creators.",
+    keywords: [
+      "community posts",
+      "nexgen developers feed",
+      "web development updates",
+      "app development ideas",
+      "AI ML insights",
+      "digital marketing thoughts",
+    ],
+    canonical: "/posts",
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      type: "website",
+      title: "Community Posts — Share Thoughts, Updates & Ideas",
+      description: "Explore the NexGen Developers community feed. Share thoughts, updates, and ideas on web development, app development, AI/ML, and digital marketing.",
+      url: "/posts",
+    },
+  });
+}
+
+/**
+ * Stories Page SEO
+ * Stories feed — indexable with proper title, description, and canonical.
+ */
+export function getStoriesSEO(): Metadata {
+  return generateMetadata({
+    title: "Stories — Latest Updates & Highlights from NexGen",
+    description: "View the latest stories and highlights from NexGen Developers. Quick updates, behind-the-scenes, and insights on web development, AI/ML, chatbots, and digital projects.",
+    keywords: [
+      "nexgen stories",
+      "developer updates",
+      "web development highlights",
+      "AI ML stories",
+      "project updates",
+      "team highlights",
+    ],
+    canonical: "/stories",
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      type: "website",
+      title: "Stories — Latest Updates & Highlights from NexGen",
+      description: "View the latest stories and highlights from NexGen Developers. Quick updates, behind-the-scenes, and insights on web development, AI/ML, and digital projects.",
+      url: "/stories",
     },
   });
 }
