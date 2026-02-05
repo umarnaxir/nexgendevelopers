@@ -26,7 +26,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "essential",
     name: "ESSENTIAL",
-    price: "₹14,999",
+    price: "$180",
     description: "Entry-level professional business website",
     bestFor: "Small businesses, local brands, first serious online presence",
     deliverables: [
@@ -51,7 +51,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "growth",
     name: "GROWTH",
-    price: "₹29,999",
+    price: "$360",
     description: "Semi-custom business website",
     bestFor: "Growing businesses, service providers, startups",
     deliverables: [
@@ -79,7 +79,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "premium",
     name: "PREMIUM",
-    price: "₹49,999",
+    price: "$600",
     description: "Fully custom, startup-grade website",
     bestFor: "Serious brands, funded startups, long-term businesses",
     deliverables: [
@@ -145,7 +145,7 @@ export const appPricingPlans: PricingPlan[] = [
   {
     id: "essential",
     name: "STARTER",
-    price: "₹24,999",
+    price: "$300",
     description: "Entry-level cross-platform or single-platform app",
     bestFor: "MVPs, small businesses, simple apps",
     deliverables: [
@@ -166,7 +166,7 @@ export const appPricingPlans: PricingPlan[] = [
   {
     id: "growth",
     name: "GROWTH",
-    price: "₹49,999",
+    price: "$600",
     description: "Feature-rich business or consumer app",
     bestFor: "Startups, product companies, apps with auth & payments",
     deliverables: [
@@ -189,7 +189,7 @@ export const appPricingPlans: PricingPlan[] = [
   {
     id: "premium",
     name: "PREMIUM",
-    price: "₹89,999",
+    price: "$1,080",
     description: "Fully custom, scalable app with advanced features",
     bestFor: "Funded startups, marketplaces, apps with complex logic",
     deliverables: [
@@ -238,7 +238,7 @@ export const otherPricingPlans: PricingPlan[] = [
   {
     id: "essential",
     name: "ESSENTIAL",
-    price: "From ₹9,999",
+    price: "From $120",
     description: "Focused deliverables for a single service",
     bestFor: "Single project: SEO audit, logo, chatbot, or small AI feature",
     deliverables: [
@@ -256,7 +256,7 @@ export const otherPricingPlans: PricingPlan[] = [
   {
     id: "growth",
     name: "GROWTH",
-    price: "From ₹24,999",
+    price: "From $300",
     description: "Bundled or ongoing service package",
     bestFor: "Multiple services or ongoing work (e.g. SEO + content, design + social)",
     deliverables: [
