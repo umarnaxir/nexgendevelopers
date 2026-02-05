@@ -50,10 +50,10 @@ export default function ServicesList() {
                   className={`
                     relative w-full sm:w-auto px-5 py-2.5 font-semibold text-sm sm:text-base rounded-xl
                     transition-all duration-300 ease-out
-                    focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2
+                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
                     ${
                       activeTab === category
-                        ? "bg-teal-600 text-white shadow-lg"
+                        ? "bg-black text-white shadow-lg"
                         : "bg-transparent text-gray-700 hover:bg-gray-100 hover:text-black"
                     }
                   `}

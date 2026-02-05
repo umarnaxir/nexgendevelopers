@@ -167,6 +167,22 @@ body {
   animation: mobileNavIn 0.4s ease-out forwards;
 }
 
+/* Service page hero image: fade in + subtle zoom */
+@keyframes heroImageReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-hero-image {
+  animation: heroImageReveal 1.2s ease-out forwards;
+}
+
 /* Hide scrollbar on carousel (mobile) - keeps scroll functionality */
 .scrollbar-hide {
   -ms-overflow-style: none;

@@ -25,16 +25,16 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
       data-aos="fade-up"
       data-aos-delay={index * 60}
       onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.15), 0 0 20px rgba(13, 148, 136, 0.1)';
+        e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1)';
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.1)';
       }}
     >
       {/* Split Layout: Image Left, Content Right - Works on Mobile and Desktop */}
-      <div className="flex flex-col sm:flex-row h-full">
+      <div className="flex flex-col sm:flex-row h-full sm:min-h-[300px]">
         {/* Image Section - Takes 40% on desktop, full width on mobile */}
-        <div className="relative h-64 sm:h-auto sm:w-2/5 overflow-hidden bg-gray-900">
+        <div className="relative h-72 sm:h-auto sm:min-h-[280px] sm:w-2/5 overflow-hidden bg-gray-900">
           <Image
             src={service.image}
             alt={`${service.title} - NexGen Developers`}
@@ -44,27 +44,24 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
             loading="lazy"
           />
           
-          {/* Subtle Teal Overlay on Hover */}
-          <div className="absolute inset-0 bg-teal-600/0 group-hover:bg-teal-600/10 transition-all duration-500" />
-          
-          {/* Icon Badge - Top Right */}
+          {/* Icon Badge - Top Right: white by default, black on hover */}
           {service.icon && (
-            <div className="absolute top-4 right-4 w-12 h-12 bg-white/95 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:bg-teal-600 group-hover:scale-110 transition-all duration-300">
+            <div className="absolute top-4 right-4 w-12 h-12 bg-white/95 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:bg-black group-hover:scale-110 transition-all duration-300">
               <ServiceIcon name={service.icon} className="w-6 h-6 text-black group-hover:text-white transition-colors" />
             </div>
           )}
         </div>
 
         {/* Content Section - Takes 60% on desktop, full width on mobile */}
-        <div className="flex-1 p-6 sm:p-8 flex flex-col bg-black">
+        <div className="flex-1 p-6 sm:p-8 flex flex-col bg-black min-h-[280px] sm:min-h-0">
           {/* Title */}
           <h2 
-            className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-teal-600 transition-colors"
+            className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-gray-200 transition-colors"
             style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.05)' }}
           >
             <Link
               href={service.href}
-              className="focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 rounded"
+              className="focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 rounded"
             >
               {service.title}
             </Link>
@@ -86,7 +83,7 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
                 e.preventDefault();
                 setIsExpanded(!isExpanded);
               }}
-              className="flex items-center gap-2 text-sm font-semibold text-white hover:text-teal-600 transition-colors"
+              className="flex items-center gap-2 text-sm font-semibold text-white hover:text-gray-200 transition-colors"
               aria-expanded={isExpanded}
             >
               <span>{isExpanded ? "Hide features" : "View key features"}</span>
@@ -113,7 +110,7 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
                     key={idx}
                     className="flex items-start text-gray-300 text-sm"
                   >
-                    <span className="text-teal-600 mr-2 font-bold mt-0.5">✓</span>
+                    <span className="text-white mr-2 font-bold mt-0.5">✓</span>
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -125,7 +122,7 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
           <div className="pt-4 mt-auto">
             <Link
               href={service.href}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-teal-600 hover:text-white transition-all duration-300 group/btn shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-black hover:text-white transition-all duration-300 group/btn shadow-lg hover:shadow-xl hover:shadow-black/20"
             >
               <span>Learn More</span>
               <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
