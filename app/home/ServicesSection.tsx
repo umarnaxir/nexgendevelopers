@@ -92,7 +92,7 @@ export default function ServicesSection() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-3 sm:mb-4 px-4"
             style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)' }}
           >
-            Services We Provide
+            Build, Launch, Succeed Online
           </h2>
           <p 
             className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4"

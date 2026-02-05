@@ -154,7 +154,7 @@ export default function FeaturedWorkSection() {
             className="text-4xl sm:text-5xl font-extrabold text-black px-2 sm:px-4"
             style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)' }}
           >
-            FEATURED WORK
+          Crafted with Creativity and Purpose          
           </h2>
         </div>
 
