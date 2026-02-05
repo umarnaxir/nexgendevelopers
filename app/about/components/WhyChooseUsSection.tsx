@@ -75,9 +75,9 @@ export default function WhyChooseUsSection() {
           ))}
         </div>
 
-        {/* Dots left, arrows right - properly aligned */}
-        <div className="flex items-center justify-between gap-4 mt-5 min-h-10">
-          <div className="flex items-center gap-2">
+        {/* Dots hidden on mobile, arrows centered */}
+        <div className="flex items-center justify-center gap-4 mt-5 min-h-10">
+          <div className="hidden md:flex items-center gap-2">
             {whyChooseUsCards.map((_, index) => (
               <button
                 key={index}

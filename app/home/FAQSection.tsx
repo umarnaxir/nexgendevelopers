@@ -9,11 +9,23 @@ export default function FAQSection() {
   const faqs = [
     {
       question: "What services does NexGen Developers offer?",
-      answer: "We offer a comprehensive range of services including web development, mobile app development, AI/ML solutions, chatbot development, SEO & digital marketing, graphic design, deployment & DevOps, and ongoing maintenance & support. We provide end-to-end solutions from concept to deployment."
+      answer: "We offer a comprehensive range of services including web development, mobile app development, AI/ML solutions, chatbot development, SEO & digital marketing, graphic design, deployment & DevOps, and ongoing maintenance & support. We also provide a platform where you can share ideas, post stories, publish blogs, and promote your brand to reach startups and local businesses."
     },
     {
-      question: "How long does a typical project take?",
-      answer: "Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while a complex full-stack application could take 2-6 months. We provide detailed timelines during the initial consultation and keep you updated throughout the development process."
+      question: "How can I share my ideas and promote my project on your platform?",
+      answer: "You can share your ideas, tips, updates, and insights through our posts feature. Simply visit the posts section to view existing content or create your own post to promote your project or business. This helps you connect with our community of startups, developers, and local brands while gaining visibility for your work."
+    },
+    {
+      question: "What are stories and how can I use them for promotion?",
+      answer: "Stories are short, visual content pieces perfect for launching products, events, or promotions. They're quick and engaging, designed to capture attention quickly. You can post stories to share time-sensitive updates, behind-the-scenes content, or promotional announcements. Stories are ideal for creating urgency and driving immediate engagement with your audience."
+    },
+    {
+      question: "Can I write and publish blogs on your platform?",
+      answer: "Yes! Our platform allows you to read and write articles, guides, and thought leadership content. You can publish blogs to share your expertise, promote your brand, and contribute to the community. Quality blog content helps you establish authority, gain backlinks, and reach startups and local brands looking for valuable insights."
+    },
+    {
+      question: "How can I promote my brand through your platform?",
+      answer: "You can promote your brand through multiple channels: share ideas via posts, create engaging stories for quick promotions, publish detailed blogs and articles, and leverage our community to reach startups and local brands. Quality content on our platform provides visibility, backlinks, and helps establish your brand as a thought leader in your industry."
     },
     {
       question: "What is your pricing model?",
@@ -22,14 +34,6 @@ export default function FAQSection() {
     {
       question: "Do you provide ongoing support after project completion?",
       answer: "Yes, we offer comprehensive maintenance and support services. This includes bug fixes, updates, security patches, performance optimization, and feature enhancements. We offer both one-time support and monthly retainer packages depending on your needs."
-    },
-    {
-      question: "What technologies do you work with?",
-      answer: "We work with modern technologies including React, Next.js, Node.js, Python, React Native, MongoDB, PostgreSQL, AWS, Docker, and more. Our team stays updated with the latest frameworks and tools to deliver cutting-edge solutions."
-    },
-    {
-      question: "How do you ensure project quality?",
-      answer: "We follow industry best practices including code reviews, testing (unit, integration, and end-to-end), continuous integration/continuous deployment (CI/CD), and regular client feedback sessions. We also conduct thorough quality assurance testing before deployment."
     }
   ];
 
