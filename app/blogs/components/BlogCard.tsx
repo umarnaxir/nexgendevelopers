@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 interface BlogCardProps {
   blog: {
@@ -19,36 +20,44 @@ export default function BlogCard({ blog, index }: BlogCardProps) {
   return (
     <Link
       href={`/blogs/${blog.slug}`}
-      className="block bg-gray-50 p-0 rounded-xl border-2 border-transparent transition-all duration-300 overflow-hidden hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+      className="group flex min-h-[200px] sm:min-h-[220px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-2xl overflow-hidden bg-black"
       data-aos="zoom-in"
       data-aos-delay={index * 80}
     >
-      <article className="h-full">
-        <div className="relative w-full h-48 overflow-hidden">
-          <Image
-            src={blog.image}
-            alt={blog.title}
-            fill
-            className="object-cover"
-          />
+      {/* Left: image */}
+      <div className="relative w-[42%] min-w-[100px] flex-shrink-0 self-stretch overflow-hidden">
+        <Image
+          src={blog.image}
+          alt={blog.title}
+          fill
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+          sizes="(max-width: 768px) 40vw, 200px"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+      {/* Right: content on solid black */}
+      <div className="flex-1 flex flex-col justify-between p-4 sm:p-5 text-white">
+        <div>
+          <span className="text-[10px] sm:text-xs font-bold text-white/60 uppercase tracking-[0.2em]">
+            {blog.category}
+          </span>
+          <h2 className="text-lg sm:text-xl font-bold mt-1.5 line-clamp-2 leading-snug group-hover:text-white/95 transition-colors">
+            {blog.title}
+          </h2>
+          <p className="text-white/60 text-xs sm:text-sm mt-2 line-clamp-2 leading-relaxed">
+            {blog.excerpt}
+          </p>
         </div>
-        <div className="p-6">
-          <div className="mb-4">
-            <span className="inline-block px-3 py-1 bg-black text-white text-xs font-bold rounded uppercase">
-              {blog.category}
-            </span>
-          </div>
-          <h2 className="text-2xl font-bold text-black mb-3">{blog.title}</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">{blog.excerpt}</p>
-          <p className="text-sm text-gray-600 mb-4">{blog.date}</p>
-          <span className="inline-flex items-center text-black group-hover:text-gray-700 font-bold group">
-            Read More
-            <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+        <div className="mt-4 flex items-center justify-between">
+          <time className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">
+            {blog.date}
+          </time>
+          <span className="inline-flex items-center gap-1 text-sm font-semibold text-white group-hover:gap-2 transition-all duration-200">
+            Read
+            <ArrowUpRight className="w-4 h-4 flex-shrink-0" strokeWidth={2.5} />
           </span>
         </div>
-      </article>
+      </div>
     </Link>
   );
 }

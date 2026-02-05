@@ -5,126 +5,132 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import ServiceIcon from "./ServiceIcon";
-import type { ServiceListingItem } from "../config";
+import type { ServiceListingItem, ServiceCategory } from "../config";
 
 interface ServiceCardProps {
   service: ServiceListingItem;
   index: number;
+  category?: ServiceCategory;
 }
 
-export default function ServiceCard({ service, index }: ServiceCardProps) {
+export default function ServiceCard({ service, index, category }: ServiceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <article
-      className="group relative bg-white rounded-2xl overflow-hidden border-2 border-gray-100 shadow-sm hover:shadow-2xl hover:border-gray-200 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
+      className="group relative bg-black rounded-2xl overflow-hidden transition-all duration-300"
+      style={{
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.1)',
+      }}
       data-aos="fade-up"
       data-aos-delay={index * 60}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.15), 0 0 20px rgba(13, 148, 136, 0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.1)';
+      }}
     >
-      {/* Image */}
-      <div className="relative h-44 sm:h-48 overflow-hidden">
-        <Image
-          src={service.image}
-          alt={`${service.title} - NexGen Developers`}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          loading="lazy"
-        />
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-          <div className="p-4 w-full">
-            <Link
-              href={service.href}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black font-bold rounded-lg hover:bg-gray-100 transition-colors text-sm"
-            >
-              Learn More <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-        {/* Icon badge */}
-        {service.icon && (
-          <div className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur rounded-lg flex items-center justify-center shadow-md">
-            <ServiceIcon name={service.icon} className="w-5 h-5 text-black" />
-          </div>
-        )}
-      </div>
-
-      {/* Content */}
-      <div className="p-5 sm:p-6">
-        <h2 className="text-xl sm:text-2xl font-bold text-black mb-3">
-          <Link
-            href={service.href}
-            className="hover:text-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 rounded"
-          >
-            {service.title}
-          </Link>
-        </h2>
-        <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 line-clamp-2">
-          {service.shortDescription}
-        </p>
-
-        {/* Expandable Features */}
-        <div className="space-y-3">
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              setIsExpanded(!isExpanded);
-            }}
-            className="flex items-center gap-2 text-sm font-semibold text-black hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-50 px-2 py-1 -mx-2"
-            aria-expanded={isExpanded}
-          >
-            {isExpanded ? (
-              <>
-                <ChevronUp className="w-4 h-4" /> Hide features
-              </>
-            ) : (
-              <>
-                <ChevronDown className="w-4 h-4" /> View key features
-              </>
-            )}
-          </button>
-          {isExpanded && (
-            <ul
-              className="space-y-2"
-              role="region"
-              aria-label="Key features"
-            >
-              {service.features.slice(0, 5).map((feature, idx) => (
-                <li
-                  key={idx}
-                  className="flex items-start text-gray-700 text-sm"
-                >
-                  <svg
-                    className="w-4 h-4 mr-2 text-black flex-shrink-0 mt-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
+      {/* Split Layout: Image Left, Content Right - Works on Mobile and Desktop */}
+      <div className="flex flex-col sm:flex-row h-full">
+        {/* Image Section - Takes 40% on desktop, full width on mobile */}
+        <div className="relative h-64 sm:h-auto sm:w-2/5 overflow-hidden bg-gray-900">
+          <Image
+            src={service.image}
+            alt={`${service.title} - NexGen Developers`}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+            sizes="(max-width: 640px) 100vw, 40vw"
+            loading="lazy"
+          />
+          
+          {/* Subtle Teal Overlay on Hover */}
+          <div className="absolute inset-0 bg-teal-600/0 group-hover:bg-teal-600/10 transition-all duration-500" />
+          
+          {/* Icon Badge - Top Right */}
+          {service.icon && (
+            <div className="absolute top-4 right-4 w-12 h-12 bg-white/95 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:bg-teal-600 group-hover:scale-110 transition-all duration-300">
+              <ServiceIcon name={service.icon} className="w-6 h-6 text-black group-hover:text-white transition-colors" />
+            </div>
           )}
         </div>
 
-        {/* CTA: Learn More */}
-        <div className="mt-5 pt-4 border-t border-gray-100">
-          <Link
-            href={service.href}
-            className="inline-flex items-center gap-2 px-5 py-3 bg-black text-white font-bold rounded-xl hover:bg-gray-800 hover:gap-3 transition-all duration-300 text-sm group/btn"
+        {/* Content Section - Takes 60% on desktop, full width on mobile */}
+        <div className="flex-1 p-6 sm:p-8 flex flex-col bg-black">
+          {/* Title */}
+          <h2 
+            className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-teal-600 transition-colors"
+            style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.05)' }}
           >
-            Learn More
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-          </Link>
+            <Link
+              href={service.href}
+              className="focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 rounded"
+            >
+              {service.title}
+            </Link>
+          </h2>
+
+          {/* Description */}
+          <p 
+            className="text-gray-300 text-sm sm:text-base leading-relaxed mb-5 flex-grow"
+            style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.05)' }}
+          >
+            {service.shortDescription}
+          </p>
+
+          {/* Expandable Features */}
+          <div className="space-y-3 mb-5">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsExpanded(!isExpanded);
+              }}
+              className="flex items-center gap-2 text-sm font-semibold text-white hover:text-teal-600 transition-colors"
+              aria-expanded={isExpanded}
+            >
+              <span>{isExpanded ? "Hide features" : "View key features"}</span>
+              {isExpanded ? (
+                <ChevronUp className="w-4 h-4 transition-transform duration-300" />
+              ) : (
+                <ChevronDown className="w-4 h-4 transition-transform duration-300" />
+              )}
+            </button>
+            
+            {/* Features List */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <ul
+                className="space-y-2 pt-2"
+                role="region"
+                aria-label="Key features"
+              >
+                {service.features.slice(0, 5).map((feature, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start text-gray-300 text-sm"
+                  >
+                    <span className="text-teal-600 mr-2 font-bold mt-0.5">✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="pt-4 mt-auto">
+            <Link
+              href={service.href}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-teal-600 hover:text-white transition-all duration-300 group/btn shadow-lg hover:shadow-xl"
+            >
+              <span>Learn More</span>
+              <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </div>
     </article>

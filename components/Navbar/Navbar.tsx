@@ -26,8 +26,8 @@ const navLinks: NavLinkItem[] = [
   { href: "/services", label: "Services", children: getServicesNavItems() },
   { href: "/projects", label: "Projects" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
-  { href: "/team", label: "Team" },
+  { href: "/posts", label: "Posts" },
+  { href: "/stories", label: "Stories" },
   { href: "/blogs", label: "Blogs" },
 ];
 
