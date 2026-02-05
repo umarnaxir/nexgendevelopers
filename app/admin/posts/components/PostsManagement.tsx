@@ -9,7 +9,9 @@ import {
   MapPin,
   Hash,
   Upload,
+  ExternalLink,
 } from "lucide-react";
+import Link from "next/link";
 import { toast } from "sonner";
 import {
   Post,
@@ -432,6 +434,14 @@ export default function PostsManagement() {
                   {canManagePosts && (
                     <td className="px-6 py-4 whitespace-nowrap text-right">
                       <div className="flex items-center justify-end gap-2">
+                        <Link
+                          href={`/posts/${post.slug}`}
+                          target="_blank"
+                          className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
+                          title="View post"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </Link>
                         <button
                           onClick={() => openEditPostEditor(post)}
                           className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"

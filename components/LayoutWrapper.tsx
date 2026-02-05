@@ -14,10 +14,24 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   
   // Check if current path is an admin route
   const isAdminRoute = pathname?.startsWith("/admin");
+  
+  // Check if current path is a posts route
+  const isPostsRoute = pathname?.startsWith("/posts");
 
   // Don't show Navbar, Footer, and BackToTop on admin routes
   if (isAdminRoute) {
     return <>{children}</>;
+  }
+
+  // Don't show Navbar, Footer, and BackToTop on posts routes
+  if (isPostsRoute) {
+    return (
+      <div id="layout-root" className="page-bg relative min-h-screen text-gray-800">
+        <div className="relative z-10">
+          <main className="flex-1">{children}</main>
+        </div>
+      </div>
+    );
   }
 
   return (

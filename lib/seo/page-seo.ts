@@ -379,6 +379,66 @@ export function getStoriesSEO(): Metadata {
 }
 
 /**
+ * Post Page SEO (Dynamic)
+ */
+export function getPostSEO({
+  title,
+  description,
+  slug,
+  image,
+  publishedDate,
+  author,
+  hashtags,
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  image?: string;
+  publishedDate: string;
+  author?: string;
+  hashtags?: string[];
+}): Metadata {
+  const url = `/posts/${slug}`;
+  const ogImage = image 
+    ? (image.startsWith("http") ? image : `${seoConfig.siteUrl}${image.startsWith("/") ? image : `/${image}`}`)
+    : seoConfig.defaultOgImage;
+
+  const keywords = [
+    "nexgen developers",
+    "community post",
+    ...(hashtags?.map(tag => tag.replace("#", "")) || []),
+    ...(title.toLowerCase().split(" ").slice(0, 5) || []),
+  ];
+
+  return generateMetadata({
+    title: `${title} - NexGen Developers`,
+    description: description.length > 160 ? description.slice(0, 157) + "..." : description,
+    keywords,
+    canonical: url,
+    openGraph: {
+      type: "article",
+      title: title,
+      description: description,
+      url: url,
+      images: [{
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: title,
+      }],
+      publishedTime: publishedDate,
+      ...(author && { authors: [author] }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: [ogImage],
+    },
+  });
+}
+
+/**
  * Service Page SEO (dynamic: top-level or digital-marketing sub)
  * Includes canonical, OpenGraph, Twitter, and OG image.
  */

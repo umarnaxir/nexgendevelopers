@@ -2,6 +2,7 @@
 
 export interface Post {
   id: string;
+  slug: string;
   imageUrl: string;
   description: string;
   hashtags: string[];
@@ -13,11 +14,26 @@ export interface Post {
   updatedAt: string;
 }
 
+// Helper function to generate slug from text
+export function generateSlug(text: string, id: string): string {
+  const baseSlug = text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 50);
+  
+  // Ensure uniqueness by appending id if needed
+  return baseSlug || `post-${id}`;
+}
+
 const POSTS_STORAGE_KEY = "nexgen_posts";
 
 const DEFAULT_POSTS: Post[] = [
   {
     id: "nexgen-default-post-1",
+    slug: "welcome-to-nexgen-developer",
     imageUrl: "/images/blogs/dummy-img.jpeg",
     description:
       "Welcome to NexGen Developer — your platform to share thoughts, updates, and ideas. We build digital excellence: websites, apps, AI solutions, and digital marketing. Connect with our community and stay inspired. 🚀",
@@ -31,6 +47,7 @@ const DEFAULT_POSTS: Post[] = [
   },
   {
     id: "nexgen-default-post-2",
+    slug: "web-development-at-nexgen",
     imageUrl: "/images/blogs/website-blog.jpg",
     description:
       "Web Development at NexGen — modern, responsive websites that scale. From landing pages to full web apps. Clean code, fast performance. 🌐",
@@ -44,6 +61,7 @@ const DEFAULT_POSTS: Post[] = [
   },
   {
     id: "nexgen-default-post-3",
+    slug: "app-development-native-cross-platform",
     imageUrl: "/images/blogs/app.jpg",
     description:
       "App Development — native & cross-platform mobile apps. iOS, Android, React Native. Build the app your users love. 📱",
@@ -57,6 +75,7 @@ const DEFAULT_POSTS: Post[] = [
   },
   {
     id: "nexgen-default-post-4",
+    slug: "ai-ml-solutions-chatbots-automation",
     imageUrl: "/images/blogs/ai-blog.jpg",
     description:
       "AI & ML solutions — chatbots, automation, custom models. Leverage AI to grow your business. Smart, scalable, secure. 🤖",
@@ -77,15 +96,22 @@ export function initializePosts(): void {
     localStorage.setItem(POSTS_STORAGE_KEY, JSON.stringify(DEFAULT_POSTS));
     return;
   }
-  // Migrate: Lahore → Kashmir, and seed missing default posts (web, app, AI)
+  // Migrate: Lahore → Kashmir, add slugs, and seed missing default posts
   try {
     const parsed = JSON.parse(existing) as Post[];
     if (!Array.isArray(parsed)) return;
-    let updated = parsed.map((p: Post) =>
-      p.id === "nexgen-default-post-1" && p.location === "Lahore, Pakistan"
-        ? { ...p, location: "Kashmir, India", updatedAt: new Date().toISOString() }
-        : p
-    );
+    let updated = parsed.map((p: Post) => {
+      let post = p;
+      // Migrate location
+      if (p.id === "nexgen-default-post-1" && p.location === "Lahore, Pakistan") {
+        post = { ...post, location: "Kashmir, India", updatedAt: new Date().toISOString() };
+      }
+      // Add slug if missing
+      if (!post.slug) {
+        post = { ...post, slug: generateSlug(post.description, post.id), updatedAt: new Date().toISOString() };
+      }
+      return post;
+    });
     // Update default posts 2–4 to use blog images if they still have service images
     const blogImageByPostId: Record<string, string> = {
       "nexgen-default-post-2": "/images/blogs/website-blog.jpg",
@@ -134,6 +160,10 @@ export function getPostById(id: string): Post | undefined {
   return getPosts().find((p) => p.id === id);
 }
 
+export function getPostBySlug(slug: string): Post | undefined {
+  return getPosts().find((p) => p.slug === slug);
+}
+
 export function getActivePosts(): Post[] {
   return getPosts()
     .filter((p) => p.status === "active")
@@ -141,12 +171,15 @@ export function getActivePosts(): Post[] {
 }
 
 export function createPost(
-  data: Omit<Post, "id" | "createdAt" | "updatedAt" | "status">
+  data: Omit<Post, "id" | "slug" | "createdAt" | "updatedAt" | "status"> & { slug?: string }
 ): Post {
   const posts = getPosts();
+  const id = `post-${Date.now()}`;
+  const slug = data.slug || generateSlug(data.description, id);
   const newPost: Post = {
     ...data,
-    id: `post-${Date.now()}`,
+    id,
+    slug,
     status: "active",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
