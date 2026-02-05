@@ -85,11 +85,11 @@ export default function StoriesAndPostsSection() {
               >
                 <Link
                   href={item.href}
-                  className="flex flex-col h-full bg-white p-6 sm:p-8 rounded-2xl border-2 border-black shadow-md hover:shadow-xl hover:shadow-teal-500/20 hover:-translate-y-1 hover:scale-[1.02] hover:border-teal-500 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 active:scale-[0.99]"
+                  className="flex flex-col h-full bg-white p-6 sm:p-8 rounded-2xl border-2 border-black shadow-md hover:shadow-xl hover:shadow-teal-500/20 hover:border-teal-500 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 >
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-black flex items-center justify-center text-white transition-all duration-300 group-hover:bg-teal-500 group-hover:scale-110 group-hover:rotate-3">
-                      <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-300 group-hover:scale-110" />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-black flex items-center justify-center text-white transition-all duration-300 group-hover:bg-teal-500">
+                      <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-300 group-hover:text-black" />
                     </div>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 group-hover:text-teal-600 transition-colors duration-300">
@@ -100,7 +100,7 @@ export default function StoriesAndPostsSection() {
                   </p>
                   <span className="inline-flex items-center font-bold text-black group-hover:text-teal-600 transition-colors duration-300 text-sm sm:text-base">
                     {item.cta}
-                    <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="w-5 h-5 ml-2 transition-colors duration-300" />
                   </span>
                 </Link>
               </div>
@@ -114,19 +114,19 @@ export default function StoriesAndPostsSection() {
           <div className="flex flex-wrap justify-center gap-6">
             <Link
               href="/blogs"
-              className="text-sm font-medium text-black hover:text-teal-600 hover:scale-105 underline underline-offset-2 transition-all duration-300 inline-block"
+              className="text-sm font-medium text-black hover:text-teal-600 underline underline-offset-2 transition-colors duration-300 inline-block"
             >
               Blogs
             </Link>
             <Link
               href="/posts"
-              className="text-sm font-medium text-black hover:text-teal-600 hover:scale-105 underline underline-offset-2 transition-all duration-300 inline-block"
+              className="text-sm font-medium text-black hover:text-teal-600 underline underline-offset-2 transition-colors duration-300 inline-block"
             >
               Posts
             </Link>
             <Link
               href="/stories"
-              className="text-sm font-medium text-black hover:text-teal-600 hover:scale-105 underline underline-offset-2 transition-all duration-300 inline-block"
+              className="text-sm font-medium text-black hover:text-teal-600 underline underline-offset-2 transition-colors duration-300 inline-block"
             >
               Stories
             </Link>
