@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
   ChevronLeft,
@@ -82,6 +83,7 @@ function toggleLikedPost(postId: string): boolean {
 }
 
 export default function PostsFeed() {
+  const router = useRouter();
   const { user, isAuthenticated, canAccessAdmin } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [likedIds, setLikedIds] = useState<Set<string>>(new Set());
@@ -334,14 +336,18 @@ export default function PostsFeed() {
                         <Heart className={`w-5 h-5 ${likedIds.has(post.id) ? "fill-current" : ""}`} />
                         <span className="text-sm font-medium">Like</span>
                       </button>
-                      <Link
-                        href={`/posts/${post.slug}#comments`}
-                        onClick={(e) => e.stopPropagation()}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          router.push(`/posts/${post.slug}#comments`);
+                        }}
                         className="flex items-center gap-2 text-gray-500 hover:text-blue-500 transition-colors"
                       >
                         <MessageCircle className="w-5 h-5" />
                         <span className="text-sm font-medium">Comment</span>
-                      </Link>
+                      </button>
                       <button
                         onClick={(e) => {
                           e.preventDefault();

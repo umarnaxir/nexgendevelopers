@@ -80,7 +80,7 @@ export default function PostPage() {
         {/* Hero Section - Above Sidebar */}
         <PostHero post={post} />
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-24 lg:pb-0">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-32 lg:pb-0">
           <div className="flex gap-4 sm:gap-6 lg:gap-8">
             {/* Main Content */}
             <article className="flex-1 min-w-0 max-w-4xl">

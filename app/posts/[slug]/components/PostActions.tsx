@@ -115,8 +115,13 @@ export default function PostActions({ post }: PostActionsProps) {
   };
 
   return (
-    <div className="sticky bottom-0 bg-white py-2 mt-3">
-      <div className="flex items-center justify-between gap-3 sm:gap-4">
+    <>
+      {/* Spacer on mobile so content isn't hidden behind fixed bar; no spacer on desktop */}
+      <div className="h-14 lg:hidden" aria-hidden="true" />
+      <div
+        className="fixed bottom-16 left-0 right-0 z-40 bg-white border-t border-gray-200 py-2.5 px-4 lg:static lg:bottom-0 lg:z-auto lg:border-t-0 lg:py-2 lg:px-0 lg:mt-3"
+      >
+        <div className="flex items-center justify-between gap-3 sm:gap-4 max-w-4xl mx-auto lg:max-w-none lg:mx-0">
         {/* Left Actions Group */}
         <div className="flex items-center gap-3 sm:gap-4">
           <button
@@ -214,5 +219,6 @@ export default function PostActions({ post }: PostActionsProps) {
         </button>
       </div>
     </div>
+    </>
   );
 }
