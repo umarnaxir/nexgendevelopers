@@ -24,6 +24,7 @@ import PostsMobileNav from "./components/PostsMobileNav";
 import LoginModal from "@/components/modals/LoginModal";
 import SignupModal from "@/components/modals/SignupModal";
 import Footer from "@/components/Footer/Footer";
+import StoriesBar from "@/components/stories/StoriesBar";
 
 const SAVED_POSTS_KEY = "nexgen_saved_posts";
 const LIKED_POSTS_KEY = "nexgen_liked_posts";
@@ -163,9 +164,9 @@ export default function PostsFeed() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen page-bg">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <div className="bg-white border-b border-gray-200 sticky top-0 z-[100]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
@@ -193,10 +194,12 @@ export default function PostsFeed() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-6 pb-24 lg:pb-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-6 pb-24 lg:pb-6 relative z-10">
         <div className="flex gap-8">
           {/* Main Content */}
           <div className="flex-1 min-w-0">
+            {/* Stories Bar */}
+            <StoriesBar />
         {/* Create Post Card */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6">
           <div className="flex items-center gap-3">
@@ -381,9 +384,6 @@ export default function PostsFeed() {
           />
         </div>
       </div>
-
-      {/* Footer */}
-      <Footer />
 
       {/* Mobile Navigation */}
       <PostsMobileNav

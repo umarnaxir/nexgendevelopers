@@ -77,7 +77,7 @@ export default function PostsSidebar({ currentPostSlug, onLoginClick, onSignupCl
 
   return (
     <aside className="hidden lg:block w-64 shrink-0">
-      <div className="sticky top-24 space-y-6 pb-8">
+      <div className="sticky top-[4.5rem] space-y-6 pb-8 max-h-[calc(100vh-5rem)] overflow-y-auto">
         {/* Navigation Menu */}
         <div className="bg-white rounded-xl border border-gray-200 p-4">
           <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
