@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ContactModal from "@/components/modals/ContactModal";
+import { useContactModal } from "@/components/modals/ContactModalProvider";
 import type { ServiceDefinition } from "../config";
 import { getServiceHref } from "../config";
 import { 
@@ -90,7 +90,7 @@ export default function ServiceLayout({
   useCases = [],
   expectedResults = [],
 }: ServiceLayoutProps) {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const { open: openContactModal } = useContactModal();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   // Stats for the service page - black/white accents
@@ -235,7 +235,7 @@ export default function ServiceLayout({
                 return (
                   <div
                     key={index}
-                    className="p-6 min-h-[180px] rounded-xl bg-white shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-gray-200 hover:-translate-y-0.5"
+                    className="p-6 min-h-[180px] rounded-xl bg-white shadow-md border border-gray-100 transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-gray-200 hover:-translate-y-0.5"
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                   >
@@ -320,7 +320,7 @@ export default function ServiceLayout({
               {processSteps.map((item, index) => (
                 <div
                   key={item.step}
-                  className="p-6 min-h-[280px] rounded-xl bg-white shadow-sm border border-teal-400 transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-teal-500 hover:-translate-y-0.5 flex flex-col justify-end"
+                  className="p-6 min-h-[280px] rounded-xl bg-white shadow-md border border-teal-400 transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-teal-500 hover:-translate-y-0.5 flex flex-col justify-end"
                   data-aos="zoom-in"
                   data-aos-delay={index * 80}
                 >
@@ -386,7 +386,7 @@ export default function ServiceLayout({
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="rounded-xl p-6 min-h-[280px] bg-white shadow-sm border border-teal-400 text-center min-w-0 w-full transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-teal-500 flex flex-col justify-end" data-aos="zoom-in" data-aos-delay="0">
+              <div className="rounded-xl p-6 min-h-[280px] bg-white shadow-md border border-teal-400 text-center min-w-0 w-full transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-teal-500 flex flex-col justify-end" data-aos="zoom-in" data-aos-delay="0">
                 <div className="flex flex-col items-center">
                   <div className="w-14 h-14 rounded-lg bg-black flex items-center justify-center mx-auto mb-3">
                     <FileText className="w-7 h-7 text-white" />
@@ -395,7 +395,7 @@ export default function ServiceLayout({
                   <p className="text-gray-600 text-base leading-relaxed">Comprehensive documentation for every project</p>
                 </div>
               </div>
-              <div className="rounded-xl p-6 min-h-[280px] bg-white shadow-sm border border-teal-400 text-center min-w-0 w-full transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-teal-500 flex flex-col justify-end" data-aos="zoom-in" data-aos-delay="100">
+              <div className="rounded-xl p-6 min-h-[280px] bg-white shadow-md border border-teal-400 text-center min-w-0 w-full transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-teal-500 flex flex-col justify-end" data-aos="zoom-in" data-aos-delay="100">
                 <div className="flex flex-col items-center">
                   <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mx-auto mb-3">
                     <Users className="w-7 h-7 text-black" />
@@ -404,7 +404,7 @@ export default function ServiceLayout({
                   <p className="text-gray-600 text-base leading-relaxed">Skilled professionals with industry expertise</p>
                 </div>
               </div>
-              <div className="rounded-xl p-6 min-h-[280px] bg-white shadow-sm border border-teal-400 text-center min-w-0 w-full transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-teal-500 flex flex-col justify-end" data-aos="zoom-in" data-aos-delay="200">
+              <div className="rounded-xl p-6 min-h-[280px] bg-white shadow-md border border-teal-400 text-center min-w-0 w-full transition-all duration-300 hover:shadow-lg hover:shadow-black/10 hover:border-teal-500 flex flex-col justify-end" data-aos="zoom-in" data-aos-delay="200">
                 <div className="flex flex-col items-center">
                   <div className="w-14 h-14 rounded-lg bg-black flex items-center justify-center mx-auto mb-3">
                     <Clock className="w-7 h-7 text-white" />
@@ -499,7 +499,7 @@ export default function ServiceLayout({
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
-                  onClick={() => setIsContactModalOpen(true)}
+                  onClick={openContactModal}
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4 bg-black text-white text-lg sm:text-xl font-bold rounded-lg transition-all duration-300 hover:bg-gray-800 hover:shadow-lg hover:shadow-black/20"
                 >
                   <span>Contact Us Now</span>
@@ -513,11 +513,6 @@ export default function ServiceLayout({
                 </a>
               </div>
             </div>
-            
-            <ContactModal
-              isOpen={isContactModalOpen}
-              onClose={() => setIsContactModalOpen(false)}
-            />
           </div>
         </div>
       </section>

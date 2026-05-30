@@ -36,7 +36,7 @@ export default function ServicesDropdown({
           onClick={() => setIsOpen(!isOpen)}
           className={`relative flex items-center justify-between w-full py-3 px-4 text-sm font-extrabold tracking-wide rounded-xl transition-all duration-300 ${
             isServicesActive
-              ? "text-gray-900 bg-gray-50 shadow-sm"
+              ? "text-gray-900 bg-gray-50 shadow-md"
               : "text-gray-900 hover:bg-gray-50 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-md active:scale-[0.98]"
           }`}
         >
@@ -51,7 +51,7 @@ export default function ServicesDropdown({
               href={href}
               onClick={onLinkClick}
               className={`block py-2.5 px-3 text-sm font-bold rounded-lg transition-colors ${
-                pathname === href ? "text-gray-900 bg-gray-50 shadow-sm" : "text-gray-800 hover:bg-gray-50"
+                pathname === href ? "text-gray-900 bg-gray-50 shadow-md" : "text-gray-800 hover:bg-gray-50"
               }`}
             >
               All Services
@@ -112,7 +112,7 @@ export default function ServicesDropdown({
                   onClick={onLinkClick}
                   className={`block py-2.5 px-3 text-sm font-bold rounded-lg transition-colors ${
                     pathname === item.href
-                      ? "text-gray-900 bg-gray-50 shadow-sm"
+                      ? "text-gray-900 bg-gray-50 shadow-md"
                       : "text-gray-800 hover:bg-gray-50"
                   }`}
                 >
@@ -138,8 +138,8 @@ export default function ServicesDropdown({
     >
       <Link
         href={href}
-        className={`relative flex items-center gap-0.5 text-sm font-extrabold tracking-wide py-4 px-2 text-gray-900 transition-all duration-300 rounded-md hover:bg-gray-50/80 hover:text-gray-700 ${
-          isServicesActive ? "text-gray-900" : ""
+        className={`relative flex items-center gap-0.5 text-sm font-semibold tracking-wide py-4 px-2 transition-all duration-300 rounded-md ${
+          isServicesActive ? "text-teal-600" : "text-gray-700 hover:text-teal-600"
         }`}
         aria-current={isServicesActive ? "page" : undefined}
       >
@@ -147,7 +147,7 @@ export default function ServicesDropdown({
         <ChevronDown className="w-4 h-4 opacity-70" />
       </Link>
       <span
-        className={`absolute bottom-2 left-1/2 h-[2px] bg-black rounded-full -translate-x-1/2 transition-all duration-300 ease-in-out ${
+        className={`absolute bottom-2 left-1/2 h-[2px] bg-teal-500 rounded-full -translate-x-1/2 transition-all duration-300 ease-in-out ${
           isServicesActive ? "w-[60%]" : "w-0 group-hover:w-[60%]"
         }`}
       />

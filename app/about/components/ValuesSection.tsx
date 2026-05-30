@@ -117,7 +117,7 @@ export default function ValuesSection() {
           return (
             <div
               key={index}
-              className={`p-8 rounded-xl border h-[280px] flex flex-col justify-end transition-all duration-300 cursor-pointer group hover:scale-[1.02] hover:-translate-y-2 ${
+              className={`p-8 rounded-xl border shadow-md h-[280px] flex flex-col justify-end transition-all duration-300 cursor-pointer group hover:scale-[1.02] hover:-translate-y-2 ${
                 isFeatured
                   ? "bg-black border-black"
                   : "bg-white border-gray-300 hover:bg-black"

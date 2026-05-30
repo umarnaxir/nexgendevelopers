@@ -19,7 +19,7 @@ export default function PrivacySections() {
       <PrivacySection icon={Database} title="2. Information We Collect" delay={0.1} altBg>
         <p className="mb-4 sm:mb-6">We may collect information about you in a variety of ways. The information we may collect includes:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-          <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200">
+          <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 shadow-md">
             <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
               <UserCheck className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               Personal Information
@@ -32,7 +32,7 @@ export default function PrivacySections() {
               <li>• Account credentials (username, password)</li>
             </ul>
           </div>
-          <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200">
+          <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 shadow-md">
             <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
               <Eye className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               Usage & Technical Data
@@ -46,14 +46,14 @@ export default function PrivacySections() {
             </ul>
           </div>
         </div>
-        <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 mb-4 sm:mb-6">
+        <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 shadow-md mb-4 sm:mb-6">
           <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
             <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
             User-Generated Content &amp; Submission Data
           </h3>
           <p className="mb-2 sm:mb-3">When you create content on our platform or participate in our &quot;Write for Us&quot; program, we may collect: blogs, posts, and stories you publish; author bio and profile; website URLs for backlinks; social media profiles (if provided); and communication history regarding submissions. We also collect data related to your use of our definitions, stories, and posts pages.</p>
         </div>
-        <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200">
+        <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 shadow-md">
           <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
             <Cookie className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
             Cookies and Tracking Technologies

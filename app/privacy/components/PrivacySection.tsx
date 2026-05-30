@@ -15,8 +15,8 @@ export default function PrivacySection({ icon: Icon, title, children, delay = 0,
   const bgClass = dark
     ? "bg-black p-4 sm:p-6 lg:p-8 rounded-xl text-white"
     : altBg
-    ? "bg-white p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 transition-all duration-300"
-    : "bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 transition-all duration-300";
+    ? "bg-white p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 shadow-md transition-all duration-300"
+    : "bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 shadow-md transition-all duration-300";
   return (
     <section
       className={bgClass}

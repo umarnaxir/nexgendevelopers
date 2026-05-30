@@ -17,21 +17,24 @@ export async function POST(request: NextRequest) {
 
     const { name, email, phone, service, message } = body;
 
-    // Validate required fields
-    if (!name || !email || !phone || !service || !message) {
+    // Name and phone are always required. Email/service/message are optional so a
+    // lightweight "Request a Callback" submission (name + phone) works too.
+    if (!name || !phone) {
       return NextResponse.json(
-        { error: "All fields are required" },
+        { error: "Name and contact number are required" },
         { status: 400 }
       );
     }
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 }
-      );
+    // Validate email format only when an email was provided
+    if (email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return NextResponse.json(
+          { error: "Invalid email format" },
+          { status: 400 }
+        );
+      }
     }
 
     // Get environment variables
@@ -64,46 +67,46 @@ export async function POST(request: NextRequest) {
     });
 
     // Email content
+    const isCallback = !message && !service;
+    const heading = isCallback ? "New Callback Request" : "New Contact Form Submission";
+
     const mailOptions = {
       from: gmailUser,
       to: gmailUser, // Send to yourself, or change to your business email
-      replyTo: email,
-      subject: `New Contact Form Submission - ${service}`,
+      ...(email ? { replyTo: email } : {}),
+      subject: isCallback ? "New Callback Request" : `New Contact Form Submission - ${service}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #000; padding-bottom: 10px;">
-            New Contact Form Submission
+            ${heading}
           </h2>
-          
+
           <div style="margin-top: 20px;">
             <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
             <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Service:</strong> ${service}</p>
+            ${email ? `<p><strong>Email:</strong> ${email}</p>` : ""}
+            ${service ? `<p><strong>Service:</strong> ${service}</p>` : ""}
           </div>
-          
+
+          ${message ? `
           <div style="margin-top: 30px;">
             <h3 style="color: #333;">Message:</h3>
             <p style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; line-height: 1.6;">
               ${message.replace(/\n/g, "<br>")}
             </p>
           </div>
-          
+          ` : ""}
+
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
-            <p>This email was sent from the NexGen Developers contact form.</p>
+            <p>This email was sent from the NexGen Developers website.</p>
           </div>
         </div>
       `,
       text: `
-        New Contact Form Submission
-        
+        ${heading}
+
         Name: ${name}
-        Email: ${email}
-        Phone: ${phone}
-        Service: ${service}
-        
-        Message:
-        ${message}
+        Phone: ${phone}${email ? `\n        Email: ${email}` : ""}${service ? `\n        Service: ${service}` : ""}${message ? `\n        \n        Message:\n        ${message}` : ""}
       `,
     };
 

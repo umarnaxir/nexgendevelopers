@@ -3,11 +3,8 @@ import AboutSection from "./home/AboutSection";
 import WhyChooseUsSection from "./about/components/WhyChooseUsSection";
 import FeaturedWorkSection from "./home/FeaturedWorkSection";
 import ServicesSection from "./home/ServicesSection";
-import StoriesAndPostsSection from "./home/StoriesAndPostsSection";
 import ClientReviewsSection from "./home/ClientReviewsSection";
 import FAQSection from "./home/FAQSection";
-import ContactSection from "./home/ContactSection";
-import ProjectsStats from "./projects/components/ProjectsStats";
 import { getHomeSEO } from "@/lib/seo/page-seo";
 
 export const metadata = getHomeSEO();
@@ -20,11 +17,8 @@ export default function HomePage() {
       <AboutSection />
       <FeaturedWorkSection />
       <ServicesSection />
-      <StoriesAndPostsSection />
       <ClientReviewsSection />
       <FAQSection />
-      {/* <ProjectsStats /> */}
-      <ContactSection />
     </>
   );
 }

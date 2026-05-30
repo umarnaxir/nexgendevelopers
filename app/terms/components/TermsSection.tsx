@@ -16,8 +16,8 @@ export default function TermsSection({ icon: Icon, title, children, dark = false
   const bgClass = dark
     ? "bg-black p-4 sm:p-6 lg:p-8 rounded-xl text-white"
     : altBg
-    ? "bg-white p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 transition-all duration-300"
-    : "bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 transition-all duration-300";
+    ? "bg-white p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 shadow-md transition-all duration-300"
+    : "bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 shadow-md transition-all duration-300";
   return (
     <section className={bgClass} data-aos="zoom-in">
       <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-4">

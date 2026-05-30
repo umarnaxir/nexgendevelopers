@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Lightbulb, BookOpen, Play, ArrowRight, Sparkles } from "lucide-react";
+import { BookOpen, ArrowRight, Sparkles } from "lucide-react";
 
 export default function AboutContent() {
   const services = [
@@ -14,29 +14,15 @@ export default function AboutContent() {
 
   const promotionCards = [
     {
-      title: "Share your ideas",
-      description: "Post tips, updates, and insights. Promote your project or business and connect with our community.",
-      icon: Lightbulb,
-      href: "/posts",
-      cta: "View & post",
-    },
-    {
-      title: "Post stories",
-      description: "Share short, visual stories to launch products, events, or promotions. Quick and engaging.",
-      icon: Play,
-      href: "/stories",
-      cta: "See stories",
-    },
-    {
       title: "Blogs & articles",
-      description: "Read and write articles, guides, and thought leadership. Learn, contribute, and grow with us.",
+      description: "Read articles, guides, and thought leadership on development, AI/ML, and digital marketing.",
       icon: BookOpen,
       href: "/blogs",
       cta: "Read blogs",
     },
     {
-      title: "Promote your brand",
-      description: "Use our platform to reach startups and local brands. Get visibility and backlinks through quality content.",
+      title: "Grow your brand",
+      description: "Let's build something that stands out. Get in touch and we'll help you launch and grow.",
       icon: Sparkles,
       href: "/contact-us",
       cta: "Get in touch",
@@ -56,7 +42,7 @@ export default function AboutContent() {
             Who We Are
           </h2>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 text-start">
-            NexGen Developers is a collective of engineering professionals united to deliver premium services and a place where you can share ideas, post stories, and publish blogs. We help startups and local brands with AI/ML, chatbots, web & app development, and digital marketing — crafting digital experiences that stand out and deliver results.
+            NexGen Developers is a collective of engineering professionals united to deliver premium services. We help startups and local brands with AI/ML, chatbots, web & app development, and digital marketing — crafting digital experiences that stand out and deliver results.
           </p>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-start">
             Based in Srinagar, Jammu and Kashmir, India, we work with clients globally, bringing world-class development expertise to startups and local businesses. Our team combines diverse expertise with a passion for technological innovation, enabling us to tackle complex challenges with precision and creativity.
@@ -102,22 +88,22 @@ export default function AboutContent() {
             className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-2 sm:mb-3 text-start border-l-4 border-teal-400 pl-4"
             style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)" }}
           >
-            Share ideas · Post stories · Blogs
+            Insights &amp; Growth
           </h2>
           <p
             className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 pl-4"
             style={{ textShadow: "0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5)" }}
           >
-            Use our platform to connect, create, and promote. Post updates, publish blogs, and share stories that reach startups and local brands.
+            Explore our blogs for ideas and insights, or get in touch to build, launch, and grow your business with us.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {promotionCards.map((card, index) => {
               const IconComponent = card.icon;
               return (
                 <Link
                   key={card.title}
                   href={card.href}
-                  className="group flex flex-col h-full bg-white p-4 sm:p-5 rounded-xl border-2 border-gray-200 shadow-sm hover:shadow-lg hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                  className="group flex flex-col h-full bg-white p-4 sm:p-5 rounded-xl border-2 border-gray-200 shadow-md hover:shadow-lg hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                   data-aos="fade-up"
                   data-aos-delay={index * 80}
                 >

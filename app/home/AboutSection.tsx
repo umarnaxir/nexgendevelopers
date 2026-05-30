@@ -2,137 +2,207 @@
 
 import React from "react";
 import Link from "next/link";
-import { Lightbulb, BookOpen, Play, ArrowRight, Sparkles } from "lucide-react";
+import { Code2, BrainCircuit, Bot, TrendingUp, ArrowRight, BookOpen } from "lucide-react";
+import { useContactModal } from "@/components/modals/ContactModalProvider";
+
+const DOTS = {
+  backgroundImage: "radial-gradient(circle, currentColor 1.5px, transparent 1.5px)",
+  backgroundSize: "12px 12px",
+} as const;
+
+const services = [
+  {
+    num: "01",
+    title: "Web & App Development",
+    desc: "Crafting responsive websites and scalable applications that drive business growth.",
+    icon: Code2,
+    href: "/services/website-development",
+  },
+  {
+    num: "02",
+    title: "AI & Machine Learning",
+    desc: "Implementing intelligent solutions that automate processes and generate valuable insights.",
+    icon: BrainCircuit,
+    href: "/services/ai-ml",
+  },
+  {
+    num: "03",
+    title: "Chatbot Development",
+    desc: "Building intelligent conversational interfaces that enhance customer experience.",
+    icon: Bot,
+    href: "/services/chatbot-development",
+  },
+  {
+    num: "04",
+    title: "Digital Marketing",
+    desc: "Developing comprehensive strategies to increase your online presence and drive customer engagement.",
+    icon: TrendingUp,
+    href: "/services/digital-marketing",
+  },
+];
 
 export default function AboutSection() {
-  const services = [
-    { title: "Web & App Development", desc: "Crafting responsive websites and scalable applications that drive business growth." },
-    { title: "AI & Machine Learning", desc: "Implementing intelligent solutions that automate processes and generate valuable insights." },
-    { title: "Chatbot Development", desc: "Building intelligent conversational interfaces that enhance customer experience." },
-    { title: "Digital Marketing", desc: "Developing comprehensive strategies to increase your online presence and drive customer engagement." },
-  ];
-
-  const promotionCards = [
-    {
-      title: "Share your ideas",
-      description: "Post tips, updates, and insights. Promote your project or business and connect with our community.",
-      icon: Lightbulb,
-      href: "/posts",
-      cta: "View & post",
-    },
-    {
-      title: "Post stories",
-      description: "Share short, visual stories to launch products, events, or promotions. Quick and engaging.",
-      icon: Play,
-      href: "/stories",
-      cta: "See stories",
-    },
-    {
-      title: "Blogs & articles",
-      description: "Read and write articles, guides, and thought leadership. Learn, contribute, and grow with us.",
-      icon: BookOpen,
-      href: "/blogs",
-      cta: "Read blogs",
-    },
-    {
-      title: "Promote your brand",
-      description: "Use our platform to reach startups and local brands. Get visibility and backlinks through quality content.",
-      icon: Sparkles,
-      href: "/contact-us",
-      cta: "Get in touch",
-    },
-  ];
+  const { open: openContactModal } = useContactModal();
 
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 lg:py-28" data-aos="fade-up">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="px-4">
-          {/* Hero-aligned description */}
-          <h3
-            className="text-2xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-6 text-start border-l-4 border-teal-400 pl-4 sm:pl-5"
-            style={{ textShadow: "0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)" }}
-          >
-            Where Innovation Meets Excellence
-          </h3>
-          <p
-            className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 text-start"
-            style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5)" }}
-          >
-            A creative platform to <strong>build</strong>, <strong>launch</strong>, and <strong>grow</strong> your business.
-          </p>
-          <p
-            className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8 text-start"
-            style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5)" }}
-          >
-            We help startups and local brands with AI/ML, chatbots, web & app development, and digital marketing — crafting digital experiences that stand out and deliver results. NexGen Developers is a collective of engineering professionals united to deliver premium services and a place where you can share ideas, post stories, and publish blogs.
-          </p>
+    <section id="about" className="relative overflow-hidden py-14 sm:py-16 lg:py-20" data-aos="fade-up">
+      <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* ===== Header: Where Innovation Meets Excellence ===== */}
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div data-aos="fade-right">
+            <span className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-600 shadow-lg">
+              <span className="h-3.5 w-1 rounded-full bg-teal-500" />
+              Our Expertise
+            </span>
 
-          {/* Services grid */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 p-4 sm:p-6 rounded-lg border-2 border-transparent transition-all duration-300 hover:border-teal-200 hover:shadow-md"
-                data-aos="zoom-in"
-                data-aos-delay={index * 80}
-              >
-                <h4
-                  className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3"
-                  style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)" }}
-                >
-                  {service.title}
-                </h4>
-                <p
-                  className="text-sm sm:text-base text-gray-700"
-                  style={{ textShadow: "0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5)" }}
-                >
-                  {service.desc}
-                </p>
-              </div>
-            ))}
+            <h2 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-5xl">
+              Where Innovation
+              <br />
+              Meets <span className="text-teal-600">Excellence</span>
+            </h2>
+            <span className="mt-5 block h-1 w-16 rounded-full bg-teal-500" />
+
+            <p className="mt-6 text-lg text-gray-700">
+              A creative platform to <strong className="font-bold text-gray-900">build</strong>,{" "}
+              <strong className="font-bold text-gray-900">launch</strong>, and{" "}
+              <strong className="font-bold text-gray-900">grow</strong> your business.
+            </p>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-gray-500 sm:text-base">
+              We help startups and local brands with AI/ML, chatbots, web &amp; app development, and
+              digital marketing — crafting digital experiences that stand out and deliver results.
+              NexGen Developers is a collective of engineering professionals united to deliver premium
+              services.
+            </p>
           </div>
 
-          {/* Promotion cards: Share ideas, Post stories, Blogs */}
-          <div className="mt-12 sm:mt-16 md:mt-20">
-            <h4
-              className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-2 sm:mb-3 text-start border-l-4 border-teal-400 pl-4"
-              style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)" }}
-            >
-              Share ideas · Post stories · Blogs
-            </h4>
-            <p
-              className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 pl-4"
-              style={{ textShadow: "0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5)" }}
-            >
-              Use our platform to connect, create, and promote. Post updates, publish blogs, and share stories that reach startups and local brands.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {promotionCards.map((card, index) => {
-                const IconComponent = card.icon;
-                return (
-                  <Link
-                    key={card.title}
-                    href={card.href}
-                    className="group flex flex-col h-full bg-white p-4 sm:p-5 rounded-xl border-2 border-gray-200 shadow-sm hover:shadow-lg hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
-                    data-aos="fade-up"
-                    data-aos-delay={index * 80}
-                  >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-600 mb-3 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
-                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    <h5 className="text-base sm:text-lg font-bold text-black mb-2 group-hover:text-teal-600 transition-colors">
-                      {card.title}
-                    </h5>
-                    <p className="text-sm text-gray-600 leading-relaxed flex-1 mb-4">
-                      {card.description}
-                    </p>
-                    <span className="inline-flex items-center font-semibold text-teal-600 text-sm group-hover:gap-2 gap-1 transition-all">
-                      {card.cta}
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" />
+          {/* Decorative graphic */}
+          <div className="relative hidden h-[460px] lg:block" data-aos="fade-left" aria-hidden>
+            {/* concentric circles */}
+            <span className="absolute right-24 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full border border-teal-100" />
+            <span className="absolute right-32 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full border border-teal-100" />
+            {/* dotted grid */}
+            <span className="absolute right-0 top-0 h-32 w-32 text-teal-400 opacity-40" style={DOTS} />
+            {/* floating chips */}
+            <span className="absolute right-64 top-8 h-16 w-16 rounded-2xl border border-teal-100 bg-teal-50/70 shadow-md" />
+            <span className="absolute right-60 bottom-8 h-16 w-16 rounded-2xl border border-teal-100 bg-teal-50/70 shadow-md" />
+            {/* dashed connector */}
+            <svg className="absolute inset-0 h-full w-full text-teal-300" fill="none" aria-hidden>
+              <path d="M250 70 C 300 130, 240 220, 300 230" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 6" />
+              <path d="M245 390 C 290 340, 270 270, 300 250" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 6" />
+            </svg>
+            {/* main code orb */}
+            <span className="absolute right-20 top-1/2 flex h-48 w-48 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-2xl ring-[12px] ring-teal-50">
+              <span className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-teal-600 to-teal-800 text-white shadow-inner">
+                <Code2 className="h-20 w-20" />
+              </span>
+            </span>
+          </div>
+        </div>
+
+        {/* ===== Service cards ===== */}
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {services.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <Link
+                key={s.title}
+                href={s.href}
+                data-aos="fade-up"
+                data-aos-delay={(i % 2) * 80}
+                className="group flex items-start gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
+              >
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 transition-all duration-300 group-hover:bg-teal-500 group-hover:text-white">
+                  <Icon className="h-7 w-7" />
+                </span>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 text-xs font-bold text-teal-600">
+                    {s.num}
+                    <span className="h-px w-5 bg-teal-300" />
+                  </div>
+                  <h3 className="mt-1 text-lg font-bold text-gray-900">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-gray-500">{s.desc}</p>
+                  <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-teal-600">
+                    Explore Services
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-teal-300 transition-all duration-300 group-hover:border-teal-500 group-hover:bg-teal-500 group-hover:text-white">
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </span>
-                  </Link>
-                );
-              })}
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* ===== Insights & Growth ===== */}
+        <div className="mt-16 lg:mt-20">
+          <div className="mb-3 flex items-center gap-3">
+            <span className="h-0.5 w-8 bg-teal-500" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">
+              Insights &amp; Growth
+            </span>
+          </div>
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+            Insights &amp; <span className="text-teal-600">Growth</span>
+          </h2>
+          <span className="mt-4 block h-1 w-16 rounded-full bg-teal-500" />
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-500 sm:text-base">
+            Explore our blogs for ideas and insights, or get in touch to build, launch, and grow your
+            business with us.
+          </p>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {/* Blogs & Articles - dark gradient */}
+            <Link
+              href="/blogs"
+              data-aos="fade-up"
+              className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-teal-700 to-teal-900 p-8 text-white shadow-lg transition-all duration-300 hover:shadow-xl"
+            >
+              <span className="pointer-events-none absolute -right-4 -top-4 h-32 w-32 rounded-full text-white opacity-20" style={DOTS} />
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 text-white">
+                <BookOpen className="h-7 w-7" />
+              </span>
+              <div className="mt-auto pt-16">
+                <h3 className="text-2xl font-bold">Blogs &amp; Articles</h3>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-teal-50/90">
+                  Read articles, guides, and the latest industry updates on development, digital
+                  trends, and marketing.
+                </p>
+                <span className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-white">
+                  Read Blogs
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/40 transition-all duration-300 group-hover:bg-white group-hover:text-teal-700">
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </span>
+              </div>
+            </Link>
+
+            {/* Grow your brand - white */}
+            <div
+              data-aos="fade-up"
+              data-aos-delay="80"
+              className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
+            >
+              <span className="pointer-events-none absolute -right-4 -top-4 h-32 w-32 rounded-full text-teal-400 opacity-25" style={DOTS} />
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-teal-600">
+                <TrendingUp className="h-7 w-7" />
+              </span>
+              <div className="mt-auto pt-16">
+                <h3 className="text-2xl font-bold text-gray-900">Grow your brand</h3>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-gray-500">
+                  Let&apos;s build something that stands out. Get in touch and let&apos;s scale your
+                  brand to new heights.
+                </p>
+                <button
+                  type="button"
+                  onClick={openContactModal}
+                  className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-teal-600"
+                >
+                  Get in touch
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-teal-300 transition-all duration-300 group-hover:border-teal-500 group-hover:bg-teal-500 group-hover:text-white">
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

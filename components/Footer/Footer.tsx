@@ -1,157 +1,262 @@
 "use client";
 
 import React, { useState } from "react";
-import FooterLogo from "./FooterLogo";
-import FooterLinks from "./FooterLinks";
+import Link from "next/link";
+import {
+  Send,
+  ArrowUp,
+  Phone,
+  Mail,
+  MapPin,
+  // column header icons
+  LayoutGrid,
+  FileText,
+  Code2,
+  Megaphone,
+  // quick links
+  Home,
+  User,
+  FolderKanban,
+  Settings,
+  Tag,
+  // other pages
+  Users,
+  PenLine,
+  Shield,
+  ScrollText,
+  // dev services
+  Globe,
+  Smartphone,
+  Sparkles,
+  Bot,
+  Wrench,
+  // digital marketing
+  Search,
+  Share2,
+  Palette,
+  BarChart3,
+  Target,
+  // why choose us
+  Gem,
+  ShieldCheck,
+  BadgeCheck,
+  Zap,
+  Headphones,
+} from "lucide-react";
 import FooterSocials from "./FooterSocials";
 import {
   getDevelopmentServicesForFooter,
   getDigitalMarketingServicesForFooter,
 } from "@/app/services/config";
 
-interface FooterLink {
-  label: string;
-  href: string;
+type LinkItem = { label: string; href: string; icon: React.ElementType };
+
+const quickLinks: LinkItem[] = [
+  { label: "Home", href: "/", icon: Home },
+  { label: "About Us", href: "/about", icon: User },
+  { label: "Projects", href: "/projects", icon: FolderKanban },
+  { label: "Services", href: "/services", icon: Settings },
+  { label: "Pricing", href: "/pricing", icon: Tag },
+];
+
+const otherPages: LinkItem[] = [
+  { label: "Team", href: "/team", icon: Users },
+  { label: "Blogs", href: "/blogs", icon: PenLine },
+  { label: "Contact Us", href: "/contact-us", icon: Mail },
+  { label: "Privacy Policy", href: "/privacy", icon: Shield },
+  { label: "Terms of Service", href: "/terms", icon: ScrollText },
+];
+
+const devIcon = (href: string): React.ElementType =>
+  href.includes("website") ? Globe
+  : href.includes("app-development") ? Smartphone
+  : href.includes("ai-ml") ? Sparkles
+  : href.includes("chatbot") ? Bot
+  : Wrench;
+
+const dmIcon = (href: string): React.ElementType =>
+  href.includes("seo") ? Search
+  : href.includes("social-media") ? Share2
+  : href.includes("graphic") ? Palette
+  : href.includes("google-ads") ? BarChart3
+  : Target;
+
+const whyChooseUs = [
+  { icon: ShieldCheck, label: "Reliable & Secure" },
+  { icon: BadgeCheck, label: "Quality Assurance" },
+  { icon: Zap, label: "On-Time Delivery" },
+  { icon: Headphones, label: "24/7 Support" },
+];
+
+function LinkColumn({
+  title,
+  icon: TitleIcon,
+  links,
+}: {
+  title: string;
+  icon: React.ElementType;
+  links: LinkItem[];
+}) {
+  return (
+    <div>
+      <div className="mb-5 flex items-center gap-2.5">
+        <TitleIcon className="h-6 w-6 text-white" />
+        <div>
+          <h3 className="text-base font-bold text-white">{title}</h3>
+          <span className="mt-1 block h-0.5 w-8 rounded-full bg-white" />
+        </div>
+      </div>
+      <ul className="space-y-3">
+        {links.map(({ label, href, icon: Icon }) => (
+          <li key={href}>
+            <Link
+              href={href}
+              className="group flex items-center gap-2.5 text-sm text-gray-400 transition-colors hover:text-white"
+            >
+              <Icon className="h-4 w-4 text-gray-500 transition-colors group-hover:text-white" />
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks: FooterLink[] = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Projects", href: "/projects" },
-    { label: "Services", href: "/services" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Contact Us", href: "/contact-us" },
-  ];
+  const developmentServices: LinkItem[] = getDevelopmentServicesForFooter()
+    .filter((s) => !s.href.includes("deployment-devops"))
+    .map((s) => ({ ...s, icon: devIcon(s.href) }));
 
-  const otherPages: FooterLink[] = [
-
-    { label: "Team", href: "/team" },
-    { label: "Blogs", href: "/blogs" },
-    { label: "Posts", href: "/posts" },
-    { label: "Stories", href: "/stories" },
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-  ];
-
-  const developmentServices: FooterLink[] = getDevelopmentServicesForFooter();
-  const digitalMarketingServices: FooterLink[] = getDigitalMarketingServicesForFooter();
+  const digitalMarketingServices: LinkItem[] = getDigitalMarketingServicesForFooter()
+    .filter((s) => s.href !== "/services/digital-marketing")
+    .map((s) => ({
+      ...s,
+      label: s.href.includes("/seo") ? "SEO" : s.label,
+      icon: dmIcon(s.href),
+    }));
 
   const [email, setEmail] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Email subscribed:", email);
     setEmail("");
     setShowAlert(true);
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 3000);
+    setTimeout(() => setShowAlert(false), 3000);
   };
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
-    <footer className="bg-gray-100 border-t border-gray-200 pt-8 sm:pt-6 pb-3" data-aos="fade-up">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Row 1: Page links */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 pb-4 sm:pb-5">
-          {/* Logo Section */}
-          <div className="hidden sm:flex sm:col-span-2 lg:col-span-1 items-center justify-start">
-            <FooterLogo />
-          </div>
-
-          {/* Quick Links */}
-          <div className="flex flex-col">
-            <FooterLinks title="Quick Links" links={quickLinks} />
-          </div>
-
-          {/* Other Pages */}
-          <div className="flex flex-col">
-            <FooterLinks title="Other Pages" links={otherPages} />
-          </div>
-
-          {/* Development Services */}
-          <div className="flex flex-col">
-            <FooterLinks title="Development Services" links={developmentServices} />
-          </div>
-
-          {/* Digital Marketing Services */}
-          <div className="flex flex-col">
-            <FooterLinks title="Digital Marketing" links={digitalMarketingServices} />
-          </div>
+    <footer className="bg-teal-950 text-gray-300" data-aos="fade-up">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* ===== Link columns ===== */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 pb-12 pt-14 lg:grid-cols-4">
+          <LinkColumn title="Quick Links" icon={LayoutGrid} links={quickLinks} />
+          <LinkColumn title="Other Pages" icon={FileText} links={otherPages} />
+          <LinkColumn title="Development" icon={Code2} links={developmentServices} />
+          <LinkColumn title="Digital Marketing" icon={Megaphone} links={digitalMarketingServices} />
         </div>
 
-        {/* Row 2: Contact and Subscribe */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 pb-4 sm:pb-5 items-start">
-          {/* Contact - left aligned */}
-          <div className="flex flex-col items-start w-full">
-            <div className="mb-2">
-              <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-gray-900">
-                Contact
-              </h3>
+        {/* ===== Get in touch / Why choose us / Newsletter ===== */}
+        <div className="grid grid-cols-1 gap-8 border-t border-white/10 py-10 md:grid-cols-3 md:divide-x md:divide-white/10">
+          {/* Get in touch */}
+          <div className="md:pr-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Phone className="h-6 w-6 text-white" />
+              <h3 className="text-base font-bold text-white">Get in Touch</h3>
             </div>
-            <div className="space-y-1.5 text-xs sm:text-sm text-gray-700 text-left">
-              <a
-                href="tel:6006161726"
-                className="hover:text-black transition-colors block font-medium hover:translate-x-0.5"
-              >
-                Call on +91 600-616-1726
-              </a>
-              <a
-                href="mailto:nexgendevelopers11@gmail.com"
-                className="hover:text-black transition-colors font-medium break-all block hover:translate-x-0.5"
-              >
-                nexgendevelopers11@gmail.com
-              </a>
+            <ul className="space-y-3 border-l-2 border-teal-500/40 pl-4 text-sm">
+              <li>
+                <a href="tel:+916006161726" className="flex items-center gap-2.5 text-gray-400 transition-colors hover:text-white">
+                  <Phone className="h-4 w-4 text-teal-400" />
+                  +91 600-616-1726
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@nexgendevelopers.in" className="flex items-center gap-2.5 break-all text-gray-400 transition-colors hover:text-white">
+                  <Mail className="h-4 w-4 text-teal-400" />
+                  info@nexgendevelopers.in
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5 text-gray-400">
+                <MapPin className="h-4 w-4 text-teal-400" />
+                Srinagar, Jammu and Kashmir, India
+              </li>
+            </ul>
+          </div>
+
+          {/* Why choose us */}
+          <div className="md:px-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Gem className="h-6 w-6 text-white" />
+              <h3 className="text-base font-bold text-white">Why Choose Us?</h3>
             </div>
-            <div className="mt-3">
-              <FooterSocials />
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 border-l-2 border-teal-500/40 pl-4">
+              {whyChooseUs.map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-2 text-sm text-gray-300">
+                  <Icon className="h-4 w-4 shrink-0 text-teal-400" />
+                  {label}
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Subscribe - right aligned */}
-          <div className="relative flex flex-col items-end w-full md:max-w-md md:ml-auto">
-            <div className="mb-2 w-full md:w-auto">
-              <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-gray-900">
-                Subscribe
-              </h3>
+          {/* Newsletter */}
+          <div className="relative md:pl-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Send className="h-6 w-6 text-white" />
+              <h3 className="text-base font-bold text-white">Stay Updated</h3>
             </div>
-            <form onSubmit={handleSubscribe} className="space-y-2 w-full">
+            <p className="mb-4 text-sm text-gray-400">
+              Subscribe to our newsletter for the latest updates, insights and offers.
+            </p>
+            <form onSubmit={handleSubscribe} className="flex items-center gap-2">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
-                className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg outline-none transition-all text-black focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
+                placeholder="Enter your email"
                 required
+                className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white outline-none transition-all placeholder:text-gray-500 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
               />
               <button
                 type="submit"
-                className="w-full px-4 py-2 text-xs sm:text-sm font-bold text-white bg-black rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400/30 transition-all duration-300 uppercase tracking-wide hover:scale-105 hover:-translate-y-0.5 active:scale-95"
+                aria-label="Subscribe"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-500 text-white transition-all hover:bg-teal-400 active:scale-95"
               >
-                Subscribe
+                <Send className="h-5 w-5" />
               </button>
             </form>
             {showAlert && (
-              <div className="absolute top-full left-0 right-0 mt-2 p-3 bg-black text-white text-xs sm:text-sm rounded-lg shadow-lg z-10">
-                Thank you for subscribing! We'll keep you updated.
+              <div className="absolute left-0 right-0 mt-2 rounded-lg bg-teal-500 px-3 py-2 text-xs font-medium text-white shadow-lg">
+                Thanks for subscribing! We&apos;ll keep you updated.
               </div>
             )}
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-200 pt-3 sm:pt-4 pb-3">
-          <div className="text-center">
-            <div className="text-xs sm:text-sm text-gray-500">
-              © {currentYear} NexGen Developers. All Rights Reserved.
-            </div>
+        {/* ===== Bottom bar ===== */}
+        <div className="flex flex-col items-center gap-4 border-t border-white/10 py-5 sm:flex-row sm:justify-between">
+          <p className="order-2 text-xs text-gray-500 sm:order-1">
+            © {currentYear} NexGen Developers. All rights reserved.
+          </p>
+          <div className="order-1 sm:order-2">
+            <FooterSocials />
           </div>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="order-3 inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-bold text-gray-300 transition-all hover:border-teal-400 hover:text-teal-400 hover:scale-105 active:scale-95"
+          >
+            <ArrowUp className="h-4 w-4" />
+            Back to Top
+          </button>
         </div>
       </div>
     </footer>
   );
 }
-

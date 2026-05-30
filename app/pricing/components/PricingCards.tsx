@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Check } from "lucide-react";
-import ContactModal from "@/components/modals/ContactModal";
+import { useContactModal } from "@/components/modals/ContactModalProvider";
 import { getPricingForService, type PricingPlan, type PricingServiceType } from "../data";
 
 const accentStyles = {
@@ -27,8 +26,7 @@ const accentStyles = {
 } as const;
 
 function PlanCard({ plan, styles }: { plan: PricingPlan; styles: (typeof accentStyles)[keyof typeof accentStyles] }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const isGetStarted = plan.ctaType === "get-started";
+  const { open: openContactModal } = useContactModal();
 
   return (
     <>
@@ -57,15 +55,12 @@ function PlanCard({ plan, styles }: { plan: PricingPlan; styles: (typeof accentS
         </ul>
         <p className="text-gray-600 text-sm italic mb-6">&ldquo;{plan.quote}&rdquo;</p>
         <button
-          onClick={() => isGetStarted && setIsModalOpen(true)}
+          onClick={openContactModal}
           className={`w-full py-3 px-6 rounded-xl font-bold text-sm uppercase tracking-wide transition-all duration-300 ${styles.button}`}
         >
           {plan.ctaLabel}
         </button>
       </div>
-      {isGetStarted && (
-        <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      )}
     </>
   );
 }

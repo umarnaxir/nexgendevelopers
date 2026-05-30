@@ -2,36 +2,26 @@
 
 import React, { useEffect } from "react";
 import AOS from "aos";
-import Link from "next/link";
-import { Settings, LogOut, User as UserIcon, Image as ImageIcon, MessageSquare } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import NavLinks from "./NavLinks";
 import NavLogo from "./NavLogo";
 import Hamburger from "./Hamburger";
-import { User, canAccessAdmin } from "@/types/auth";
 import type { NavLinkItem } from "./Navbar";
 
 interface MobileNavProps {
   isOpen: boolean;
   links: NavLinkItem[];
   onLinkClick: () => void;
-  onLoginClick: () => void;
-  onSignupClick: () => void;
   onClose: () => void;
-  isAuthenticated?: boolean;
-  user?: User | null;
-  onLogoutClick?: () => void;
+  onGetInTouch: () => void;
 }
 
-export default function MobileNav({ 
-  isOpen, 
-  links, 
-  onLinkClick, 
-  onLoginClick, 
-  onSignupClick, 
+export default function MobileNav({
+  isOpen,
+  links,
+  onLinkClick,
   onClose,
-  isAuthenticated,
-  user,
-  onLogoutClick,
+  onGetInTouch,
 }: MobileNavProps) {
   useEffect(() => {
     if (isOpen) {
@@ -47,7 +37,7 @@ export default function MobileNav({
       className="lg:hidden fixed inset-0 z-[99] min-h-svh bg-white overflow-y-auto animate-mobile-nav-in"
     >
       {/* Top bar with logo and close button */}
-      <div className="sticky top-0 z-10 flex items-center justify-between h-16 px-4 sm:px-6 bg-white shrink-0">
+      <div className="sticky top-0 z-10 flex items-center justify-between h-20 px-4 sm:px-6 bg-white shrink-0">
         <div onClick={onClose}>
           <NavLogo />
         </div>
@@ -56,100 +46,16 @@ export default function MobileNav({
 
       <div className="container mx-auto px-4 sm:px-6 pb-8 pt-2 space-y-1">
         <NavLinks links={links} isMobile onLinkClick={onLinkClick} />
-        
-        {/* Mobile Auth Section */}
-        <div
-          className="pt-4 mt-2 space-y-2"
-          data-aos="fade-up"
-          data-aos-duration="600"
-        >
-          {isAuthenticated && user ? (
-            <>
-              {/* User Info */}
-              <div className="flex items-center gap-3 p-4 bg-black text-white rounded-lg mb-3">
-                <div className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center overflow-hidden border-2 border-white">
-                  {user.avatar ? (
-                    <img
-                      src={user.avatar}
-                      alt={user.name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <UserIcon className="w-5 h-5 text-white" />
-                  )}
-                </div>
-                <div>
-                  <p className="font-medium text-white">{user.name}</p>
-                  <p className="text-sm text-gray-300">{user.email}</p>
-                </div>
-              </div>
 
-              {/* Stories Link */}
-              <Link
-                href="/stories"
-                onClick={onLinkClick}
-                className="flex items-center justify-center gap-2 w-full py-3 px-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-md hover:bg-gray-50 transition-all duration-200"
-              >
-                <ImageIcon className="w-4 h-4" />
-                Stories
-              </Link>
-
-              {/* Posts Link */}
-              <Link
-                href="/posts"
-                onClick={onLinkClick}
-                className="flex items-center justify-center gap-2 w-full py-3 px-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-md hover:bg-gray-50 transition-all duration-200"
-              >
-                <MessageSquare className="w-4 h-4" />
-                Posts
-              </Link>
-
-              {/* Admin Panel Link */}
-              {canAccessAdmin(user.role) && (
-                <Link
-                  href="/admin"
-                  onClick={onLinkClick}
-                  className="flex items-center justify-center gap-2 w-full py-3 px-4 text-sm uppercase font-extrabold tracking-wide text-gray-900 border-[1.5px] border-black rounded-md hover:bg-gray-50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-                >
-                  <Settings className="w-4 h-4" />
-                  Admin Panel
-                </Link>
-              )}
-
-              {/* Logout Button */}
-              <button
-                onClick={() => {
-                  onLinkClick();
-                  onLogoutClick?.();
-                }}
-                className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-red-600 text-white text-sm uppercase font-extrabold rounded-md hover:bg-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-              >
-                <LogOut className="w-4 h-4" />
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <button
-                onClick={() => {
-                  onLoginClick();
-                  onLinkClick();
-                }}
-                className="block w-full py-3 px-4 text-sm uppercase font-extrabold tracking-wide text-gray-900 border-[1.5px] border-black rounded-md hover:bg-gray-50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-center"
-              >
-                Login
-              </button>
-              <button
-                onClick={() => {
-                  onSignupClick();
-                  onLinkClick();
-                }}
-                className="block w-full py-3 px-4 bg-gray-900 text-white text-sm uppercase font-extrabold rounded-md hover:bg-gray-800 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-center"
-              >
-                Signup
-              </button>
-            </>
-          )}
+        <div className="pt-4 mt-2" data-aos="fade-up" data-aos-duration="600">
+          <button
+            type="button"
+            onClick={onGetInTouch}
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-teal-700 py-3 px-4 text-center text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:from-teal-500 hover:to-teal-600 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            Let&apos;s Talk
+            <ArrowRight className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </div>

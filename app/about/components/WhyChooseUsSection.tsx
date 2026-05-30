@@ -1,144 +1,95 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Users, Layers, Wallet, Rocket, ArrowUpRight } from "lucide-react";
 import { whyChooseUsCards } from "../data";
 
-const CARD_GAP = 16;
+const cardMeta = [
+  {
+    icon: Users,
+    tile: "bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white",
+    arrow: "text-teal-500",
+    ring: "hover:border-teal-400",
+    bar: "bg-teal-500",
+  },
+  {
+    icon: Layers,
+    tile: "bg-orange-50 text-orange-500 group-hover:bg-orange-500 group-hover:text-white",
+    arrow: "text-orange-500",
+    ring: "hover:border-orange-400",
+    bar: "bg-orange-500",
+  },
+  {
+    icon: Wallet,
+    tile: "bg-amber-50 text-amber-500 group-hover:bg-amber-500 group-hover:text-white",
+    arrow: "text-amber-500",
+    ring: "hover:border-amber-400",
+    bar: "bg-amber-500",
+  },
+  {
+    icon: Rocket,
+    tile: "bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white",
+    arrow: "text-teal-500",
+    ring: "hover:border-teal-400",
+    bar: "bg-teal-500",
+  },
+];
 
 export default function WhyChooseUsSection() {
-  const [scrollIndex, setScrollIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const firstCardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    const card = firstCardRef.current;
-    if (!el || !card) return;
-
-    const updateScrollIndex = () => {
-      const cardWidth = card.offsetWidth;
-      const scrollLeft = el.scrollLeft;
-      const index = Math.round(scrollLeft / (cardWidth + CARD_GAP));
-      setScrollIndex(Math.min(Math.max(0, index), whyChooseUsCards.length - 1));
-    };
-
-    el.addEventListener("scroll", updateScrollIndex);
-    updateScrollIndex();
-    return () => el.removeEventListener("scroll", updateScrollIndex);
-  }, []);
-
-  const scrollToSlide = (index: number) => {
-    const el = containerRef.current;
-    const card = firstCardRef.current;
-    if (!el || !card) return;
-    const clampedIndex = Math.max(0, Math.min(index, whyChooseUsCards.length - 1));
-    const cardWidth = card.offsetWidth;
-    el.scrollTo({ left: clampedIndex * (cardWidth + CARD_GAP), behavior: "smooth" });
-  };
-
-  const goPrev = () => scrollToSlide(scrollIndex - 1);
-  const goNext = () => scrollToSlide(scrollIndex + 1);
-
   return (
-    <div
-      className="mb-12 md:mb-16"
-      data-aos="fade-up"
-    >
-      <h2 className="text-4xl sm:text-6xl md:text-6xl font-bold text-black text-center pt-4 mb-8 md:mb-12 px-2" data-aos="zoom-in">
-        Why Choose NexGen Developers
-      </h2>
-
-      {/* Mobile: carousel - 1 card per screen, black bg */}
-      <div className="md:hidden px-4">
-        <div
-          ref={containerRef}
-          className="overflow-x-auto overflow-y-visible snap-x snap-mandatory flex gap-4 pb-2 touch-pan-x scrollbar-hide"
-          style={{ WebkitOverflowScrolling: "touch" }}
-        >
-          {whyChooseUsCards.map((card, index) => (
-            <div
-              key={index}
-              ref={index === 0 ? firstCardRef : undefined}
-              className="snap-center flex-shrink-0 w-[calc(100vw-3rem)] min-h-[360px] rounded-xl flex flex-col justify-end p-6 bg-black text-white"
-            >
-              <div className="font-bold text-lg mb-2 text-white">
-                {card.number}
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white">
-                {card.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                {card.description}
-              </p>
-            </div>
-          ))}
+    <section className="py-12 md:py-16" data-aos="fade-up">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-9 text-center md:mb-12" data-aos="zoom-in">
+          <span className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-600">
+            Why Us
+          </span>
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-black sm:text-4xl md:text-5xl">
+            Why Choose NexGen Developers
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600 sm:text-base">
+            A team built to help you build, launch, and grow — with the speed, skill, and care your
+            business deserves.
+          </p>
         </div>
 
-        {/* Dots hidden on mobile, arrows centered */}
-        <div className="flex items-center justify-center gap-4 mt-5 min-h-10">
-          <div className="hidden md:flex items-center gap-2">
-            {whyChooseUsCards.map((_, index) => (
-              <button
+        {/* Interactive cards */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {whyChooseUsCards.map((card, index) => {
+            const meta = cardMeta[index % cardMeta.length];
+            const Icon = meta.icon;
+            return (
+              <div
                 key={index}
-                onClick={() => scrollToSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
-                className={`rounded-full transition-all duration-300 flex-shrink-0 ${
-                  scrollIndex === index
-                    ? "w-6 h-2 bg-black"
-                    : "w-2 h-2 bg-gray-300"
-                }`}
-              />
-            ))}
-          </div>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={goPrev}
-              disabled={scrollIndex === 0}
-              aria-label="Previous card"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white disabled:opacity-30 disabled:pointer-events-none hover:bg-gray-800 transition-colors shrink-0"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={goNext}
-              disabled={scrollIndex === whyChooseUsCards.length - 1}
-              aria-label="Next card"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white disabled:opacity-30 disabled:pointer-events-none hover:bg-gray-800 transition-colors shrink-0"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+                data-aos="fade-up"
+                data-aos-delay={index * 80}
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${meta.ring}`}
+              >
+                {/* top accent bar grows on hover */}
+                <span
+                  className={`absolute inset-x-0 top-0 h-1 w-0 transition-all duration-300 group-hover:w-full ${meta.bar}`}
+                />
+
+                {/* slide-in arrow */}
+                <ArrowUpRight
+                  className={`absolute right-5 top-5 h-5 w-5 -translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ${meta.arrow}`}
+                />
+
+                <span
+                  className={`flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 ${meta.tile}`}
+                >
+                  <Icon className="h-6 w-6" />
+                </span>
+
+                <div className="mt-5 text-xs font-bold tracking-wider text-gray-400">
+                  {card.number}
+                </div>
+                <h3 className="mt-1 text-lg font-bold text-gray-900">{card.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{card.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
-
-      {/* Desktop: grid, hover = black + white */}
-      <div className="hidden md:flex flex-wrap lg:flex-nowrap gap-6 justify-center px-1">
-        {whyChooseUsCards.map((card, index) => {
-          const isFeatured = card.isFeatured;
-
-          return (
-            <div
-              key={index}
-              className={`p-8 rounded-xl w-full lg:w-[300px] flex-shrink-0 flex flex-col justify-end h-[400px] transition-all duration-300 group cursor-pointer ${
-                isFeatured
-                  ? "bg-black text-white"
-                  : "bg-white border border-gray-300 hover:bg-black"
-              }`}
-            >
-              <div className={`font-bold text-lg mb-3 transition-colors duration-300 ${isFeatured ? "text-white" : "text-black group-hover:text-white"}`}>
-                {card.number}
-              </div>
-              <h3 className={`text-xl font-bold mb-4 transition-colors duration-300 ${isFeatured ? "text-white" : "text-black group-hover:text-white"}`}>
-                {card.title}
-              </h3>
-              <p className={`text-base leading-relaxed transition-all duration-300 overflow-hidden max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100 group-hover:mt-4 group-hover:text-white ${isFeatured ? "!max-h-none !opacity-100 text-white" : "text-gray-700"}`}>
-                {card.description}
-              </p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    </section>
   );
 }

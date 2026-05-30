@@ -31,7 +31,7 @@ export default function PricingServiceSelector({
               onClick={() => onSelect(service)}
               className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 ${
                 isActive
-                  ? "bg-[#3F968D] text-white shadow-sm"
+                  ? "bg-[#3F968D] text-white shadow-md"
                   : "text-[#3F968D] hover:bg-[#d0f0ee]"
               }`}
             >

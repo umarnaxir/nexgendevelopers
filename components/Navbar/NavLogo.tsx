@@ -6,13 +6,13 @@ import Link from "next/link";
 
 export default function NavLogo() {
   return (
-    <Link href="/" className="flex items-center gap-3 shrink-0 py-2 hover:scale-105 active:scale-95 transition-transform duration-300">
-      <Image 
-        src="/logo/2.png" 
-        alt="NexGenDevs" 
-        width={48} 
-        height={48} 
-        className="block" 
+    <Link href="/" className="flex items-center gap-3 shrink-0 py-1.5 hover:scale-105 active:scale-95 transition-transform duration-300">
+      <Image
+        src="/logo/ndlogo.png"
+        alt="NexGen Developers"
+        width={64}
+        height={64}
+        className="block h-14 w-auto sm:h-16"
         priority
       />
     </Link>

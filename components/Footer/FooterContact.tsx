@@ -28,10 +28,10 @@ export default function FooterContact() {
       </div>
       <div className="text-sm font-medium text-gray-700">
         <a
-          href="mailto:nexgendevelopers11@gmail.com"
+          href="mailto:info@nexgendevelopers.in"
           className="text-gray-900 hover:text-black underline-offset-2 transition-colors duration-200 font-medium"
         >
-          nexgendevelopers11@gmail.com
+          info@nexgendevelopers.in
         </a>
       </div>
     </div>

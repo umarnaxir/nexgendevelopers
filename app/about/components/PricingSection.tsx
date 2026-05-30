@@ -48,7 +48,7 @@ export default function PricingSection() {
 
       {/* Desktop: grid of cards */}
       <div className="hidden md:block">
-        <div className="bg-gray-50 p-6 sm:p-8 rounded-xl border-2 border-black">
+        <div className="bg-gray-50 p-6 sm:p-8 rounded-xl border-2 border-black shadow-md">
           <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6 text-center">
             Flexible Pricing Options
           </h3>

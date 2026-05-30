@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import ContactModal from "@/components/modals/ContactModal";
+import { useContactModal } from "@/components/modals/ContactModalProvider";
 
 export default function ContactCTA() {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const { open: openContactModal } = useContactModal();
 
   return (
     <div
@@ -16,12 +15,11 @@ export default function ContactCTA() {
         Get in touch with us today for a free consultation and custom quote. Let's discuss how we can help bring your digital vision to life.
       </p>
       <button
-        onClick={() => setIsContactModalOpen(true)}
+        onClick={openContactModal}
         className="inline-block mt-2 mb-4 px-6 sm:px-8 py-3 sm:py-4 bg-black text-white text-sm sm:text-base font-bold rounded-lg hover:bg-gray-800 transition-all duration-300 uppercase tracking-wide shadow-lg hover:shadow-xl active:scale-95"
       >
         Contact Us Now
       </button>
-      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>
   );
 }

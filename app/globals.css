@@ -102,15 +102,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Global grid background (small boxes graph) - always white bg, light black grid lines */
+/* Global champagne beige background (grid pattern removed) */
 .page-bg {
-  --grid-color: rgba(0, 0, 0, 0.06);
-  --grid-size: 32px;
-  background-color: #ffffff !important;
-  background-image:
-    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-  background-size: var(--grid-size) var(--grid-size);
+  background-color: #f0fdfa !important;
 }
 
 /* Moving 360 light shadow - soft glow, subtle (less visible) */
@@ -165,6 +159,19 @@ body {
 
 .animate-mobile-nav-in {
   animation: mobileNavIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
 }
 
 /* Service page hero image: fade in + subtle zoom */

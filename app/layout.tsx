@@ -5,7 +5,6 @@ import AOSInit from "@/components/AOSInit";
 import { Toaster } from "sonner";
 import { getHomeSEO } from "@/lib/seo/page-seo";
 import { OrganizationSchema, WebsiteSchema } from "@/lib/seo/structured-data";
-import { AuthProvider } from "@/contexts/AuthContext";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
 const spaceGrotesk = localFont({
@@ -54,16 +53,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${spaceGrotesk.variable} ${spaceGrotesk.className} antialiased`}
       >
-        <AuthProvider>
-          <OrganizationSchema />
-          <WebsiteSchema />
-          <ScrollToTop />
-          <AOSInit />
-          <Toaster position="top-right" richColors />
-          <LayoutWrapper>
-            {children}
-          </LayoutWrapper>
-        </AuthProvider>
+        <OrganizationSchema />
+        <WebsiteSchema />
+        <ScrollToTop />
+        <AOSInit />
+        <Toaster position="top-right" richColors />
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

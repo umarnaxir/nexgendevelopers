@@ -1,18 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { LogOut, Settings, User as UserIcon, Image as ImageIcon, MessageSquare } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import NavLogo from "./NavLogo";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 import Hamburger from "./Hamburger";
-import LoginModal from "@/components/modals/LoginModal";
-import SignupModal from "@/components/modals/SignupModal";
-import LogoutModal from "@/components/modals/LogoutModal";
-import { useAuth } from "@/contexts/AuthContext";
-import { canAccessAdmin } from "@/types/auth";
+import { useContactModal } from "@/components/modals/ContactModalProvider";
 import { getServicesNavItems } from "@/app/services/config";
 
 export interface NavLinkItem {
@@ -26,20 +20,14 @@ const navLinks: NavLinkItem[] = [
   { href: "/services", label: "Services", children: getServicesNavItems() },
   { href: "/projects", label: "Projects" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/posts", label: "Posts" },
-  { href: "/stories", label: "Stories" },
   { href: "/blogs", label: "Blogs" },
+  { href: "/contact-us", label: "Contact" },
 ];
 
 export default function Navbar() {
-  const router = useRouter();
-  const { user, isAuthenticated, logout, isLoading } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
-  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const { open: openContactModal } = useContactModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,16 +37,6 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Listen for openLoginModal event from AuthGuard
-  useEffect(() => {
-    const handleOpenLoginModal = () => {
-      setIsLoginModalOpen(true);
-    };
-
-    window.addEventListener("openLoginModal", handleOpenLoginModal);
-    return () => window.removeEventListener("openLoginModal", handleOpenLoginModal);
   }, []);
 
   useEffect(() => {
@@ -72,18 +50,6 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  // Close user menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (isUserMenuOpen) {
-        setIsUserMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [isUserMenuOpen]);
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -92,117 +58,32 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
-  const handleLogout = () => {
-    logout();
-    setIsLogoutModalOpen(false);
-    router.push("/");
-  };
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] bg-white transition-all duration-300 lg:sticky lg:z-50 ${
-        isScrolled 
-          ? "lg:bg-white lg:shadow-sm lg:border-b lg:border-gray-100" 
+        isScrolled
+          ? "lg:bg-white lg:shadow-md lg:border-b lg:border-gray-100"
           : "lg:bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo - Left Side */}
           <NavLogo />
 
-          {/* Desktop Navigation Links - Right Side */}
-          <div className="hidden lg:flex items-center ml-auto gap-6">
+          {/* Desktop Navigation Links + CTA - Right Side */}
+          <div className="hidden lg:flex items-center gap-8 ml-auto">
             <DesktopNav links={navLinks} />
-            
-            {/* Auth Section */}
-            <div className="flex items-center gap-3 ml-2 pl-4 border-l border-gray-200">
-              {isLoading ? (
-                <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
-              ) : isAuthenticated && user ? (
-                <div className="relative">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsUserMenuOpen(!isUserMenuOpen);
-                    }}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-black text-white hover:bg-gray-800 transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center overflow-hidden border-1 border-white">
-                      {user.avatar ? (
-                        <img
-                          src={user.avatar}
-                          alt={user.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <UserIcon className="w-5 h-5 text-white" />
-                      )}
-                    </div>
-                    <span className="text-sm font-medium text-white max-w-[100px] truncate">
-                      {user.name}
-                    </span>
-                  </button>
-
-                  {/* User Dropdown Menu */}
-                  {isUserMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                      <Link
-                        href="/stories"
-                        className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors"
-                        onClick={() => setIsUserMenuOpen(false)}
-                      >
-                        <ImageIcon className="w-4 h-4" />
-                        Stories
-                      </Link>
-                      <Link
-                        href="/posts"
-                        className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors"
-                        onClick={() => setIsUserMenuOpen(false)}
-                      >
-                        <MessageSquare className="w-4 h-4" />
-                        Posts
-                      </Link>
-                      {canAccessAdmin(user.role) && (
-                        <Link
-                          href="/admin"
-                          className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors"
-                          onClick={() => setIsUserMenuOpen(false)}
-                        >
-                          <Settings className="w-4 h-4" />
-                          Admin Panel
-                        </Link>
-                      )}
-                      <button
-                        onClick={() => {
-                          setIsUserMenuOpen(false);
-                          setIsLogoutModalOpen(true);
-                        }}
-                        className="w-full flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 transition-colors"
-                      >
-                        <LogOut className="w-4 h-4" />
-                        Logout
-                      </button>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <>
-                  <button
-                    onClick={() => setIsLoginModalOpen(true)}
-                    className="text-sm uppercase font-extrabold tracking-wide text-gray-900 px-4 py-2 border-[1.5px] border-black rounded-md hover:shadow-md transition-all duration-300 hover:scale-105 active:scale-95"
-                  >
-                    Login
-                  </button>
-                  <button
-                    onClick={() => setIsSignupModalOpen(true)}
-                    className="px-6 py-2.5 bg-gray-900 text-white text-sm uppercase font-extrabold rounded-md hover:bg-gray-800 hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
-                  >
-                    Signup
-                  </button>
-                </>
-              )}
-            </div>
+            <button
+              type="button"
+              onClick={openContactModal}
+              className="group inline-flex items-center gap-2.5 rounded-full border-2 border-gray-200 bg-white py-1.5 pl-6 pr-1.5 text-sm font-bold text-gray-900 transition-all duration-300 hover:border-teal-400 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-teal-400/40"
+            >
+              Let&apos;s Talk
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white transition-transform duration-300 group-hover:translate-x-0.5">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </button>
           </div>
 
           {/* Mobile Hamburger - aligned with logo row */}
@@ -213,42 +94,16 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation - Full screen overlay */}
-      <MobileNav 
-        isOpen={isMobileMenuOpen} 
-        links={navLinks} 
+      <MobileNav
+        isOpen={isMobileMenuOpen}
+        links={navLinks}
         onLinkClick={closeMobileMenu}
-        onLoginClick={() => setIsLoginModalOpen(true)}
-        onSignupClick={() => setIsSignupModalOpen(true)}
         onClose={closeMobileMenu}
-        isAuthenticated={isAuthenticated}
-        user={user}
-        onLogoutClick={() => setIsLogoutModalOpen(true)}
-      />
-
-      {/* Modals */}
-      <LoginModal 
-        isOpen={isLoginModalOpen} 
-        onClose={() => setIsLoginModalOpen(false)}
-        onSwitchToSignup={() => {
-          setIsLoginModalOpen(false);
-          setTimeout(() => setIsSignupModalOpen(true), 100);
+        onGetInTouch={() => {
+          closeMobileMenu();
+          openContactModal();
         }}
-      />
-      <SignupModal 
-        isOpen={isSignupModalOpen} 
-        onClose={() => setIsSignupModalOpen(false)}
-        onSwitchToLogin={() => {
-          setIsSignupModalOpen(false);
-          setTimeout(() => setIsLoginModalOpen(true), 100);
-        }}
-      />
-      <LogoutModal
-        isOpen={isLogoutModalOpen}
-        onClose={() => setIsLogoutModalOpen(false)}
-        onConfirm={handleLogout}
-        userName={user?.name}
       />
     </header>
   );
 }
-

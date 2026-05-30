@@ -1,14 +1,15 @@
 "use client";
 
 import React from "react";
-import { MessageCircle, Facebook, Linkedin, Instagram, Github } from "lucide-react";
+import { MessageCircle, Facebook, Linkedin, Instagram } from "lucide-react";
+import XIcon from "@/components/icons/XIcon";
 
 const socialLinks = [
   { icon: MessageCircle, href: "https://api.whatsapp.com/message/X7TDAPSVHSFNC1?autoload=1&app_absent=0", label: "WhatsApp" },
-  { icon: Facebook, href: "https://www.facebook.com/people/NexGen-Developers/61572910985245/?rdid=4A376FPlbAhNjqn5&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1924Qev3Su%2F", label: "Facebook" },
+  { icon: XIcon, href: "https://x.com/nexgendv", label: "X" },
   { icon: Linkedin, href: "https://www.linkedin.com/company/105880683/", label: "LinkedIn" },
   { icon: Instagram, href: "https://www.instagram.com/nexgendevelopers_?igsh=MTJiczF6aDNxbjB2eg==", label: "Instagram" },
-  { icon: Github, href: "https://github.com/Nexgendevelopers", label: "GitHub" },
+  { icon: Facebook, href: "https://www.facebook.com/people/NexGen-Developers/61572910985245/?rdid=4A376FPlbAhNjqn5&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1924Qev3Su%2F", label: "Facebook" },
 ];
 
 export default function ContactUsSocials() {

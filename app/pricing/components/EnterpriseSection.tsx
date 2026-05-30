@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Check } from "lucide-react";
-import ContactModal from "@/components/modals/ContactModal";
+import { useContactModal } from "@/components/modals/ContactModalProvider";
 import { getPricingForService, type PricingServiceType } from "../data";
 
 interface EnterpriseSectionProps {
@@ -10,7 +9,7 @@ interface EnterpriseSectionProps {
 }
 
 export default function EnterpriseSection({ service }: EnterpriseSectionProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { open: openContactModal } = useContactModal();
   const { enterprise: enterprisePlan } = getPricingForService(service);
   const mid = Math.ceil(enterprisePlan.deliverables.length / 2);
   const col1 = enterprisePlan.deliverables.slice(0, mid);
@@ -58,7 +57,7 @@ export default function EnterpriseSection({ service }: EnterpriseSectionProps) {
               &ldquo;{enterprisePlan.quote}&rdquo;
             </p>
             <button
-              onClick={() => setIsModalOpen(true)}
+              onClick={openContactModal}
               className="flex-shrink-0 w-full sm:w-auto py-3 px-8 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm uppercase tracking-wide rounded-xl transition-all duration-300"
             >
               {enterprisePlan.ctaLabel}
@@ -66,7 +65,6 @@ export default function EnterpriseSection({ service }: EnterpriseSectionProps) {
           </div>
         </div>
       </section>
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

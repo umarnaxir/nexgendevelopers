@@ -53,7 +53,7 @@ export default function TermsSections() {
       <TermsSection icon={Users} title="4. Services" delay={0.2}>
         <p className="mb-3 sm:mb-4">NexGen is a creative platform to build, launch, and grow your business. We help startups and local brands with comprehensive digital solutions including:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
-          <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
+          <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 shadow-md">
             <h3 className="font-bold text-sm sm:text-base text-black mb-2">Development Services</h3>
             <ul className="text-xs sm:text-sm text-gray-700 space-y-1">
               <li>• Web Development</li>
@@ -62,7 +62,7 @@ export default function TermsSections() {
               <li>• Chatbot Development</li>
             </ul>
           </div>
-          <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
+          <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 shadow-md">
             <h3 className="font-bold text-sm sm:text-base text-black mb-2">Marketing & Design</h3>
             <ul className="text-xs sm:text-sm text-gray-700 space-y-1">
               <li>• SEO Services</li>

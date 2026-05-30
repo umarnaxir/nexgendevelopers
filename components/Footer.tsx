@@ -62,14 +62,14 @@ export default function Footer() {
           <div className="md:col-span-1 flex flex-col items-center md:items-end gap-6">
             <div className="w-full md:w-[360px]">
               <a href="/" className="block w-full">
-                <Image src="/logo/2.png" alt="ND logo" width={520} height={170} className="w-full h-auto object-contain" />
+                <Image src="/logo/company-logo.jpeg" alt="ND logo" width={520} height={170} className="w-full h-auto object-contain" />
               </a>
             </div>
 
             <div className="w-full md:w-[360px] text-right md:text-right space-y-1">
               <h4 className="text-sm font-extrabold uppercase text-gray-900 mb-2">Contact</h4>
               <div className="text-base font-medium text-gray-900">Phone: <a href="tel:6006161726" className="underline-offset-2">6006161726</a></div>
-              <div className="text-base font-medium text-gray-900">Email: <a href="mailto:nexgendeveliopers11@gmial.com" className="underline-offset-2">nexgendeveliopers11@gmial.com</a></div>
+              <div className="text-base font-medium text-gray-900">Email: <a href="mailto:info@nexgendevelopers.in" className="underline-offset-2">info@nexgendevelopers.in</a></div>
             </div>
           </div>
 

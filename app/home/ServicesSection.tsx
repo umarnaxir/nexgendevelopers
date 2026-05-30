@@ -1,205 +1,211 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
-import { 
-  Globe, 
-  Smartphone, 
-  Cpu, 
-  MessageCircle, 
-  TrendingUp, 
-  Palette,
+import {
+  Globe,
+  Smartphone,
+  BrainCircuit,
+  MessageSquare,
+  Infinity as InfinityIcon,
+  Wrench,
+  TrendingUp,
   Search,
   Share2,
+  PenTool,
   MousePointerClick,
-  Facebook,
-  Server,
-  Wrench,
   ArrowRight,
+  Sparkles,
+  Send,
+  Rocket,
+  Smile,
+  Star,
+  Headphones,
+  Check,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
+import { useContactModal } from "@/components/modals/ContactModalProvider";
 
-const TOTAL_SLIDES = 12;
+const services = [
+  { title: "Website Development", description: "We build fast, responsive, and SEO-friendly websites that deliver exceptional user experiences.", icon: Globe, href: "/services/website-development" },
+  { title: "App Development", description: "High-performance mobile and web applications tailored to your business goals.", icon: Smartphone, href: "/services/app-development" },
+  { title: "AI & ML Solutions", description: "Intelligent solutions that automate processes and drive smart business decisions.", icon: BrainCircuit, href: "/services/ai-ml" },
+  { title: "Chatbot Development", description: "AI-powered chatbots that engage customers and provide 24/7 support effortlessly.", icon: MessageSquare, href: "/services/chatbot-development" },
+  { title: "Deployment & DevOps", description: "Streamlined CI/CD, cloud deployments, and infrastructure management for reliability and scalability.", icon: InfinityIcon, href: "/services/deployment-devops" },
+  { title: "Maintenance & Support", description: "Ongoing maintenance, updates, and technical support to keep your systems running smoothly.", icon: Wrench, href: "/services/maintenance-support" },
+  { title: "Digital Marketing", description: "Result-driven marketing strategies to boost visibility, engage audiences, and grow your brand.", icon: TrendingUp, href: "/services/digital-marketing" },
+  { title: "SEO Services", description: "Data-driven SEO strategies to rank higher, increase traffic, and generate quality leads.", icon: Search, href: "/services/digital-marketing/seo" },
+  { title: "Social Media Marketing", description: "Build your brand presence and engage your audience across all major social media platforms.", icon: Share2, href: "/services/digital-marketing/social-media-marketing" },
+  { title: "Graphic Designing", description: "Creative designs that communicate your brand message and leave a lasting impression.", icon: PenTool, href: "/services/digital-marketing/graphic-designing" },
+  { title: "Google Ads", description: "Targeted Google Ads campaigns that drive qualified traffic and maximize your ROI.", icon: MousePointerClick, href: "/services/digital-marketing/google-ads" },
+  { title: "Meta Ads", description: "High-converting Facebook and Instagram ad campaigns to reach, engage, and convert your audience.", icon: InfinityIcon, href: "/services/digital-marketing/meta-ads" },
+];
+
+const stats = [
+  { icon: Rocket, value: "50+", label: "Projects Delivered" },
+  { icon: Smile, value: "30+", label: "Happy Clients" },
+  { icon: Star, value: "98%", label: "Client Satisfaction" },
+  { icon: Headphones, value: "24/7", label: "Support Available" },
+];
+
+const ctaFeatures = ["Free Consultation", "On-Time Delivery", "Transparent Process", "Scalable Solutions"];
 
 export default function ServicesSection() {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const { open: openContactModal } = useContactModal();
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const goToSlide = (index: number) => {
-    const clamped = Math.max(0, Math.min(index, TOTAL_SLIDES - 1));
-    setActiveSlide(clamped);
-    const el = scrollRef.current;
-    if (el) {
-      const slideWidth = el.offsetWidth + 16; // 16px = gap-4
-      el.scrollTo({ left: clamped * slideWidth, behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
+  const scrollByCards = (dir: 1 | -1) => {
     const el = scrollRef.current;
     if (!el) return;
-    const handleScroll = () => {
-      const slideWidth = el.offsetWidth + 16;
-      const slide = Math.round(el.scrollLeft / slideWidth);
-      setActiveSlide(Math.min(slide, TOTAL_SLIDES - 1));
-    };
-    el.addEventListener("scroll", handleScroll, { passive: true });
-    return () => el.removeEventListener("scroll", handleScroll);
-  }, []);
+    const card = el.querySelector<HTMLElement>("[data-card]");
+    const amount = card ? card.offsetWidth + 20 : el.clientWidth * 0.8; // gap-5 = 20px
+    el.scrollBy({ left: dir * amount, behavior: "smooth" });
+  };
 
-  const goPrev = () => goToSlide(activeSlide - 1);
-  const goNext = () => goToSlide(activeSlide + 1);
-
-  const services = [
-    { title: "Website Development", description: "We build modern, responsive, and high-performance websites tailored to your business needs.", icon: Globe, href: "/services/website-development" },
-    { title: "App Development", description: "We develop powerful mobile and web applications using the latest technologies.", icon: Smartphone, href: "/services/app-development" },
-    { title: "AI & ML Solutions", description: "We integrate AI and Machine Learning to automate processes and create smart applications.", icon: Cpu, href: "/services/ai-ml" },
-    { title: "Chatbot Development", description: "Enhance customer engagement with AI-powered chatbots that provide intelligent support.", icon: MessageCircle, href: "/services/chatbot-development" },
-    { title: "Deployment & DevOps", description: "Cloud deployment, CI/CD pipelines, and infrastructure management for reliable scaling.", icon: Server, href: "/services/deployment-devops" },
-    { title: "Maintenance & Support", description: "Ongoing updates, bug fixes, security patches, and 24/7 technical support.", icon: Wrench, href: "/services/maintenance-support" },
-    { title: "Digital Marketing", description: "Full-service digital marketing: SEO, paid ads, social media, and content strategy.", icon: TrendingUp, href: "/services/digital-marketing" },
-    { title: "SEO", description: "On-page, off-page, and technical SEO to rank higher and grow organic traffic.", icon: Search, href: "/services/digital-marketing/seo" },
-    { title: "Social Media Marketing", description: "Social strategy, content creation, and community management across platforms.", icon: Share2, href: "/services/digital-marketing/social-media-marketing" },
-    { title: "Graphic Designing", description: "Logos, brand identity, social graphics, and marketing materials that strengthen your brand.", icon: Palette, href: "/services/digital-marketing/graphic-designing" },
-    { title: "Google Ads", description: "Search, Display, and YouTube campaigns to drive qualified traffic and conversions.", icon: MousePointerClick, href: "/services/digital-marketing/google-ads" },
-    { title: "Meta Ads", description: "Facebook and Instagram ad campaigns to reach your target audience and drive leads.", icon: Facebook, href: "/services/digital-marketing/meta-ads" },
-  ];
+  const carouselServices = services;
 
   return (
-    <section id="services" className="relative overflow-hidden" data-aos="fade-up">
-      {/* Subtle Grid Background - black/gray only */}
-      <div className="absolute inset-0 opacity-[0.06]">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0, 0, 0, 0.15) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
+    <section id="services" className="relative overflow-hidden py-14 sm:py-16 lg:py-20" data-aos="fade-up">
+      {/* subtle dotted decoration */}
+      <div
+        className="pointer-events-none absolute right-8 top-8 hidden h-28 w-28 opacity-40 lg:block"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(20,184,166,0.4) 1.5px, transparent 1.5px)",
+          backgroundSize: "14px 14px",
+        }}
+      />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-        {/* Header Section */}
-        <div 
-          className="text-center mb-10 sm:mb-12 md:mb-16"
-          data-aos="zoom-in"
-        >
-          <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-3 sm:mb-4 px-4"
-            style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)' }}
-          >
-            Build, Launch, Succeed Online
+      <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* ===== Header ===== */}
+        <div className="relative mb-10 text-center" data-aos="zoom-in">
+          {/* decorative icons */}
+          <span className="absolute left-0 top-6 hidden h-14 w-14 items-center justify-center rounded-full bg-teal-500 text-white shadow-lg shadow-teal-500/30 lg:flex">
+            <Sparkles className="h-6 w-6" />
+          </span>
+          <Send className="absolute right-2 top-2 hidden h-9 w-9 rotate-12 text-teal-400 lg:block" />
+
+          <span className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-600">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+            What We Do
+          </span>
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+            Build, Launch. <span className="text-teal-600">Succeed</span> Online
           </h2>
-          <p 
-            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4"
-            style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5)' }}
-          >
-            The goal is not just to build a website or an app, but to grow your business.
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600 sm:text-base">
+            We build digital solutions that are powerful, scalable, and future-ready — helping you grow
+            your business and stay ahead of the competition.
           </p>
         </div>
 
-        {/* Mobile Carousel - visible only below md */}
-        <div className="md:hidden">
-          <div ref={scrollRef} className="overflow-x-auto snap-x snap-mandatory scroll-smooth flex gap-4 pb-4 -mx-4 px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
+        {/* ===== Stats strip ===== */}
+        <div className="mx-auto mb-12 grid max-w-4xl grid-cols-2 gap-y-6 rounded-2xl border border-gray-100 bg-white/80 px-4 py-5 shadow-lg backdrop-blur sm:grid-cols-4 sm:divide-x sm:divide-gray-100">
+          {stats.map(({ icon: Icon, value, label }) => (
+            <div key={label} className="flex items-center justify-center gap-3 sm:px-2">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-600">
+                <Icon className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-xl font-extrabold text-gray-900">{value}</p>
+                <p className="text-[11px] text-gray-500 sm:text-xs">{label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ===== Service carousel ===== */}
+        <div className="relative">
+          {/* controls */}
+          <div className="mb-4 flex items-center justify-end gap-2">
+            <button
+              type="button"
+              onClick={() => scrollByCards(-1)}
+              aria-label="Previous services"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-lg transition-all hover:border-teal-400 hover:text-teal-600 active:scale-95"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollByCards(1)}
+              aria-label="Next services"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-500 text-white shadow-lg transition-all hover:bg-teal-400 active:scale-95"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+
+          <div
+            ref={scrollRef}
+            className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {carouselServices.map((service, index) => {
+              const Icon = service.icon;
+              const number = String(index + 1).padStart(2, "0");
               return (
-                <div key={index} className="flex-[0_0_100%] w-full min-w-0 snap-center">
-                  <Link
-                    href={service.href}
-                    className="group flex flex-col items-start text-left bg-white p-5 rounded-[32px] shadow-[0_18px_45px_rgba(15,23,42,0.08)] hover:shadow-[0_28px_60px_rgba(15,23,42,0.12)] transition-all duration-300 border border-transparent hover:border-teal-50 focus:outline-none focus:ring-0 min-h-[280px] md:min-h-[260px]"
-                  >
-                    {/* Icon at top */}
-                    <div className="w-12 h-12 rounded-full bg-teal-50 shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center mb-4">
-                      <IconComponent className="w-6 h-6 text-teal-500" />
-                    </div>
-                    
-                    {/* Spacer to push content down */}
-                    <div className="flex-1 min-h-[60px]" />
-                    
-                    {/* Title and Description grouped at bottom */}
-                    <div className="flex flex-col gap-2 mb-4 w-full">
-                      <h3 className="text-lg font-semibold text-slate-900 leading-tight">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm text-slate-500 leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                    
-                    {/* Read more button at bottom */}
-                    <span className="inline-flex items-center text-sm font-semibold text-teal-600 group-hover:text-black transition-colors duration-300">
-                      Read more
-                      <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </Link>
-                </div>
+                <Link
+                  key={service.title}
+                  data-card
+                  href={service.href}
+                  className="group relative flex w-[280px] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-200 hover:shadow-xl sm:w-[300px]"
+                >
+                  {/* number badge */}
+                  <span className="absolute right-5 top-5 text-xs font-bold text-gray-300">{number}</span>
+                  {/* faint watermark */}
+                  <Icon className="pointer-events-none absolute -right-4 top-6 h-24 w-24 text-teal-500/[0.06] transition-transform duration-500 group-hover:scale-110" />
+
+                  {/* icon tile */}
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-500 text-white shadow-md shadow-teal-500/30 transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="h-6 w-6" />
+                  </span>
+
+                  <h3 className="mt-5 text-lg font-bold leading-snug text-gray-900">{service.title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-500">{service.description}</p>
+
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600">
+                    Learn more
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </Link>
               );
             })}
           </div>
-          {/* Carousel Navigation - centered arrows only */}
-          <div className="flex items-center justify-center mt-6 px-2">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={goPrev}
-                disabled={activeSlide === 0}
-                aria-label="Previous slide"
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                  activeSlide === 0 ? "bg-gray-200 text-gray-400 cursor-not-allowed" : "bg-gray-200 text-black hover:bg-gray-300"
-                }`}
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={goNext}
-                disabled={activeSlide >= TOTAL_SLIDES - 1}
-                aria-label="Next slide"
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                  activeSlide >= TOTAL_SLIDES - 1 ? "bg-gray-200 text-gray-400 cursor-not-allowed" : "bg-black text-white hover:bg-gray-800"
-                }`}
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Desktop Grid - visible from md and up */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-8 xl:gap-8">
-          {services.map((service) => {
-            const IconComponent = service.icon;
-            return (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="group relative flex flex-col items-start text-left bg-white pt-12 px-7 pb-7 lg:pt-14 lg:px-8 lg:pb-8 rounded-[32px] shadow-[0_18px_45px_rgba(15,23,42,0.08)] hover:shadow-[0_28px_60px_rgba(15,23,42,0.12)] transition-all duration-300 border border-transparent hover:border-teal-50 focus:outline-none focus:ring-0 min-h-[260px] justify-between"
-                data-aos="zoom-in"
-                data-aos-delay="0"
-              >
-                <div className="absolute left-7 lg:left-8 top-0 -translate-y-1/2 lg:-translate-y-1/2">
-                  <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-teal-50 shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center">
-                    <IconComponent className="w-6 h-6 lg:w-7 lg:h-7 text-teal-500" />
-                  </div>
-                </div>
-                <div className="flex-1 flex flex-col mt-auto">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm sm:text-[15px] md:text-base text-slate-500 leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-                </div>
-                <span className="inline-flex items-center text-sm md:text-[15px] font-semibold text-teal-600 group-hover:text-black transition-colors duration-300">
-                  Read more
-                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
-            );
-          })}
+        {/* ===== Bottom CTA bar ===== */}
+        <div className="mt-12 rounded-3xl border border-teal-100 bg-teal-50/60 p-6 sm:p-8" data-aos="fade-up">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-center gap-5">
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-teal-500 text-white shadow-lg shadow-teal-500/30">
+                <Rocket className="h-7 w-7" />
+              </span>
+              <div>
+                <p className="text-lg font-bold text-gray-900 sm:text-xl">Have a project in mind?</p>
+                <p className="text-lg font-bold text-gray-900 sm:text-xl">
+                  Let&apos;s build something <span className="text-teal-600">amazing</span> together.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={openContactModal}
+              className="group inline-flex shrink-0 items-center gap-2.5 self-start rounded-full bg-gray-900 py-1.5 pl-6 pr-1.5 text-sm font-bold text-white shadow-md transition-all duration-300 hover:bg-black hover:scale-105 active:scale-95 lg:self-auto"
+            >
+              Let&apos;s Talk
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-500 text-white transition-transform duration-300 group-hover:translate-x-0.5">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </button>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 border-t border-teal-100 pt-5">
+            {ctaFeatures.map((feature) => (
+              <span key={feature} className="inline-flex items-center gap-2 text-sm font-medium text-gray-700">
+                <Check className="h-4 w-4 text-teal-600" />
+                {feature}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
