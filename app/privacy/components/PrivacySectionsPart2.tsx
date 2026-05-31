@@ -28,13 +28,13 @@ export default function PrivacySectionsPart2() {
 
       <PrivacySection icon={Mail} title="11. Contact Us" delay={1.0} dark>
         <p className="mb-4 sm:mb-6">If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
-        <div className="bg-gray-900 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-700">
+        <div className="glass p-4 sm:p-5 lg:p-6 rounded-2xl">
           <p className="mb-2 sm:mb-3"><strong className="text-white">NexGen</strong></p>
           <p className="mb-2"><strong className="text-white">Email:</strong> info@nexgendevelopers.in</p>
           <p className="mb-2"><strong className="text-white">Phone:</strong> +91 600-616-1726</p>
           <p><strong className="text-white">Location:</strong> Srinagar, Jammu and Kashmir, India</p>
         </div>
-        <p className="text-xs sm:text-sm text-gray-200 mt-4 sm:mt-6">For privacy-related requests, please include &quot;Privacy Request&quot; in the subject line of your email for faster processing.</p>
+        <p className="text-xs sm:text-sm text-silver-dark mt-4 sm:mt-6">For privacy-related requests, please include &quot;Privacy Request&quot; in the subject line of your email for faster processing.</p>
       </PrivacySection>
     </>
   );

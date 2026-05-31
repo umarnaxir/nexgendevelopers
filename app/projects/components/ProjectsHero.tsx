@@ -8,10 +8,10 @@ export default function ProjectsHero() {
           className="text-center mb-8"
           data-aos="zoom-in"
         >
-          <h1 className="pt-8 text-5xl sm:text-6xl lg:text-7xl font-extrabold text-black mb-4 leading-tight">
-            Our Projects
+          <h1 className="pt-8 text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gradient-light mb-4 leading-tight">
+            Our <span className="text-gradient-teal">Projects</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl sm:text-2xl text-silver max-w-3xl mx-auto leading-relaxed">
             Showcasing innovative solutions across healthcare, hospitality, nonprofit, and enterprise sectors
           </p>
         </div>

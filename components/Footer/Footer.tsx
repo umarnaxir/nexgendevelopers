@@ -179,7 +179,10 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="bg-teal-950 text-gray-300" data-aos="fade-up">
+    <footer
+      className="relative border-t border-white/[0.06] bg-[#050607] text-gray-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-teal-500/40 before:to-transparent"
+      data-aos="fade-up"
+    >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ===== Link columns ===== */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-8 pb-12 pt-14 lg:grid-cols-4">

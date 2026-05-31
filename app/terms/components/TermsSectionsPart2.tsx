@@ -8,7 +8,7 @@ export default function TermsSectionsPart2() {
     <>
       <TermsSection icon={CheckCircle} title="8. Content Guidelines and Prohibited Uses" delay={0.6} altBg>
         <p className="mb-3 sm:mb-4">When you add blogs, posts, or stories on our Platform, you must follow these rules. You agree not to use the Service to:</p>
-        <ul className="list-disc pl-5 sm:pl-6 space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+        <ul className="list-disc pl-5 sm:pl-6 space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 marker:text-teal-300">
           <li>Post, upload, or transmit any content that is illegal, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, invasive of another&apos;s privacy, or otherwise inappropriate (&quot;bad&quot; or harmful content)</li>
           <li>Upload or share any 18+ content, adult material, or content unsuitable for a business and technology platform</li>
           <li>Post content that is not related to technology, business ideas development, or tech-related topics — our Platform is for tech posts and business development content only</li>
@@ -19,7 +19,7 @@ export default function TermsSectionsPart2() {
           <li>Interfere with or disrupt the Service or servers or networks connected to the Service</li>
           <li>Violate any applicable local, state, national, or international law</li>
         </ul>
-        <p className="mb-3 sm:mb-4 font-semibold text-black">If you upload bad, inappropriate, 18+, or off-topic content, your account may be blocked, suspended, or terminated, and you may be subject to further action, including reporting to authorities where applicable.</p>
+        <p className="mb-3 sm:mb-4 font-semibold text-white">If you upload bad, inappropriate, 18+, or off-topic content, your account may be blocked, suspended, or terminated, and you may be subject to further action, including reporting to authorities where applicable.</p>
         <p>We reserve the right to remove any content that violates these guidelines without prior notice and to take action against your account.</p>
       </TermsSection>
 
@@ -27,7 +27,7 @@ export default function TermsSectionsPart2() {
         <p className="mb-3 sm:mb-4">
           In no event shall NexGen, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
         </p>
-        <ul className="list-disc pl-5 sm:pl-6 space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+        <ul className="list-disc pl-5 sm:pl-6 space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 marker:text-teal-300">
           <li>Your use or inability to use the Service</li>
           <li>Any conduct or content of third parties on the Service</li>
           <li>Any unauthorized access to or use of our servers and/or any personal information stored therein</li>
@@ -62,7 +62,7 @@ export default function TermsSectionsPart2() {
 
       <TermsSection icon={Users} title="13. Contact Information" delay={1.1} dark>
         <p className="mb-4 sm:mb-6">If you have any questions about these Terms of Service, please contact us:</p>
-        <div className="bg-gray-900 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-700">
+        <div className="glass p-4 sm:p-5 lg:p-6 rounded-2xl">
           <p className="mb-2"><strong className="text-white">Email:</strong> info@nexgendevelopers.in</p>
           <p className="mb-2"><strong className="text-white">Phone:</strong> +91 600-616-1726</p>
           <p><strong className="text-white">Location:</strong> Srinagar, Jammu and Kashmir, India</p>

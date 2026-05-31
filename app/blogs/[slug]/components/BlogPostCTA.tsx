@@ -7,16 +7,16 @@ export default function BlogPostCTA() {
 
   return (
     <div
-      className="mt-12 p-8 bg-gray-50 rounded-xl border-2 border-black shadow-md text-center"
+      className="glass-card mt-12 p-8 rounded-2xl text-center"
       data-aos="fade-up"
     >
-      <h2 className="text-2xl font-bold text-black mb-4">Ready to Start Your Project?</h2>
-      <p className="text-gray-700 mb-6">
+      <h2 className="text-2xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
+      <p className="text-silver mb-6">
         Let's discuss how we can help bring your ideas to life.
       </p>
       <button
         onClick={openContactModal}
-        className="inline-block px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition-all duration-300 uppercase tracking-wide hover:scale-105 active:scale-95"
+        className="inline-block px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-700 text-white font-bold rounded-lg hover:from-teal-400 hover:to-teal-600 transition-all duration-300 uppercase tracking-wide hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40"
       >
         Get in Touch
       </button>

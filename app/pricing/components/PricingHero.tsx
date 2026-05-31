@@ -17,15 +17,15 @@ const heroSubtitles: Record<PricingServiceType, string> = {
 export default function PricingHero({ service }: PricingHeroProps) {
   return (
     <div className="text-center mb-8 md:mb-10" data-aos="fade-up">
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-black mb-4">
+      <h1 className="text-gradient-light text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4">
         Transparent{" "}
-        <span className="text-teal-600">Pricing Models</span>
+        <span className="text-gradient-teal">Pricing Models</span>
       </h1>
-      <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-2">
+      <p className="text-lg sm:text-xl text-silver-light max-w-3xl mx-auto mb-2">
         {heroSubtitles[service]}
       </p>
-      <p className="text-sm text-gray-500">
-        Showing pricing for: <strong>{serviceLabels[service]}</strong>
+      <p className="text-sm text-silver-dark">
+        Showing pricing for: <strong className="text-white">{serviceLabels[service]}</strong>
       </p>
     </div>
   );

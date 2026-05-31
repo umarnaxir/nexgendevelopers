@@ -21,7 +21,7 @@ interface BlogPostContentProps {
 
 export default function BlogPostContent({ blog }: BlogPostContentProps) {
   return (
-    <div className="prose prose-lg max-w-none">
+    <div className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-p:text-silver-light prose-a:text-teal-300 prose-strong:text-white prose-li:text-silver-light prose-code:text-teal-200 prose-blockquote:text-silver-light prose-blockquote:border-teal-400/50 prose-hr:border-white/10">
       {blog.sections.map((section, index) => {
         const aosDelay = Math.min(index * 50, 400);
 
@@ -32,7 +32,7 @@ export default function BlogPostContent({ blog }: BlogPostContentProps) {
               key={index}
               data-aos="fade-up"
               data-aos-delay={aosDelay}
-              className={`font-bold text-black mb-6 mt-12 ${
+              className={`font-bold text-white mb-6 mt-12 ${
                 section.headingLevel === 1 ? 'text-4xl' :
                 section.headingLevel === 2 ? 'text-3xl' :
                 'text-2xl'
@@ -47,7 +47,7 @@ export default function BlogPostContent({ blog }: BlogPostContentProps) {
           return (
             <div
               key={index}
-              className="relative w-full h-64 sm:h-96 my-12 rounded-xl overflow-hidden"
+              className="relative w-full h-64 sm:h-96 my-12 rounded-xl overflow-hidden border border-white/10"
               data-aos="fade-up"
               data-aos-delay={aosDelay}
             >
@@ -65,7 +65,7 @@ export default function BlogPostContent({ blog }: BlogPostContentProps) {
           return (
             <p
               key={index}
-              className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg"
+              className="text-silver-light leading-relaxed mb-6 text-base sm:text-lg"
               data-aos="fade-up"
               data-aos-delay={aosDelay}
             >
@@ -79,31 +79,31 @@ export default function BlogPostContent({ blog }: BlogPostContentProps) {
 
       {/* Internal + External links for SEO and UX */}
       <div
-        className="mt-12 p-6 rounded-xl bg-gray-50 border border-gray-200"
+        className="glass-card mt-12 p-6 rounded-xl"
         data-aos="fade-up"
         data-aos-delay="200"
       >
-        <h3 className="text-xl font-bold text-black mb-4">Further reading</h3>
+        <h3 className="text-xl font-bold text-white mb-4">Further reading</h3>
         <ul className="space-y-3">
           <li>
             <Link
               href={blog.internalLink.href}
-              className="text-black font-semibold hover:underline underline-offset-2"
+              className="text-teal-300 font-semibold underline decoration-teal-400/40 underline-offset-2 hover:text-teal-200"
             >
               {blog.internalLink.text} →
             </Link>
-            <span className="text-gray-500 text-sm ml-1">(our services)</span>
+            <span className="text-silver-dark text-sm ml-1">(our services)</span>
           </li>
           <li>
             <a
               href={blog.externalLink.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black font-semibold hover:underline underline-offset-2"
+              className="text-teal-300 font-semibold underline decoration-teal-400/40 underline-offset-2 hover:text-teal-200"
             >
               {blog.externalLink.text} ↗
             </a>
-            <span className="text-gray-500 text-sm ml-1">(external)</span>
+            <span className="text-silver-dark text-sm ml-1">(external)</span>
           </li>
         </ul>
       </div>

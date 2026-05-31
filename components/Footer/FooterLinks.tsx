@@ -85,7 +85,7 @@ export default function FooterLinks({ title, links, gridCols }: FooterLinksProps
     <div className={title ? "" : "flex-row gap-4"}>
       {title && (
         <div className="mb-2">
-          <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-gray-900">
+          <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-white">
             {title}
           </h3>
         </div>
@@ -97,12 +97,12 @@ export default function FooterLinks({ title, links, gridCols }: FooterLinksProps
             <div key={`${link.href}-${link.label}`}>
               <Link
                 href={link.href}
-                className="group relative inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700 py-1.5 w-fit transition-colors duration-200 hover:text-teal-600"
+                className="group relative inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-silver py-1.5 w-fit transition-colors duration-200 hover:text-white"
               >
                 <div className="flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200">
-                  <Icon className="w-4 h-4 text-gray-600 group-hover:text-teal-600 transition-colors duration-200" />
+                  <Icon className="w-4 h-4 text-teal-400 group-hover:text-teal-300 transition-colors duration-200" />
                 </div>
-                <span className="block transition-colors duration-200 group-hover:text-teal-600 group-hover:translate-x-0.5">
+                <span className="block transition-colors duration-200 group-hover:text-white group-hover:translate-x-0.5">
                   {link.label}
                 </span>
               </Link>

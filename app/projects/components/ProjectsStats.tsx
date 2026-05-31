@@ -17,13 +17,13 @@ export default function ProjectsStats() {
                 data-aos="zoom-in"
                 data-aos-delay={index * 80}
               >
-                <div className="inline-flex items-center justify-center w-36 h-36 md:w-28 md:h-28 lg:w-24 lg:h-24 bg-black rounded-2xl mb-6 md:mb-5 shadow-md transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-xl group-active:scale-95">
-                  <IconComponent className="w-20 h-20 md:w-16 md:h-16 lg:w-12 lg:h-12 text-white" />
+                <div className="inline-flex items-center justify-center w-36 h-36 md:w-28 md:h-28 lg:w-24 lg:h-24 border border-teal-400/20 bg-teal-400/10 text-teal-300 rounded-2xl mb-6 md:mb-5 shadow-lg shadow-teal-500/10 transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-teal-500/20 group-active:scale-95">
+                  <IconComponent className="w-20 h-20 md:w-16 md:h-16 lg:w-12 lg:h-12" />
                 </div>
-                <div className="text-5xl sm:text-6xl lg:text-6xl font-extrabold text-black mb-2 tabular-nums">
+                <div className="text-5xl sm:text-6xl lg:text-6xl font-extrabold text-white mb-2 tabular-nums">
                   {stat.value}
                 </div>
-                <div className="text-base sm:text-lg lg:text-lg text-gray-600 font-semibold">
+                <div className="text-base sm:text-lg lg:text-lg text-silver-dark font-semibold">
                   {stat.label}
                 </div>
               </div>

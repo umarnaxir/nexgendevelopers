@@ -22,12 +22,12 @@ export default function RelatedBlogs({ relatedBlogs }: RelatedBlogsProps) {
       className="mt-16"
       data-aos="fade-up"
     >
-      <h2 className="text-3xl font-bold text-black mb-8" data-aos="zoom-in">Related Articles</h2>
+      <h2 className="text-3xl font-bold text-white mb-8" data-aos="zoom-in">Related Articles</h2>
       <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
         {relatedBlogs.map((relatedBlog, index) => (
           <div
             key={relatedBlog.slug}
-            className="bg-gray-50 p-0 rounded-xl border-2 border-transparent transition-all duration-300 overflow-hidden hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1"
+            className="glass-card group p-0 rounded-2xl overflow-hidden"
             data-aos="zoom-in"
             data-aos-delay={index * 80}
           >
@@ -42,14 +42,14 @@ export default function RelatedBlogs({ relatedBlogs }: RelatedBlogsProps) {
               </div>
               <div className="p-6">
                 <div className="mb-4">
-                  <span className="inline-block px-3 py-1 bg-black text-white text-xs font-bold rounded uppercase">
+                  <span className="inline-block px-3 py-1 border border-teal-400/20 bg-teal-400/10 text-teal-300 text-xs font-bold rounded uppercase">
                     {relatedBlog.category}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-black mb-3">{relatedBlog.title}</h3>
-                <p className="text-gray-700 mb-4 leading-relaxed text-sm">{relatedBlog.excerpt}</p>
-                <p className="text-sm text-gray-600 mb-4">{relatedBlog.date}</p>
-                <span className="inline-flex items-center text-black hover:text-gray-700 font-bold group">
+                <h3 className="text-xl font-bold text-white mb-3 transition-colors group-hover:text-teal-300">{relatedBlog.title}</h3>
+                <p className="text-silver mb-4 leading-relaxed text-sm">{relatedBlog.excerpt}</p>
+                <p className="text-sm text-silver-dark mb-4">{relatedBlog.date}</p>
+                <span className="inline-flex items-center text-teal-300 font-bold">
                   Read More
                   <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

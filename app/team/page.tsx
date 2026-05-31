@@ -7,7 +7,7 @@ export const metadata = getTeamSEO();
 
 export default function TeamPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen">
       <TeamHero />
       <TeamGrid />
       <PrivacyNote />

@@ -56,14 +56,14 @@ export default function MobileNav({
 
   return (
     <div
-      className="lg:hidden fixed left-0 right-0 top-0 bottom-0 z-[99] h-[100vh] min-h-[100vh] w-[100vw] bg-white overflow-y-auto animate-mobile-nav-in"
+      className="lg:hidden fixed left-0 right-0 top-0 bottom-0 z-[99] h-[100vh] min-h-[100vh] w-[100vw] bg-black overflow-y-auto animate-mobile-nav-in"
     >
       {/* Top bar with logo and close button */}
-      <div className="sticky top-0 z-10 flex items-center justify-between h-20 px-4 sm:px-6 bg-white shrink-0">
+      <div className="sticky top-0 z-10 flex items-center justify-between h-20 px-4 sm:px-6 bg-black/80 backdrop-blur-xl border-b border-white/[0.06] shrink-0">
         <div onClick={onClose}>
-          <NavLogo />
+          <NavLogo light />
         </div>
-        <Hamburger isOpen={true} onClick={onClose} spinOnMount />
+        <Hamburger isOpen={true} onClick={onClose} spinOnMount light />
       </div>
 
       <div className="flex min-h-[calc(100vh-5rem)] w-[100vw] flex-col px-3 pb-8 pt-2 sm:px-6">
@@ -71,15 +71,15 @@ export default function MobileNav({
           <NavLinks links={links} isMobile onLinkClick={onLinkClick} />
         </div>
 
-        <div className="mt-5 space-y-3 rounded-2xl bg-gray-50 px-4 py-4 shadow-sm" data-aos="fade-up" data-aos-duration="600">
+        <div className="glass mt-5 space-y-3 rounded-2xl px-4 py-4" data-aos="fade-up" data-aos-duration="600">
           <div className="space-y-2.5">
             {contactItems.map(({ icon: Icon, href, label }) => (
               <a
                 key={href}
                 href={href}
-                className="flex min-w-0 items-center gap-3 text-sm font-bold tracking-wide text-gray-900"
+                className="flex min-w-0 items-center gap-3 text-sm font-bold tracking-wide text-white"
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-teal-600 shadow-sm">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-teal-400/20 bg-teal-400/10 text-teal-300">
                   <Icon className="h-4 w-4" />
                 </span>
                 <span className="truncate">{label}</span>
@@ -95,7 +95,7 @@ export default function MobileNav({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-900 shadow-sm transition-all duration-300 hover:bg-teal-600 hover:text-white active:scale-95"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-silver-light transition-all duration-300 hover:border-teal-400/50 hover:bg-teal-500 hover:text-white active:scale-95"
               >
                 <Icon className="h-4 w-4" />
               </a>

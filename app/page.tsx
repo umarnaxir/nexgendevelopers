@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <WhyChooseUsSection />
+      <WhyChooseUsSection dark />
       <AboutSection />
       <FeaturedWorkSection />
       <ServicesSection />

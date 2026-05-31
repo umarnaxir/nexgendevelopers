@@ -35,25 +35,23 @@ export default function AboutContent() {
       <div className="space-y-8 sm:space-y-10 md:space-y-12">
         {/* Who We Are */}
         <div data-aos="zoom-in">
-          <h2 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-5 text-start border-l-4 border-teal-400 pl-4"
-            style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)" }}
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-5 text-start border-l-4 border-teal-400 pl-4"
           >
             Who We Are
           </h2>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 text-start">
+          <p className="text-base sm:text-lg text-silver leading-relaxed mb-4 text-start">
             NexGen Developers is a collective of engineering professionals united to deliver premium services. We help startups and local brands with AI/ML, chatbots, web & app development, and digital marketing — crafting digital experiences that stand out and deliver results.
           </p>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-start">
+          <p className="text-base sm:text-lg text-silver leading-relaxed text-start">
             Based in Srinagar, Jammu and Kashmir, India, we work with clients globally, bringing world-class development expertise to startups and local businesses. Our team combines diverse expertise with a passion for technological innovation, enabling us to tackle complex challenges with precision and creativity.
           </p>
         </div>
 
         {/* Services Grid */}
         <div data-aos="fade-up">
-          <h2 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6 text-start border-l-4 border-teal-400 pl-4"
-            style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)" }}
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 text-start border-l-4 border-teal-400 pl-4"
           >
             What We Do
           </h2>
@@ -61,19 +59,17 @@ export default function AboutContent() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-gray-50 p-4 sm:p-6 rounded-lg border-2 border-transparent transition-all duration-300 hover:border-teal-200 hover:shadow-md"
+                className="glass-card rounded-2xl p-4 sm:p-6"
                 data-aos="zoom-in"
                 data-aos-delay={index * 80}
               >
                 <h4
-                  className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3"
-                  style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)" }}
+                  className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3"
                 >
                   {service.title}
                 </h4>
                 <p
-                  className="text-sm sm:text-base text-gray-700"
-                  style={{ textShadow: "0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5)" }}
+                  className="text-sm sm:text-base text-silver"
                 >
                   {service.desc}
                 </p>
@@ -84,15 +80,13 @@ export default function AboutContent() {
 
         {/* Promotion Cards: Share ideas, Post stories, Blogs */}
         <div data-aos="fade-up">
-          <h2 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-2 sm:mb-3 text-start border-l-4 border-teal-400 pl-4"
-            style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)" }}
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 text-start border-l-4 border-teal-400 pl-4"
           >
             Insights &amp; Growth
           </h2>
           <p
-            className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 pl-4"
-            style={{ textShadow: "0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5)" }}
+            className="text-sm sm:text-base text-silver-dark mb-6 sm:mb-8 pl-4"
           >
             Explore our blogs for ideas and insights, or get in touch to build, launch, and grow your business with us.
           </p>
@@ -103,20 +97,20 @@ export default function AboutContent() {
                 <Link
                   key={card.title}
                   href={card.href}
-                  className="group flex flex-col h-full bg-white p-4 sm:p-5 rounded-xl border-2 border-gray-200 shadow-md hover:shadow-lg hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                  className="glass-card group flex flex-col h-full p-4 sm:p-5 rounded-2xl hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40"
                   data-aos="fade-up"
                   data-aos-delay={index * 80}
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-600 mb-3 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-teal-400/20 bg-teal-400/10 flex items-center justify-center text-teal-300 mb-3 group-hover:bg-teal-400/20 group-hover:text-teal-200 transition-all duration-300">
                     <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h5 className="text-base sm:text-lg font-bold text-black mb-2 group-hover:text-teal-600 transition-colors">
+                  <h5 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">
                     {card.title}
                   </h5>
-                  <p className="text-sm text-gray-600 leading-relaxed flex-1 mb-4">
+                  <p className="text-sm text-silver leading-relaxed flex-1 mb-4">
                     {card.description}
                   </p>
-                  <span className="inline-flex items-center font-semibold text-teal-600 text-sm group-hover:gap-2 gap-1 transition-all">
+                  <span className="inline-flex items-center font-semibold text-teal-300 text-sm group-hover:gap-2 gap-1 transition-all">
                     {card.cta}
                     <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" />
                   </span>
@@ -128,16 +122,15 @@ export default function AboutContent() {
 
         {/* Our Approach */}
         <div data-aos="zoom-in">
-          <h2 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-5 text-start border-l-4 border-teal-400 pl-4"
-            style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)" }}
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-5 text-start border-l-4 border-teal-400 pl-4"
           >
             Our Approach
           </h2>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 text-start">
+          <p className="text-base sm:text-lg text-silver leading-relaxed mb-4 text-start">
             We follow an agile development methodology, ensuring transparent communication, regular updates, and iterative improvements. Our collaborative approach means you're involved in every step of the process, from planning to deployment.
           </p>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-start">
+          <p className="text-base sm:text-lg text-silver leading-relaxed text-start">
             We prioritize quality, performance, and user experience in everything we build. Every project is tailored to your specific needs, ensuring that the final product aligns perfectly with your business goals and helps you build, launch, and grow your business.
           </p>
         </div>

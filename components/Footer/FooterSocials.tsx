@@ -48,7 +48,7 @@ export default function FooterSocials() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={social.ariaLabel}
-          className="flex items-center justify-center w-9 h-9 rounded-full border border-white/15 text-gray-300 transition-all duration-200 hover:border-teal-400 hover:bg-teal-500 hover:text-white hover:scale-110 active:scale-95"
+          className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 text-silver transition-all duration-200 hover:border-teal-400/50 hover:text-teal-300 hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40"
         >
           {social.icon}
         </a>

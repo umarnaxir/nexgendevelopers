@@ -13,22 +13,21 @@ interface TermsSectionProps {
 }
 
 export default function TermsSection({ icon: Icon, title, children, dark = false, altBg = false }: TermsSectionProps) {
-  const bgClass = dark
-    ? "bg-black p-4 sm:p-6 lg:p-8 rounded-xl text-white"
-    : altBg
-    ? "bg-white p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 shadow-md transition-all duration-300"
-    : "bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-xl border-2 border-gray-200 shadow-md transition-all duration-300";
+  const bgClass = "glass p-4 sm:p-6 lg:p-8 rounded-2xl transition-all duration-300";
+  // dark and altBg retained for compatibility; all variants now use the same premium glass surface.
+  void dark;
+  void altBg;
   return (
     <section className={bgClass} data-aos="zoom-in">
       <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-4">
-        <div className={dark ? "bg-white p-2 sm:p-3 rounded-lg flex-shrink-0" : "bg-black p-2 sm:p-3 rounded-lg flex-shrink-0"}>
-          <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${dark ? "text-black" : "text-white"}`} />
+        <div className="flex-shrink-0 rounded-lg border border-teal-400/20 bg-teal-400/10 p-2 sm:p-3">
+          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-teal-300" />
         </div>
         <div className="flex-1 w-full">
-          <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 ${dark ? "text-white" : "text-black"}`}>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-white">
             {title}
           </h2>
-          <div className={`text-sm sm:text-base leading-relaxed ${dark ? "text-gray-200" : "text-gray-700"}`}>
+          <div className="text-sm sm:text-base leading-relaxed text-silver-light">
             {children}
           </div>
         </div>

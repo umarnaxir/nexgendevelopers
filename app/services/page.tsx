@@ -24,7 +24,7 @@ const ContactCTA = dynamic(() => import("../about/components/ContactCTA"), {
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen page-bg" role="main">
+    <main className="min-h-screen" role="main">
       <section aria-labelledby="services-heading" className="pt-8 sm:pt-10 md:pt-12 lg:pt-16 pb-16 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <ServicesHero />

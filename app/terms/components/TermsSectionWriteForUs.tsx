@@ -5,43 +5,43 @@ import { PenTool, Link2, TrendingUp, UserCheck, AlertCircle } from "lucide-react
 export default function TermsSectionWriteForUs() {
   return (
     <section
-      className="bg-black p-4 sm:p-6 lg:p-8 rounded-xl text-white"
+      className="glass p-4 sm:p-6 lg:p-8 rounded-2xl"
       data-aos="zoom-in"
     >
       <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-        <div className="bg-white p-2 sm:p-3 rounded-lg flex-shrink-0">
-          <PenTool className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+        <div className="flex-shrink-0 rounded-lg border border-teal-400/20 bg-teal-400/10 p-2 sm:p-3">
+          <PenTool className="w-5 h-5 sm:w-6 sm:h-6 text-teal-300" />
         </div>
         <div className="flex-1 w-full">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">5. User-Generated Content &amp; Write for Us Program</h2>
-          <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4 sm:mb-6">
+          <p className="text-sm sm:text-base text-silver-light leading-relaxed mb-4 sm:mb-6">
             NexGen is a creative platform where users can add blogs, posts, and stories. We also offer a &quot;Write for Us&quot; program that allows content creators, bloggers, and businesses to submit guest posts and articles. All user content must be appropriate, lawful, and aligned with our content guidelines (see Section 8). This program and the Platform provide opportunities for backlinks, business promotion, and content distribution focused on technology and business development.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
-            <div className="bg-gray-900 p-4 sm:p-5 rounded-lg border border-gray-700">
-              <Link2 className="w-6 h-6 sm:w-8 sm:h-8 text-white mb-2 sm:mb-3" />
+            <div className="glass p-4 sm:p-5 rounded-2xl">
+              <Link2 className="w-6 h-6 sm:w-8 sm:h-8 text-teal-400 mb-2 sm:mb-3" />
               <h3 className="font-bold text-sm sm:text-base text-white mb-2">Get Backlinks</h3>
-              <p className="text-xs sm:text-sm text-gray-300">Earn valuable backlinks to your website or business when your content is published on our platform.</p>
+              <p className="text-xs sm:text-sm text-silver">Earn valuable backlinks to your website or business when your content is published on our platform.</p>
             </div>
-            <div className="bg-gray-900 p-4 sm:p-5 rounded-lg border border-gray-700">
-              <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white mb-2 sm:mb-3" />
+            <div className="glass p-4 sm:p-5 rounded-2xl">
+              <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-teal-400 mb-2 sm:mb-3" />
               <h3 className="font-bold text-sm sm:text-base text-white mb-2">Promote Your Business</h3>
-              <p className="text-xs sm:text-sm text-gray-300">Showcase your expertise and promote your business to our engaged audience. Content should focus on tech and business ideas development only.</p>
+              <p className="text-xs sm:text-sm text-silver">Showcase your expertise and promote your business to our engaged audience. Content should focus on tech and business ideas development only.</p>
             </div>
-            <div className="bg-gray-900 p-4 sm:p-5 rounded-lg border border-gray-700">
-              <UserCheck className="w-6 h-6 sm:w-8 sm:h-8 text-white mb-2 sm:mb-3" />
+            <div className="glass p-4 sm:p-5 rounded-2xl">
+              <UserCheck className="w-6 h-6 sm:w-8 sm:h-8 text-teal-400 mb-2 sm:mb-3" />
               <h3 className="font-bold text-sm sm:text-base text-white mb-2">Work With Us</h3>
-              <p className="text-xs sm:text-sm text-gray-300">Build relationships and collaborate with our team while sharing your knowledge and insights.</p>
+              <p className="text-xs sm:text-sm text-silver">Build relationships and collaborate with our team while sharing your knowledge and insights.</p>
             </div>
           </div>
-          <div className="bg-gray-900 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-700 mb-4 sm:mb-6">
+          <div className="glass p-4 sm:p-5 lg:p-6 rounded-2xl mb-4 sm:mb-6">
             <h3 className="font-bold text-white mb-3 sm:mb-4 text-lg sm:text-xl">How It Works</h3>
-            <ol className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-200">
-              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-white text-black rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">1</span><span><strong className="text-white">Sign Up & Login:</strong> Create an account and log in to our platform to access the content submission system.</span></li>
-              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-white text-black rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">2</span><span><strong className="text-white">Submit Your Content:</strong> After logging in, you can submit your blog posts, articles, or content pieces through our submission portal.</span></li>
-              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-white text-black rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">3</span><span><strong className="text-white">Our Review Process:</strong> Our editorial team will review your submission for quality, relevance, and adherence to our content guidelines.</span></li>
-              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-white text-black rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">4</span><span><strong className="text-white">Approval & Publication:</strong> Once approved, your content will be published on our platform with proper attribution and backlinks to your website or business.</span></li>
-              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-white text-black rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">5</span><span><strong className="text-white">Promote & Share:</strong> You can share your published content on your own channels and leverage the backlinks for SEO benefits.</span></li>
+            <ol className="space-y-2 sm:space-y-3 text-sm sm:text-base text-silver-light">
+              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">1</span><span><strong className="text-white">Sign Up & Login:</strong> Create an account and log in to our platform to access the content submission system.</span></li>
+              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">2</span><span><strong className="text-white">Submit Your Content:</strong> After logging in, you can submit your blog posts, articles, or content pieces through our submission portal.</span></li>
+              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">3</span><span><strong className="text-white">Our Review Process:</strong> Our editorial team will review your submission for quality, relevance, and adherence to our content guidelines.</span></li>
+              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">4</span><span><strong className="text-white">Approval & Publication:</strong> Once approved, your content will be published on our platform with proper attribution and backlinks to your website or business.</span></li>
+              <li className="flex items-start gap-2 sm:gap-3"><span className="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">5</span><span><strong className="text-white">Promote & Share:</strong> You can share your published content on your own channels and leverage the backlinks for SEO benefits.</span></li>
             </ol>
           </div>
           <div className="bg-yellow-500/20 border border-yellow-500/50 p-3 sm:p-4 rounded-lg">

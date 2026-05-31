@@ -44,8 +44,8 @@ export default function NavLinks({ links, isMobile = false, onLinkClick }: NavLi
                 onClick={onLinkClick}
                 className={`relative block py-3 px-4 text-sm font-extrabold tracking-wide rounded-xl transition-all duration-300 ${
                   isActive
-                    ? "text-gray-900 bg-gray-50 shadow-md"
-                    : "text-gray-900 hover:bg-gray-50 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-md active:scale-[0.98]"
+                    ? "text-white bg-white/[0.06]"
+                    : "text-silver-light hover:bg-white/[0.04] hover:text-white hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98]"
                 }`}
               >
                 {link.label}
