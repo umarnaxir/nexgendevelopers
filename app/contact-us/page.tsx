@@ -1,7 +1,6 @@
 import ContactUsHero from "./components/ContactUsHero";
 import ContactUsContent from "./components/ContactUsContent";
 import ContactSection from "@/app/home/ContactSection";
-import ContactUsSocials from "./components/ContactUsSocials";
 import { getContactUsSEO } from "@/lib/seo/page-seo";
 
 export const metadata = getContactUsSEO();
@@ -13,7 +12,6 @@ export default function ContactUsPage() {
         <ContactUsHero />
         <ContactUsContent />
         <ContactSection />
-        <ContactUsSocials />
       </div>
     </div>
   );
