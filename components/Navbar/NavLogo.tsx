@@ -8,7 +8,7 @@ export default function NavLogo() {
   return (
     <Link href="/" className="flex items-center gap-3 shrink-0 py-1.5 hover:scale-105 active:scale-95 transition-transform duration-300">
       <Image
-        src="/logo/ndlogo.png"
+        src="/logo/nd.png"
         alt="NexGen Developers"
         width={64}
         height={64}

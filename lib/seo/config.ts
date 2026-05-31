@@ -8,7 +8,7 @@
 export const seoConfig = {
   // Site Information
   siteName: "NexGen Developers",
-  siteUrl: "https://nexgendevelopers.in",
+  siteUrl: "https://www.nexgendevelopers.in",
   
   // Publisher Information
   publisher: "NexGen Developers",
@@ -30,7 +30,7 @@ export const seoConfig = {
   ],
   
   // Default OG Image - Using logo
-  defaultOgImage: "https://nexgendevelopers.in/logo/company-logo.jpeg",
+  defaultOgImage: "https://www.nexgendevelopers.in/logo/company-logo.jpeg",
   defaultOgImageWidth: 1200,
   defaultOgImageHeight: 1200, // Logo is typically square, adjust if needed
   defaultOgImageAlt: "NexGen Developers Logo",
@@ -41,7 +41,7 @@ export const seoConfig = {
   // Author Information
   author: {
     name: "NexGen Developers",
-    url: "https://nexgendevelopers.in",
+    url: "https://www.nexgendevelopers.in",
   },
   
   // Robots Default
