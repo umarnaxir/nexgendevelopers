@@ -11,8 +11,10 @@ export default function ContactSection() {
     phone: "",
     email: "",
     service: "",
-    message: ""
+    message: "",
+    website: "", // Honeypot field
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const serviceOptions = [
@@ -24,44 +26,74 @@ export default function ContactSection() {
     { value: "other", label: "Other Services" },
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const validateForm = () => {
+    if (formData.name.trim().length < 2) {
+      toast.error("Please enter a valid name");
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Please enter a valid email address");
+      return false;
+    }
+
+    const digitsOnly = formData.phone.replace(/\D/g, "");
+
+    if (digitsOnly.length < 8 || digitsOnly.length > 15) {
+      toast.error("Please enter a valid phone number");
+      return false;
+    }
+
+    if (!formData.service) {
+      toast.error("Please select a service");
+      return false;
+    }
+
+    if (formData.message.trim().length < 10) {
+      toast.error("Message must be at least 10 characters");
+      return false;
+    }
+
+    return true;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) return;
+
     setIsSubmitting(true);
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 35000); // 35s so server has time to connect to SMTP
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
     try {
-      const apiUrl = typeof window !== "undefined" ? `${window.location.origin}/api/contact` : "/api/contact";
-      const response = await fetch(apiUrl, {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
         signal: controller.signal,
+        body: JSON.stringify(formData),
       });
 
       clearTimeout(timeoutId);
 
-      const contentType = response.headers.get("content-type");
-      let data: { error?: string; details?: string; message?: string };
-
-      if (contentType?.includes("application/json")) {
-        data = await response.json();
-      } else {
-        const text = await response.text();
-        throw new Error(text || `Server error: ${response.status}`);
-      }
+      const data = await response.json();
 
       if (!response.ok) {
-        const msg = data.details ? `${data.error} (${data.details})` : (data.error || "Failed to send message");
-        throw new Error(msg);
+        throw new Error(data.error || "Failed to send message");
       }
 
       toast.success("Message sent successfully!", {
@@ -74,18 +106,19 @@ export default function ContactSection() {
         phone: "",
         email: "",
         service: "",
-        message: ""
+        message: "",
+        website: "",
       });
     } catch (error) {
       const message =
         error instanceof Error
           ? error.name === "AbortError"
-            ? "Request took too long. Please try again."
+            ? "Request timed out. Please try again."
             : error.message
-          : "Please try again later.";
+          : "Something went wrong.";
+
       toast.error("Failed to send message", {
         description: message,
-        duration: 5000,
       });
     } finally {
       clearTimeout(timeoutId);
@@ -94,126 +127,107 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-6 sm:py-8" data-aos="fade-up">
+    <section id="contact" className="py-6 sm:py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div 
-          className="mb-10 sm:mb-12 md:mb-16"
-          data-aos="zoom-in"
-        >
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4 px-4">
-            <Image 
-              src="/images/common/contact-icon.png" 
-              alt="Contact icon" 
-              width={48} 
+        <div className="mb-12 text-center">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <Image
+              src="/images/common/contact-icon.png"
+              alt="Contact"
+              width={48}
               height={48}
-              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain"
-              style={{ filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))' }}
             />
-            <h2 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black"
-              style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)' }}
-            >
+
+            <h2 className="text-4xl md:text-5xl font-bold">
               Contact Us
             </h2>
           </div>
-          <p 
-            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 text-center"
-            style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5)' }}
-          >
-            Ready to bring your ideas to life? We're here to help you succeed.
+
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Ready to bring your ideas to life? We're here to help.
           </p>
         </div>
 
-        <div data-aos="zoom-in">
-          {/* Contact Form */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-black mb-6 sm:mb-8 text-center">Send Us a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              {/* Row 1: Name and Email */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <div>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your Name"
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base border border-gray-300 rounded-lg outline-none transition-all placeholder:text-black text-black bg-white focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
-                    required
-                  />
-                </div>
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6 max-w-4xl mx-auto"
+        >
+          {/* Honeypot */}
+          <input
+            type="text"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+            autoComplete="off"
+            tabIndex={-1}
+            className="hidden"
+          />
 
-                <div>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Your Email"
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base border border-gray-300 rounded-lg outline-none transition-all placeholder:text-black text-black bg-white focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
-                    required
-                  />
-                </div>
-              </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your Name"
+              required
+              className="w-full px-5 py-4 border rounded-lg"
+            />
 
-              {/* Row 2: Phone and Service */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <div>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number"
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base border border-gray-300 rounded-lg outline-none transition-all placeholder:text-black text-black bg-white focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <Select
-                    options={serviceOptions}
-                    value={formData.service}
-                    onChange={(value) => setFormData({ ...formData, service: value })}
-                    placeholder="Select a Service"
-                    className="h-auto py-3 sm:py-4 px-4 sm:px-5 text-sm sm:text-base border-gray-300"
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Message Textarea */}
-              <div>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project"
-                  rows={4}
-                  className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base border border-gray-300 rounded-lg outline-none transition-all resize-none placeholder:text-black text-black bg-white focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
-                  required
-                />
-              </div>
-
-              {/* Submit Button */}
-              <div
-                className="pt-2"
-              >
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg bg-black text-white font-bold rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-teal-400/30 transition-all duration-300 uppercase tracking-wide shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </button>
-              </div>
-            </form>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your Email"
+              required
+              className="w-full px-5 py-4 border rounded-lg"
+            />
           </div>
-        </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone Number"
+              required
+              className="w-full px-5 py-4 border rounded-lg"
+            />
+
+            <Select
+              options={serviceOptions}
+              value={formData.service}
+              onChange={(value) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  service: value,
+                }))
+              }
+              placeholder="Select a Service"
+              required
+            />
+          </div>
+
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Tell us about your project"
+            rows={5}
+            required
+            className="w-full px-5 py-4 border rounded-lg resize-none"
+          />
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-4 bg-black text-white rounded-lg font-semibold disabled:opacity-50"
+          >
+            {isSubmitting ? "Sending..." : "Send Message"}
+          </button>
+        </form>
       </div>
     </section>
   );

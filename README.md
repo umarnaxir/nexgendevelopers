@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Email Forms
+
+The contact, callback, and newsletter forms use Resend. Add these values to `.env.local`:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+RESEND_FROM_EMAIL="NexGen Developers <forms@nexgendevelopers.in>"
+RESEND_TO_EMAIL=info@nexgendevelopers.in
+```
+
+To avoid spam placement, verify `nexgendevelopers.in` in Resend and add the DNS records Resend provides for SPF, DKIM, and DMARC before using the domain sender in production.
+
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
