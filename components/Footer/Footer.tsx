@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { toast } from "sonner";
 import {
   Send,
   ArrowUp,
@@ -140,12 +141,39 @@ export default function Footer() {
 
   const [email, setEmail] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    setEmail("");
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 3000);
+
+    if (!email.trim()) return;
+
+    setIsSubscribing(true);
+    setShowAlert(false);
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data: { error?: string; message?: string } = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Subscription failed. Please try again.");
+      }
+
+      setEmail("");
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Please try again later.";
+      toast.error("Couldn't subscribe", { description: message, duration: 5000 });
+    } finally {
+      setIsSubscribing(false);
+    }
   };
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -221,12 +249,14 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
+                disabled={isSubscribing}
                 className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white outline-none transition-all placeholder:text-gray-500 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
               />
               <button
                 type="submit"
                 aria-label="Subscribe"
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-500 text-white transition-all hover:bg-teal-400 active:scale-95"
+                disabled={isSubscribing}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-500 text-white transition-all hover:bg-teal-400 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send className="h-5 w-5" />
               </button>

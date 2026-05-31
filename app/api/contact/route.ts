@@ -1,151 +1,259 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-
-const SEND_TIMEOUT_MS = 25000; // 25s max wait for sending (SMTP can be slow on some networks)
+import {
+  escapeHtml,
+  isValidEmail,
+  sendResendEmail,
+} from "@/app/api/_utils/resend";
 
 export async function POST(request: NextRequest) {
   try {
-    let body;
-    try {
-      body = await request.json();
-    } catch (parseError) {
+    const body = await request.json();
+
+    const name = String(body.name || "").trim();
+    const phone = String(body.phone || "").trim();
+    const email = String(body.email || "").trim().toLowerCase();
+    const service = String(body.service || "").trim();
+    const message = String(body.message || "").trim();
+
+    // Honeypot field (hidden input in frontend)
+    const website = String(body.website || "").trim();
+
+    if (website) {
       return NextResponse.json(
-        { error: "Invalid JSON in request body" },
-        { status: 400 }
+        { message: "Message sent successfully." },
+        { status: 200 }
       );
     }
 
-    const { name, email, phone, service, message } = body;
-
-    // Name and phone are always required. Email/service/message are optional so a
-    // lightweight "Request a Callback" submission (name + phone) works too.
-    if (!name || !phone) {
-      return NextResponse.json(
-        { error: "Name and contact number are required" },
-        { status: 400 }
-      );
-    }
-
-    // Validate email format only when an email was provided
-    if (email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        return NextResponse.json(
-          { error: "Invalid email format" },
-          { status: 400 }
-        );
-      }
-    }
-
-    // Get environment variables
-    const gmailUser = process.env.GMAIL_USER;
-    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
-
-    if (!gmailUser || !gmailAppPassword) {
-      console.error("Missing Gmail credentials: set GMAIL_USER and GMAIL_APP_PASSWORD in .env.local");
+    if (!name || !phone || !email || !service || !message) {
       return NextResponse.json(
         {
-          error: "Contact form is not configured. Please email us directly or try again later.",
-          code: "CONFIG_MISSING",
+          error:
+            "Name, email, phone, service, and message are required.",
         },
-        { status: 503 }
+        { status: 400 }
       );
     }
 
-    // Remove spaces from app password if present (Gmail app passwords sometimes have spaces)
-    const cleanPassword = gmailAppPassword.replace(/\s/g, "");
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        {
+          error: "Please enter a valid email address.",
+        },
+        { status: 400 }
+      );
+    }
 
-    // Create transporter with generous timeouts (Gmail SMTP can be slow or blocked on some networks)
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: gmailUser,
-        pass: cleanPassword,
-      },
-      connectionTimeout: 20000, // 20s to establish connection
-      greetingTimeout: 10000,   // 10s for server greeting
+    if (message.length < 10) {
+      return NextResponse.json(
+        {
+          error: "Message is too short.",
+        },
+        { status: 400 }
+      );
+    }
+
+    if (message.length > 5000) {
+      return NextResponse.json(
+        {
+          error: "Message is too long.",
+        },
+        { status: 400 }
+      );
+    }
+
+    const safeName = escapeHtml(name);
+    const safePhone = escapeHtml(phone);
+    const safeEmail = escapeHtml(email);
+    const safeService = escapeHtml(service);
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
+    const submittedAt = new Date().toLocaleString("en-IN", {
+      dateStyle: "full",
+      timeStyle: "medium",
+      timeZone: "Asia/Kolkata",
     });
 
-    // Email content
-    const isCallback = !message && !service;
-    const heading = isCallback ? "New Callback Request" : "New Contact Form Submission";
+    const html = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8" />
+        <title>New Contact Form Submission</title>
+      </head>
+      <body style="margin:0;padding:20px;background:#f4f4f5;font-family:Arial,sans-serif;">
+        <table
+          width="100%"
+          cellpadding="0"
+          cellspacing="0"
+          style="max-width:700px;margin:auto;background:#ffffff;border-radius:10px;overflow:hidden;"
+        >
+          <tr>
+            <td
+              style="
+                background:#0f172a;
+                color:#ffffff;
+                padding:24px;
+                text-align:center;
+              "
+            >
+              <h2 style="margin:0;">
+                New Contact Form Submission
+              </h2>
+            </td>
+          </tr>
 
-    const mailOptions = {
-      from: gmailUser,
-      to: gmailUser, // Send to yourself, or change to your business email
-      ...(email ? { replyTo: email } : {}),
-      subject: isCallback ? "New Callback Request" : `New Contact Form Submission - ${service}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333; border-bottom: 2px solid #000; padding-bottom: 10px;">
-            ${heading}
-          </h2>
+          <tr>
+            <td style="padding:30px;">
+              <p>
+                A new inquiry has been submitted through the
+                NexGen Developers website.
+              </p>
 
-          <div style="margin-top: 20px;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            ${email ? `<p><strong>Email:</strong> ${email}</p>` : ""}
-            ${service ? `<p><strong>Service:</strong> ${service}</p>` : ""}
-          </div>
+              <table
+                width="100%"
+                cellpadding="10"
+                cellspacing="0"
+                style="border-collapse:collapse;"
+              >
+                <tr>
+                  <td style="border:1px solid #e5e7eb;font-weight:bold;">
+                    Name
+                  </td>
+                  <td style="border:1px solid #e5e7eb;">
+                    ${safeName}
+                  </td>
+                </tr>
 
-          ${message ? `
-          <div style="margin-top: 30px;">
-            <h3 style="color: #333;">Message:</h3>
-            <p style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; line-height: 1.6;">
-              ${message.replace(/\n/g, "<br>")}
-            </p>
-          </div>
-          ` : ""}
+                <tr>
+                  <td style="border:1px solid #e5e7eb;font-weight:bold;">
+                    Email
+                  </td>
+                  <td style="border:1px solid #e5e7eb;">
+                    ${safeEmail}
+                  </td>
+                </tr>
 
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
-            <p>This email was sent from the NexGen Developers website.</p>
-          </div>
-        </div>
-      `,
-      text: `
-        ${heading}
+                <tr>
+                  <td style="border:1px solid #e5e7eb;font-weight:bold;">
+                    Phone
+                  </td>
+                  <td style="border:1px solid #e5e7eb;">
+                    ${safePhone}
+                  </td>
+                </tr>
 
-        Name: ${name}
-        Phone: ${phone}${email ? `\n        Email: ${email}` : ""}${service ? `\n        Service: ${service}` : ""}${message ? `\n        \n        Message:\n        ${message}` : ""}
-      `,
-    };
+                <tr>
+                  <td style="border:1px solid #e5e7eb;font-weight:bold;">
+                    Service
+                  </td>
+                  <td style="border:1px solid #e5e7eb;">
+                    ${safeService}
+                  </td>
+                </tr>
 
-    // Send email with timeout so we don't hang
-    const sendPromise = transporter.sendMail(mailOptions);
-    const timeoutPromise = new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error("Email send timed out")), SEND_TIMEOUT_MS)
-    );
-    await Promise.race([sendPromise, timeoutPromise]);
+                <tr>
+                  <td style="border:1px solid #e5e7eb;font-weight:bold;">
+                    Submitted At
+                  </td>
+                  <td style="border:1px solid #e5e7eb;">
+                    ${submittedAt}
+                  </td>
+                </tr>
+              </table>
 
-    return NextResponse.json(
-      { message: "Email sent successfully" },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Error sending email:", error);
+              <div style="margin-top:24px;">
+                <h3>Message</h3>
 
-    const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
-    const isConnectionTimeout = /connection timeout|connection timed out|ETIMEDOUT|ECONNREFUSED/i.test(errorMessage);
-    const isSendTimeout = errorMessage.includes("timed out") && !isConnectionTimeout;
-    const isAuth = /invalid login|authentication failed|username and password/i.test(errorMessage);
+                <div
+                  style="
+                    background:#f8fafc;
+                    border:1px solid #e5e7eb;
+                    border-radius:8px;
+                    padding:20px;
+                    line-height:1.7;
+                  "
+                >
+                  ${safeMessage}
+                </div>
+              </div>
 
-    let userMessage = "Failed to send email. Please try again later.";
-    if (isConnectionTimeout) {
-      userMessage = "Connection to email server timed out. Try again, or check if your network allows outbound email (ports 465/587).";
-    } else if (isSendTimeout) {
-      userMessage = "Request took too long. Please try again.";
-    } else if (isAuth && process.env.NODE_ENV === "development") {
-      userMessage = "Gmail auth failed. Check GMAIL_USER and GMAIL_APP_PASSWORD in .env.local.";
+              <p
+                style="
+                  margin-top:30px;
+                  color:#64748b;
+                  font-size:13px;
+                "
+              >
+                This email was automatically generated from the
+                NexGen Developers contact form.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </body>
+      </html>
+    `;
+
+    const text = `
+NEW CONTACT FORM SUBMISSION
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${service}
+
+Submitted At:
+${submittedAt}
+
+MESSAGE:
+${message}
+
+----------------------------------
+Sent from NexGen Developers Website
+----------------------------------
+`;
+
+    const result = await sendResendEmail({
+      subject: `New Contact Inquiry - ${service}`,
+      html,
+      text,
+      replyTo: email,
+    });
+
+    if (!result.ok) {
+      console.error("Email Error:", result);
+
+      return NextResponse.json(
+        {
+          error:
+            result.error ||
+            "Failed to send message. Please try again.",
+        },
+        {
+          status: result.status || 500,
+        }
+      );
     }
 
     return NextResponse.json(
       {
-        error: userMessage,
-        details: process.env.NODE_ENV === "development" ? errorMessage : undefined,
+        success: true,
+        message: "Message sent successfully.",
+      },
+      {
+        status: 200,
+      }
+    );
+  } catch (error) {
+    console.error("Contact Route Error:", error);
+
+    return NextResponse.json(
+      {
+        error: "Something went wrong. Please try again.",
       },
       {
         status: 500,
-        headers: { "Content-Type": "application/json" },
       }
     );
   }

@@ -63,7 +63,7 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
     const timeoutId = setTimeout(() => controller.abort(), 35000);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api/callback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phone }),
