@@ -17,9 +17,9 @@ export default function BlogPostHero({ blog }: BlogPostHeroProps) {
   return (
     <>
       <div className="mb-8" data-aos="fade-up">
-        <Link 
+        <Link
           href="/blogs"
-          className="inline-flex items-center text-black hover:text-gray-700 font-bold group"
+          className="inline-flex items-center text-silver-light hover:text-teal-300 font-bold group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40 rounded"
         >
           <svg className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -30,21 +30,21 @@ export default function BlogPostHero({ blog }: BlogPostHeroProps) {
 
       <div className="mb-8" data-aos="zoom-in">
         <div className="mb-4">
-          <span className="inline-block px-3 py-1 bg-black text-white text-xs font-bold rounded uppercase">
+          <span className="inline-block px-3 py-1 border border-teal-400/20 bg-teal-400/10 text-teal-300 text-xs font-bold rounded uppercase">
             {blog.category}
           </span>
         </div>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-black mb-4">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gradient-light mb-4">
           {blog.title}
         </h1>
-        <div className="flex flex-wrap items-center gap-4 text-gray-600">
+        <div className="flex flex-wrap items-center gap-4 text-silver-dark">
           <span>{blog.date}</span>
           <span>•</span>
           <span>{blog.author}</span>
         </div>
       </div>
 
-      <div className="relative w-full h-64 sm:h-96 mb-12 rounded-xl overflow-hidden">
+      <div className="relative w-full h-64 sm:h-96 mb-12 rounded-xl overflow-hidden border border-white/10">
         <Image
           src={blog.images[0]}
           alt={blog.title}

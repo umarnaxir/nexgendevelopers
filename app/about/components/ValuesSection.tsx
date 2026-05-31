@@ -45,11 +45,11 @@ export default function ValuesSection() {
       className="mb-12 md:mb-16"
       data-aos="fade-up"
     >
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black text-center mb-8 md:mb-12 px-2" data-aos="zoom-in">
-        Our Values
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient-light text-center mb-8 md:mb-12 px-2" data-aos="zoom-in">
+        Our <span className="text-gradient-teal">Values</span>
       </h2>
 
-      {/* Mobile: carousel - 1 card per screen, black bg */}
+      {/* Mobile: carousel - 1 card per screen */}
       <div className="md:hidden px-6">
         <div
           ref={containerRef}
@@ -60,12 +60,12 @@ export default function ValuesSection() {
             <div
               key={index}
               ref={index === 0 ? firstCardRef : undefined}
-              className="snap-center flex-shrink-0 w-[calc(100vw-3rem)] min-h-[360px] rounded-xl flex flex-col justify-end p-6 bg-black text-white"
+              className="glass-card snap-center flex-shrink-0 w-[calc(100vw-3rem)] min-h-[360px] rounded-2xl flex flex-col justify-end p-6"
             >
               <h3 className="text-xl font-bold mb-3 text-white">
                 {value.title}
               </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
+              <p className="text-sm leading-relaxed text-silver">
                 {value.description}
               </p>
             </div>
@@ -82,8 +82,8 @@ export default function ValuesSection() {
                 aria-label={`Go to slide ${index + 1}`}
                 className={`rounded-full transition-all duration-300 flex-shrink-0 ${
                   scrollIndex === index
-                    ? "w-6 h-2 bg-black"
-                    : "w-2 h-2 bg-gray-300"
+                    ? "w-6 h-2 bg-gradient-to-r from-teal-400 to-teal-500"
+                    : "w-2 h-2 bg-white/20"
                 }`}
               />
             ))}
@@ -93,7 +93,7 @@ export default function ValuesSection() {
               onClick={goPrev}
               disabled={scrollIndex === 0}
               aria-label="Previous card"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white disabled:opacity-30 disabled:pointer-events-none hover:bg-gray-800 transition-colors shrink-0"
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-silver-light backdrop-blur disabled:opacity-30 disabled:pointer-events-none hover:border-teal-400/40 hover:bg-teal-400/10 hover:text-teal-300 transition-all shrink-0"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -101,7 +101,7 @@ export default function ValuesSection() {
               onClick={goNext}
               disabled={scrollIndex === aboutValues.length - 1}
               aria-label="Next card"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white disabled:opacity-30 disabled:pointer-events-none hover:bg-gray-800 transition-colors shrink-0"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-teal-600 text-white shadow-lg shadow-teal-500/30 disabled:opacity-30 disabled:pointer-events-none hover:from-teal-400 hover:to-teal-500 transition-all shrink-0"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -109,7 +109,7 @@ export default function ValuesSection() {
         </div>
       </div>
 
-      {/* Desktop: grid, hover = black + white, one featured always black */}
+      {/* Desktop: grid of dark glass cards, one featured highlighted teal */}
       <div className="hidden md:grid md:grid-cols-2 gap-6">
         {aboutValues.map((value, index) => {
           const isFeatured = value.isFeatured;
@@ -117,22 +117,20 @@ export default function ValuesSection() {
           return (
             <div
               key={index}
-              className={`p-8 rounded-xl border shadow-md h-[280px] flex flex-col justify-end transition-all duration-300 cursor-pointer group hover:scale-[1.02] hover:-translate-y-2 ${
+              className={`p-8 rounded-2xl h-[280px] flex flex-col justify-end transition-all duration-300 cursor-pointer group hover:scale-[1.02] hover:-translate-y-2 ${
                 isFeatured
-                  ? "bg-black border-black"
-                  : "bg-white border-gray-300 hover:bg-black"
+                  ? "border border-teal-400/20 bg-gradient-to-br from-teal-600/25 via-teal-800/10 to-black hover:border-teal-400/40 hover:shadow-[0_30px_70px_-30px_rgba(20,184,166,0.5)]"
+                  : "glass-card"
               }`}
             >
               <h3
-                className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
-                  isFeatured ? "text-white" : "text-black group-hover:text-white"
-                }`}
+                className="text-2xl font-bold mb-4 text-white"
               >
                 {value.title}
               </h3>
               <p
-                className={`leading-relaxed transition-colors duration-300 ${
-                  isFeatured ? "text-white" : "text-gray-700 group-hover:text-white"
+                className={`leading-relaxed ${
+                  isFeatured ? "text-silver-light" : "text-silver"
                 }`}
               >
                 {value.description}

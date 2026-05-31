@@ -115,32 +115,32 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
       aria-label="Get in touch"
     >
       <div
-        className="relative grid w-full max-w-4xl grid-cols-1 overflow-hidden rounded-3xl bg-white shadow-2xl md:grid-cols-2 max-h-[92vh] overflow-y-auto"
+        className="relative grid w-full max-w-4xl grid-cols-1 overflow-hidden rounded-3xl border border-white/10 bg-[#0a0c0d] shadow-2xl md:grid-cols-2 max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ===== Left: form ===== */}
         <div className="p-6 sm:p-9">
           <div className="mb-4 flex items-center gap-3">
-            <span className="h-0.5 w-8 bg-teal-500" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">
+            <span className="h-0.5 w-8 bg-teal-400" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-300">
               Get Started
             </span>
           </div>
 
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            Let&apos;s <span className="text-teal-600">connect!</span>
+          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+            Let&apos;s <span className="text-gradient-teal">connect!</span>
           </h2>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-gray-500 sm:text-base">
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-silver sm:text-base">
             Drop your details and we&apos;ll reach out within one business day.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-7 space-y-5">
             <div>
-              <label htmlFor="git-name" className="mb-2 block text-sm font-bold text-gray-900">
-                Your Name <span className="text-teal-500">*</span>
+              <label htmlFor="git-name" className="mb-2 block text-sm font-bold text-silver-light">
+                Your Name <span className="text-teal-400">*</span>
               </label>
               <div className="relative">
-                <User className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                <User className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-silver-dark" />
                 <input
                   id="git-name"
                   type="text"
@@ -148,17 +148,17 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Ex. John Doe"
                   required
-                  className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-12 pr-4 text-sm text-gray-900 outline-none transition-all placeholder:text-gray-400 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
+                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] py-3.5 pl-12 pr-4 text-sm text-white outline-none transition-all placeholder:text-silver-dark focus:border-teal-400/60 focus:ring-2 focus:ring-teal-400/20"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="git-phone" className="mb-2 block text-sm font-bold text-gray-900">
-                Contact Number <span className="text-teal-500">*</span>
+              <label htmlFor="git-phone" className="mb-2 block text-sm font-bold text-silver-light">
+                Contact Number <span className="text-teal-400">*</span>
               </label>
               <div className="relative">
-                <Phone className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                <Phone className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-silver-dark" />
                 <input
                   id="git-phone"
                   type="tel"
@@ -166,7 +166,7 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+91 600-616-1726"
                   required
-                  className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-12 pr-4 text-sm text-gray-900 outline-none transition-all placeholder:text-gray-400 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
+                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] py-3.5 pl-12 pr-4 text-sm text-white outline-none transition-all placeholder:text-silver-dark focus:border-teal-400/60 focus:ring-2 focus:ring-teal-400/20"
                 />
               </div>
             </div>
@@ -174,17 +174,17 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
             <button
               type="submit"
               disabled={isSubmitting}
-              className="group relative flex w-full items-center justify-center rounded-xl bg-black px-6 py-4 text-base font-bold text-white shadow-lg transition-all duration-300 hover:bg-gray-900 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
+              className="group relative flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 px-6 py-4 text-base font-bold text-white shadow-lg shadow-teal-500/25 transition-all duration-300 hover:from-teal-400 hover:to-teal-500 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              <span className="absolute left-2.5 flex h-10 w-10 items-center justify-center rounded-full border-2 border-teal-500 text-teal-400 transition-transform duration-300 group-hover:translate-x-0.5">
+              <span className="absolute left-2.5 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/40 text-white transition-transform duration-300 group-hover:translate-x-0.5">
                 <ArrowRight className="h-4 w-4" />
               </span>
               {isSubmitting ? "Sending..." : "Request a Callback"}
             </button>
           </form>
 
-          <p className="mt-5 flex items-center justify-center gap-1.5 text-xs text-gray-400">
-            <ShieldCheck className="h-4 w-4 text-gray-400" />
+          <p className="mt-5 flex items-center justify-center gap-1.5 text-xs text-silver-dark">
+            <ShieldCheck className="h-4 w-4 text-silver-dark" />
             We respect your privacy. Your information is safe with us.
           </p>
         </div>

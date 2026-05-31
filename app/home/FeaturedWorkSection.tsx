@@ -146,15 +146,17 @@ export default function FeaturedWorkSection() {
   return (
     <section id="projects" className="py-4 sm:py-6 lg:py-12 flex flex-col min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]" data-aos="fade-up">
       <div className="container mx-auto px-3 sm:px-6 lg:px-8 max-w-7xl flex flex-col">
-        <div 
-          className="text-center mb-4 sm:mb-8"
+        <div
+          className="text-center mb-6 sm:mb-10"
           data-aos="zoom-in"
         >
-          <h2 
-            className="text-4xl sm:text-5xl font-extrabold text-black px-2 sm:px-4"
-            style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)' }}
-          >
-          Crafted with Creativity and Purpose          
+          <span className="eyebrow">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+            Featured Work
+          </span>
+          <h2 className="mt-5 text-4xl sm:text-5xl font-extrabold px-2 sm:px-4">
+            <span className="text-gradient-light">Crafted with Creativity</span>{" "}
+            <span className="text-gradient-teal">and Purpose</span>
           </h2>
         </div>
 
@@ -204,29 +206,20 @@ export default function FeaturedWorkSection() {
             {/* Left: Play/Pause Button */}
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 bg-white/[0.04] text-silver-light backdrop-blur transition-all duration-300 hover:border-teal-400/40 hover:text-teal-300"
               aria-label={isAutoPlaying ? "Pause carousel" : "Play carousel"}
             >
               {isAutoPlaying ? (
-                <Pause 
-                  className="w-4 h-4 sm:w-5 sm:h-5 text-black" 
-                  style={{ filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))' }}
-                />
+                <Pause className="w-4 h-4 sm:w-5 sm:h-5" />
               ) : (
-                <Play 
-                  className="w-4 h-4 sm:w-5 sm:h-5 text-black" 
-                  style={{ filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))' }}
-                />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5" />
               )}
             </button>
 
             {/* Center: Slide Indicator */}
             <div className="flex items-center gap-2">
-              <span 
-                className="text-xs sm:text-sm font-semibold text-gray-700"
-                style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6)' }}
-              >
-                {currentIndex + 1}/{totalProjects}
+              <span className="text-xs sm:text-sm font-semibold text-silver">
+                <span className="text-white">{currentIndex + 1}</span>/{totalProjects}
               </span>
             </div>
 
@@ -234,37 +227,31 @@ export default function FeaturedWorkSection() {
             <div className="flex items-center gap-2">
               <button
                 onClick={prevSlide}
-                className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-black hover:text-white transition-all duration-300"
+                className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 bg-white/[0.04] text-silver-light backdrop-blur transition-all duration-300 hover:border-teal-400/40 hover:bg-teal-400/10 hover:text-teal-300"
                 aria-label="Previous project"
               >
-                <ChevronLeft 
-                  className="w-4 h-4 sm:w-5 sm:h-5" 
-                  style={{ filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))' }}
-                />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
               <button
                 onClick={nextSlide}
-                className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-black hover:text-white transition-all duration-300"
+                className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-teal-500 to-teal-600 text-white shadow-lg shadow-teal-500/30 transition-all duration-300 hover:from-teal-400 hover:to-teal-500 active:scale-95"
                 aria-label="Next project"
               >
-                <ChevronRight 
-                  className="w-4 h-4 sm:w-5 sm:h-5" 
-                  style={{ filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))' }}
-                />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>
 
           {/* Pagination Dots */}
-          <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-1.5 sm:mt-2">
+          <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-3 sm:mt-4">
             {projects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'w-6 h-1.5 bg-black'
-                    : 'w-1.5 h-1.5 bg-gray-300 hover:bg-gray-400'
+                    ? 'w-7 h-1.5 bg-gradient-to-r from-teal-400 to-teal-500'
+                    : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

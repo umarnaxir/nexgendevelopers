@@ -31,11 +31,7 @@ export default function ServicesList() {
       <div className="flex justify-center">
         {/* Background Container with Subtle Shadow */}
         <div
-          className="w-full max-w-xl bg-white rounded-2xl p-3 sm:p-2"
-          style={{
-            boxShadow:
-              "0 2px 10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05)",
-          }}
+          className="glass w-full max-w-xl rounded-2xl p-3 sm:p-2"
         >
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             {(["development", "digital-marketing", "support"] as const).map(
@@ -50,11 +46,11 @@ export default function ServicesList() {
                   className={`
                     relative w-full sm:w-auto px-5 py-2.5 font-semibold text-sm sm:text-base rounded-xl
                     transition-all duration-300 ease-out
-                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
+                    focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40
                     ${
                       activeTab === category
-                        ? "bg-black text-white shadow-lg"
-                        : "bg-transparent text-gray-700 hover:bg-gray-100 hover:text-black"
+                        ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-lg shadow-teal-500/25"
+                        : "bg-transparent text-silver-light hover:bg-white/[0.06] hover:text-white"
                     }
                   `}
                 >

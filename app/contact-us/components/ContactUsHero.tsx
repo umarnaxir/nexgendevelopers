@@ -16,7 +16,7 @@ export default function ContactUsHero() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex flex-col items-center justify-end px-4 pb-6 sm:pb-8 md:pb-10 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg mb-2 sm:mb-3">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 sm:mb-3">
             Contact Us
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-2xl">

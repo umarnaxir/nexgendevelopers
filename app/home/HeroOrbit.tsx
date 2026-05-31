@@ -18,14 +18,14 @@ const serviceCards: ServiceCard[] = [
 
 function ServiceCardBox({ icon: Icon, title, desc }: ServiceCard) {
   return (
-    <div className="w-full rounded-2xl border border-gray-100 bg-white p-4 shadow-xl shadow-teal-900/5 transition-transform duration-300 hover:-translate-y-1">
+    <div className="glass-card group w-full rounded-2xl p-4">
       <div className="flex items-start gap-3">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-teal-400/20 bg-teal-400/10 text-teal-300 transition-all duration-300 group-hover:scale-110 group-hover:bg-teal-400/20">
           <Icon className="h-5 w-5" />
         </span>
-        <h4 className="text-sm font-bold leading-tight text-gray-900">{title}</h4>
+        <h4 className="text-sm font-bold leading-tight text-white">{title}</h4>
       </div>
-      <p className="mt-2 text-xs leading-snug text-gray-500">{desc}</p>
+      <p className="mt-2 text-xs leading-snug text-silver-dark">{desc}</p>
     </div>
   );
 }
@@ -33,16 +33,16 @@ function ServiceCardBox({ icon: Icon, title, desc }: ServiceCard) {
 /** The "Let's grow together" growth card. */
 function GrowthCard() {
   return (
-    <div className="w-full rounded-2xl border border-gray-100 bg-white p-4 shadow-xl shadow-teal-900/5">
+    <div className="glass-card w-full rounded-2xl p-4">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="text-sm font-bold leading-tight text-gray-900">
+          <p className="text-sm font-bold leading-tight text-white">
             Turning Ideas Into Impactful
             <br className="hidden sm:block" /> Digital Solutions
           </p>
-          <p className="mt-1.5 text-xs font-semibold text-teal-600">Let&apos;s grow together</p>
+          <p className="mt-1.5 text-xs font-semibold text-teal-300">Let&apos;s grow together</p>
         </div>
-        <svg viewBox="0 0 120 50" className="h-12 w-28 shrink-0 text-teal-500" fill="none">
+        <svg viewBox="0 0 120 50" className="h-12 w-28 shrink-0 text-teal-400" fill="none">
           <path
             d="M2 44 C20 40 28 34 40 30 C54 25 60 32 74 22 C88 12 100 16 116 4"
             stroke="currentColor"
@@ -61,15 +61,15 @@ function Sphere({ className = "" }: { className?: string }) {
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
       {/* outer glow rings */}
-      <span className="absolute inset-0 -m-8 rounded-full border border-teal-200/50" />
-      <span className="absolute inset-0 -m-16 rounded-full border border-teal-100/40" />
+      <span className="absolute inset-0 -m-8 rounded-full border border-teal-400/25 animate-spin-slow" />
+      <span className="absolute inset-0 -m-16 rounded-full border border-teal-400/15 animate-spin-slow-rev" />
       {/* sphere */}
-      <div className="relative flex h-full w-full items-center justify-center rounded-full border border-white bg-gradient-to-br from-teal-100/90 via-teal-50/80 to-teal-200/50 shadow-[0_0_70px_rgba(20,184,166,0.35)] backdrop-blur">
-        <span className="select-none bg-gradient-to-br from-teal-400 to-teal-700 bg-clip-text font-black leading-none text-transparent">
+      <div className="relative flex h-full w-full items-center justify-center rounded-full border border-white/10 bg-gradient-to-br from-teal-500/30 via-teal-700/15 to-black shadow-[0_0_90px_rgba(20,184,166,0.45)] backdrop-blur">
+        <span className="select-none bg-gradient-to-br from-teal-200 to-teal-500 bg-clip-text font-black leading-none text-transparent">
           N
         </span>
         {/* glossy highlight */}
-        <span className="absolute left-[18%] top-[14%] h-[22%] w-[34%] rounded-full bg-white/60 blur-md" />
+        <span className="absolute left-[18%] top-[14%] h-[22%] w-[34%] rounded-full bg-white/30 blur-md" />
       </div>
     </div>
   );
@@ -82,7 +82,7 @@ export default function HeroOrbit() {
       <div className="relative mx-auto hidden h-[500px] w-full max-w-[600px] lg:block">
         {/* dashed connectors */}
         <svg
-          className="absolute inset-0 h-full w-full text-teal-300"
+          className="absolute inset-0 h-full w-full text-teal-400/40"
           viewBox="0 0 620 560"
           fill="none"
           preserveAspectRatio="none"
@@ -95,7 +95,7 @@ export default function HeroOrbit() {
             <path d="M310 280 C410 320 450 350 480 365" />
             <path d="M310 280 C320 380 320 420 320 470" />
           </g>
-          <g fill="#14b8a6">
+          <g fill="#2dd4bf">
             <circle cx="240" cy="208" r="4" />
             <circle cx="392" cy="206" r="4" />
             <circle cx="222" cy="322" r="4" />
@@ -128,7 +128,7 @@ export default function HeroOrbit() {
       <div className="lg:hidden">
         <div className="relative flex justify-center">
           {/* soft glow behind sphere */}
-          <span className="absolute top-1/2 h-44 w-44 -translate-y-1/2 rounded-full bg-teal-100/50 blur-2xl" />
+          <span className="absolute top-1/2 h-44 w-44 -translate-y-1/2 rounded-full bg-teal-500/25 blur-3xl" />
           <Sphere className="relative h-32 w-32 text-[72px]" />
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3">

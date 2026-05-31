@@ -115,20 +115,19 @@ export default function ClientReviewsSection() {
   return (
     <section id="reviews" className="py-8 md:py-10 lg:py-10" data-aos="fade-up">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div 
-          className="text-center mb-6 md:mb-16"
+        <div
+          className="text-center mb-8 md:mb-16"
           data-aos="zoom-in"
         >
-          <h2 
-            className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-black mb-2 md:mb-4 px-2 md:px-4"
-            style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)' }}
-          >
-            CLIENT REVIEWS
+          <span className="eyebrow">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+            Testimonials
+          </span>
+          <h2 className="mt-5 text-3xl md:text-5xl lg:text-6xl font-extrabold mb-3 md:mb-4 px-2 md:px-4">
+            <span className="text-gradient-light">Client</span>{" "}
+            <span className="text-gradient-teal">Reviews</span>
           </h2>
-          <p 
-            className="text-sm md:text-lg text-gray-700 max-w-3xl mx-auto px-2 md:px-4"
-            style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5)' }}
-          >
+          <p className="text-sm md:text-lg text-silver max-w-3xl mx-auto px-2 md:px-4">
             See what our clients have to say about working with NexGen Developers
           </p>
         </div>
@@ -145,13 +144,10 @@ export default function ClientReviewsSection() {
           {currentPage > 0 && (
             <button
               onClick={() => setCurrentPage((prev) => Math.max(0, prev - 1))}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:-translate-x-8 z-10 bg-white text-black p-2 md:p-4 rounded-full hover:bg-black hover:text-white transition-all duration-300 shadow-xl flex items-center justify-center border-2 border-gray-200 hover:border-black group"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:-translate-x-8 z-10 p-2 md:p-4 rounded-full border border-white/10 bg-black/60 text-silver-light backdrop-blur transition-all duration-300 hover:border-teal-400/40 hover:bg-teal-400/10 hover:text-teal-300 shadow-xl flex items-center justify-center group"
               aria-label="Previous reviews"
             >
-              <ChevronLeft 
-                className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:scale-110" 
-                style={{ filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))' }}
-              />
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:scale-110" />
             </button>
           )}
 
@@ -161,16 +157,12 @@ export default function ClientReviewsSection() {
             {currentReviews.map((review, index) => (
               <div
                 key={review.id}
-                className="w-full md:max-w-none bg-gray-50 p-4 md:p-8 rounded-2xl shadow-lg relative cursor-pointer group overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                className="glass-card w-full md:max-w-none p-5 md:p-8 rounded-2xl relative cursor-pointer group overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col"
                 data-aos="zoom-in"
                 data-aos-delay={index * 100}
               >
-                {/* Bottom Line on Hover */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 {/* Quote Icon - Top Right */}
-                <div 
-                  className="absolute top-3 right-3 md:top-4 md:right-4 text-gray-300 opacity-30 group-hover:opacity-50 transition-opacity duration-300"
-                >
+                <div className="absolute top-3 right-3 md:top-4 md:right-4 text-white/[0.06] group-hover:text-teal-400/20 transition-colors duration-300">
                   <svg className="w-14 h-14 md:w-20 md:h-20" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                   </svg>
@@ -179,10 +171,8 @@ export default function ClientReviewsSection() {
                 {/* Reviewer Info - Top Section */}
                 <div className="flex items-start gap-3 md:gap-4 mb-3 md:mb-4 relative z-10">
                   {/* Avatar */}
-                  <div 
-                    className="relative flex-shrink-0 group-hover:scale-105 transition-transform duration-300"
-                  >
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center overflow-hidden group-hover:border-gray-300 transition-colors duration-300">
+                  <div className="relative flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/15 flex items-center justify-center overflow-hidden group-hover:border-teal-400/40 transition-colors duration-300">
                       <Image
                         src={review.image}
                         alt={review.name}
@@ -193,9 +183,7 @@ export default function ClientReviewsSection() {
                     </div>
                     {/* Verification Checkmark */}
                     {review.verified && (
-                      <div 
-                        className="absolute -bottom-1 -right-1 bg-yellow-400 rounded-full p-1 border-2 border-white hover:scale-110 transition-transform duration-200"
-                      >
+                      <div className="absolute -bottom-1 -right-1 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full p-1 border-2 border-black hover:scale-110 transition-transform duration-200">
                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
@@ -205,16 +193,10 @@ export default function ClientReviewsSection() {
 
                   {/* Name and Details */}
                   <div className="flex-1">
-                    <h4 
-                      className="font-bold text-black text-base md:text-lg mb-0.5 md:mb-1 group-hover:text-gray-800 transition-colors duration-300"
-                      style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6)' }}
-                    >
+                    <h4 className="font-bold text-white text-base md:text-lg mb-0.5 md:mb-1">
                       {review.name}
                     </h4>
-                    <p 
-                      className="text-xs md:text-sm text-gray-600 mb-1.5 md:mb-2"
-                      style={{ textShadow: '0 0 6px rgba(255, 255, 255, 0.7), 0 0 12px rgba(255, 255, 255, 0.5)' }}
-                    >
+                    <p className="text-xs md:text-sm text-silver-dark mb-1.5 md:mb-2">
                       {review.project}
                     </p>
                     {/* Rating */}
@@ -223,38 +205,30 @@ export default function ClientReviewsSection() {
                         {[...Array(review.rating)].map((_, i) => (
                           <svg
                             key={i}
-                            className="w-3.5 h-3.5 md:w-4 md:h-4 text-yellow-400 fill-yellow-400 hover:scale-110 hover:rotate-12 transition-transform duration-200"
+                            className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-300 fill-teal-300 hover:scale-110 hover:rotate-12 transition-transform duration-200"
                             viewBox="0 0 20 20"
                           >
                             <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                           </svg>
                         ))}
                       </div>
-                      <span className="text-xs md:text-sm text-gray-500">({review.rating}.0)</span>
+                      <span className="text-xs md:text-sm text-silver-dark">({review.rating}.0)</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Review Text */}
-                <p 
-                  className="text-gray-700 mb-4 md:mb-6 leading-relaxed text-sm md:text-base relative z-10 group-hover:text-gray-900 transition-colors duration-300 flex-grow"
-                  style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5)' }}
-                >
+                <p className="text-silver mb-4 md:mb-6 leading-relaxed text-sm md:text-base relative z-10 group-hover:text-silver-light transition-colors duration-300 flex-grow">
                   {review.review}
                 </p>
 
                 {/* Verified Client Badge */}
                 {review.verified && (
-                  <div 
-                    className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 border border-gray-300 rounded-lg w-fit group-hover:border-teal-400 group-hover:bg-teal-100/40 transition-all duration-300 mt-auto hover:scale-105"
-                  >
-                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 border border-white/10 rounded-lg w-fit group-hover:border-teal-400/40 group-hover:bg-teal-400/10 transition-all duration-300 mt-auto hover:scale-105">
+                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-300" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                     </svg>
-                    <span 
-                      className="text-xs md:text-sm font-medium text-black"
-                      style={{ textShadow: '0 0 6px rgba(255, 255, 255, 0.8)' }}
-                    >
+                    <span className="text-xs md:text-sm font-medium text-silver-light">
                       Verified Client
                     </span>
                   </div>
@@ -267,13 +241,10 @@ export default function ClientReviewsSection() {
           {currentPage < totalPages - 1 && (
             <button
               onClick={() => setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:translate-x-8 z-10 bg-white text-black p-2 md:p-4 rounded-full hover:bg-black hover:text-white transition-all duration-300 shadow-xl flex items-center justify-center border-2 border-gray-200 hover:border-black group"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:translate-x-8 z-10 p-2 md:p-4 rounded-full border border-white/10 bg-black/60 text-silver-light backdrop-blur transition-all duration-300 hover:border-teal-400/40 hover:bg-teal-400/10 hover:text-teal-300 shadow-xl flex items-center justify-center group"
               aria-label="Next reviews"
             >
-              <ChevronRight 
-                className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:scale-110" 
-                style={{ filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))' }}
-              />
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:scale-110" />
             </button>
           )}
 
@@ -285,8 +256,8 @@ export default function ClientReviewsSection() {
                 onClick={() => goToPage(index)}
                 className={`rounded-full transition-all duration-300 hover:scale-125 ${
                   index === currentPage
-                    ? 'w-6 md:w-8 h-2 md:h-2.5 bg-black'
-                    : 'w-2 md:w-2.5 h-2 md:h-2.5 bg-gray-300 hover:bg-gray-400'
+                    ? 'w-6 md:w-8 h-2 md:h-2.5 bg-gradient-to-r from-teal-400 to-teal-500'
+                    : 'w-2 md:w-2.5 h-2 md:h-2.5 bg-white/20 hover:bg-white/40'
                 }`}
                 aria-label={`Go to page ${index + 1}`}
               />

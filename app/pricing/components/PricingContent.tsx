@@ -17,7 +17,7 @@ export default function PricingContent() {
       <PricingHero service={selectedService} />
       <PricingCards service={selectedService} />
       <EnterpriseSection service={selectedService} />
-      <div className="mt-16 md:mt-20 pt-8 border-t border-gray-200">
+      <div className="mt-16 md:mt-20 pt-8 border-t border-white/10">
         <ContactCTA />
       </div>
     </>

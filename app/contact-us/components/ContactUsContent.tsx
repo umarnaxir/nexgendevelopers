@@ -36,10 +36,10 @@ export default function ContactUsContent() {
   return (
     <section className="py-8 sm:py-12 lg:py-16" data-aos="fade-up">
       <div className="text-center mb-8 sm:mb-12">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black mb-3 sm:mb-4">
-          Why work with us
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gradient-light mb-3 sm:mb-4">
+          Why work <span className="text-gradient-teal">with us</span>
         </h2>
-        <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-2">
+        <p className="text-silver text-sm sm:text-base max-w-2xl mx-auto px-2">
           A remote team of freelancers ready to bring your ideas to life. Interactive, responsive, and focused on delivery.
         </p>
       </div>
@@ -55,20 +55,20 @@ export default function ContactUsContent() {
               onClick={() => setActiveIndex(isActive ? null : index)}
               onMouseEnter={() => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(null)}
-              className={`text-left w-full min-h-[200px] sm:min-h-[220px] lg:min-h-[240px] p-6 sm:p-7 lg:p-8 rounded-2xl border-2 transition-[border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 ${
+              className={`glass-card text-left w-full min-h-[200px] sm:min-h-[220px] lg:min-h-[240px] p-6 sm:p-7 lg:p-8 rounded-2xl transition-[border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40 ${
                 isActive
-                  ? "border-teal-500 bg-teal-50/80 shadow-lg"
-                  : "border-gray-200 bg-white hover:border-teal-300 hover:shadow-md"
+                  ? "border-teal-400/50 shadow-lg"
+                  : "hover:border-teal-400/40"
               }`}
             >
               <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                <span className={`p-2.5 sm:p-3 rounded-xl transition-colors duration-300 ${isActive ? "bg-teal-500 text-white" : "bg-gray-100 text-gray-700"}`}>
+                <span className={`p-2.5 sm:p-3 rounded-xl border transition-colors duration-300 ${isActive ? "border-teal-400/40 bg-teal-500 text-white" : "border-teal-400/20 bg-teal-400/10 text-teal-300"}`}>
                   <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </span>
-                <h3 className="font-bold text-black text-base sm:text-lg">{item.title}</h3>
+                <h3 className="font-bold text-white text-base sm:text-lg">{item.title}</h3>
               </div>
-              <p className="text-gray-700 text-sm sm:text-base font-medium mb-2">{item.description}</p>
-              <p className={`text-gray-600 text-sm sm:text-base transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-80"}`}>
+              <p className="text-silver-light text-sm sm:text-base font-medium mb-2">{item.description}</p>
+              <p className={`text-silver text-sm sm:text-base transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-80"}`}>
                 {item.detail}
               </p>
             </button>

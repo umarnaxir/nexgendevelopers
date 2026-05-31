@@ -6,22 +6,19 @@ import { getPricingForService, type PricingPlan, type PricingServiceType } from 
 
 const accentStyles = {
   green: {
-    name: "text-teal-600",
-    border: "border-teal-500/30",
-    shadow: "shadow-teal-500/10",
-    button: "bg-teal-500 hover:bg-teal-600 text-white",
+    name: "text-teal-300",
+    button:
+      "border border-white/15 bg-white/[0.06] text-white hover:border-teal-400/50 hover:bg-white/[0.1]",
   },
   blue: {
-    name: "text-blue-600",
-    border: "border-blue-500/40",
-    shadow: "shadow-blue-500/15",
-    button: "bg-blue-600 hover:bg-blue-700 text-white",
+    name: "text-teal-300",
+    button:
+      "border border-white/15 bg-white/[0.06] text-white hover:border-teal-400/50 hover:bg-white/[0.1]",
   },
   purple: {
-    name: "text-purple-600",
-    border: "border-purple-500/30",
-    shadow: "shadow-purple-500/10",
-    button: "border-2 border-purple-600 text-purple-600 hover:bg-purple-50",
+    name: "text-teal-300",
+    button:
+      "border border-white/15 bg-white/[0.06] text-white hover:border-teal-400/50 hover:bg-white/[0.1]",
   },
 } as const;
 
@@ -31,32 +28,36 @@ function PlanCard({ plan, styles }: { plan: PricingPlan; styles: (typeof accentS
   return (
     <>
       <div
-        className={`relative bg-white rounded-2xl p-6 sm:p-8 border-2 ${styles.border} shadow-lg ${plan.popular ? `${styles.shadow} shadow-xl` : ""} flex flex-col h-full transition-all duration-300 hover:shadow-xl`}
+        className={`glass-card relative rounded-2xl p-6 sm:p-8 flex flex-col h-full ${plan.popular ? "beam-border ring-1 ring-teal-400/30" : ""}`}
         data-aos="fade-up"
       >
         {plan.popular && (
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-600 text-white text-xs font-bold uppercase tracking-wider rounded-full">
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg shadow-teal-500/25">
             Most Popular
           </div>
         )}
         <h3 className={`text-sm font-bold uppercase tracking-wider mb-1 ${styles.name}`}>
           {plan.name}
         </h3>
-        <p className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">{plan.price}</p>
-        <p className="text-gray-600 text-sm mb-4">{plan.description}</p>
-        <p className="text-gray-500 text-xs mb-6">Best for: {plan.bestFor}</p>
+        <p className="text-2xl sm:text-3xl font-bold text-white mb-1">{plan.price}</p>
+        <p className="text-silver text-sm mb-4">{plan.description}</p>
+        <p className="text-silver-dark text-xs mb-6">Best for: {plan.bestFor}</p>
         <ul className="space-y-3 flex-1 mb-6">
           {plan.deliverables.map((item, idx) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-              <Check className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+            <li key={idx} className="flex items-start gap-2 text-sm text-silver-light">
+              <Check className="w-5 h-5 text-teal-300 flex-shrink-0 mt-0.5" />
               <span>{item}</span>
             </li>
           ))}
         </ul>
-        <p className="text-gray-600 text-sm italic mb-6">&ldquo;{plan.quote}&rdquo;</p>
+        <p className="text-silver text-sm italic mb-6">&ldquo;{plan.quote}&rdquo;</p>
         <button
           onClick={openContactModal}
-          className={`w-full py-3 px-6 rounded-xl font-bold text-sm uppercase tracking-wide transition-all duration-300 ${styles.button}`}
+          className={`w-full py-3 px-6 rounded-xl font-bold text-sm uppercase tracking-wide transition-all duration-300 ${
+            plan.popular
+              ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-lg shadow-teal-500/25"
+              : styles.button
+          }`}
         >
           {plan.ctaLabel}
         </button>

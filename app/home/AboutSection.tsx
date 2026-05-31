@@ -50,24 +50,24 @@ export default function AboutSection() {
         {/* ===== Header: Where Innovation Meets Excellence ===== */}
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div data-aos="fade-right">
-            <span className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-600 shadow-lg">
-              <span className="h-3.5 w-1 rounded-full bg-teal-500" />
+            <span className="eyebrow">
+              <span className="h-3.5 w-1 rounded-full bg-teal-400" />
               Our Expertise
             </span>
 
-            <h2 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl">
               Where Innovation
               <br />
-              Meets <span className="text-teal-600">Excellence</span>
+              Meets <span className="text-gradient-teal">Excellence</span>
             </h2>
-            <span className="mt-5 block h-1 w-16 rounded-full bg-teal-500" />
+            <span className="mt-5 block h-1 w-16 rounded-full bg-gradient-to-r from-teal-400 to-teal-600" />
 
-            <p className="mt-6 text-lg text-gray-700">
-              A creative platform to <strong className="font-bold text-gray-900">build</strong>,{" "}
-              <strong className="font-bold text-gray-900">launch</strong>, and{" "}
-              <strong className="font-bold text-gray-900">grow</strong> your business.
+            <p className="mt-6 text-lg text-silver-light">
+              A creative platform to <strong className="font-bold text-white">build</strong>,{" "}
+              <strong className="font-bold text-white">launch</strong>, and{" "}
+              <strong className="font-bold text-white">grow</strong> your business.
             </p>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-gray-500 sm:text-base">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-silver sm:text-base">
               We help startups and local brands with AI/ML, chatbots, web &amp; app development, and
               digital marketing — crafting digital experiences that stand out and deliver results.
               NexGen Developers is a collective of engineering professionals united to deliver premium
@@ -78,22 +78,22 @@ export default function AboutSection() {
           {/* Decorative graphic */}
           <div className="relative hidden h-[460px] lg:block" data-aos="fade-left" aria-hidden>
             {/* concentric circles */}
-            <span className="absolute right-24 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full border border-teal-100" />
-            <span className="absolute right-32 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full border border-teal-100" />
+            <span className="absolute right-24 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full border border-white/[0.06] animate-spin-slow" />
+            <span className="absolute right-32 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full border border-teal-400/15 animate-spin-slow-rev" />
             {/* dotted grid */}
-            <span className="absolute right-0 top-0 h-32 w-32 text-teal-400 opacity-40" style={DOTS} />
+            <span className="absolute right-0 top-0 h-32 w-32 text-teal-400/40" style={DOTS} />
             {/* floating chips */}
-            <span className="absolute right-64 top-8 h-16 w-16 rounded-2xl border border-teal-100 bg-teal-50/70 shadow-md" />
-            <span className="absolute right-60 bottom-8 h-16 w-16 rounded-2xl border border-teal-100 bg-teal-50/70 shadow-md" />
+            <span className="absolute right-64 top-8 h-16 w-16 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur animate-float" />
+            <span className="absolute right-60 bottom-8 h-16 w-16 rounded-2xl border border-teal-400/20 bg-teal-400/[0.06] backdrop-blur animate-float-delayed" />
             {/* dashed connector */}
-            <svg className="absolute inset-0 h-full w-full text-teal-300" fill="none" aria-hidden>
+            <svg className="absolute inset-0 h-full w-full text-teal-400/30" fill="none" aria-hidden>
               <path d="M250 70 C 300 130, 240 220, 300 230" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 6" />
               <path d="M245 390 C 290 340, 270 270, 300 250" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 6" />
             </svg>
             {/* main code orb */}
-            <span className="absolute right-20 top-1/2 flex h-48 w-48 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-2xl ring-[12px] ring-teal-50">
-              <span className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-teal-600 to-teal-800 text-white shadow-inner">
-                <Code2 className="h-20 w-20" />
+            <span className="absolute right-20 top-1/2 flex h-48 w-48 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] shadow-[0_0_80px_-10px_rgba(20,184,166,0.4)] backdrop-blur ring-1 ring-teal-400/10">
+              <span className="flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-br from-teal-500/80 to-teal-800 text-white shadow-inner">
+                <Code2 className="h-16 w-16" />
               </span>
             </span>
           </div>
@@ -109,21 +109,21 @@ export default function AboutSection() {
                 href={s.href}
                 data-aos="fade-up"
                 data-aos-delay={(i % 2) * 80}
-                className="group flex items-start gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
+                className="glass-card group flex items-start gap-5 rounded-2xl p-6"
               >
-                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 transition-all duration-300 group-hover:bg-teal-500 group-hover:text-white">
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-teal-300 transition-all duration-300 group-hover:border-teal-400/30 group-hover:bg-teal-400/15 group-hover:text-teal-200">
                   <Icon className="h-7 w-7" />
                 </span>
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2 text-xs font-bold text-teal-600">
+                  <div className="flex items-center gap-2 text-xs font-bold text-teal-300">
                     {s.num}
-                    <span className="h-px w-5 bg-teal-300" />
+                    <span className="h-px w-5 bg-teal-400/50" />
                   </div>
-                  <h3 className="mt-1 text-lg font-bold text-gray-900">{s.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-gray-500">{s.desc}</p>
-                  <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-teal-600">
+                  <h3 className="mt-1 text-lg font-bold text-white">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-silver">{s.desc}</p>
+                  <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-teal-300">
                     Explore Services
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-teal-300 transition-all duration-300 group-hover:border-teal-500 group-hover:bg-teal-500 group-hover:text-white">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-teal-400/40 transition-all duration-300 group-hover:border-teal-400 group-hover:bg-teal-400 group-hover:text-black">
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </span>
@@ -136,34 +136,35 @@ export default function AboutSection() {
         {/* ===== Insights & Growth ===== */}
         <div className="mt-16 lg:mt-20">
           <div className="mb-3 flex items-center gap-3">
-            <span className="h-0.5 w-8 bg-teal-500" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">
+            <span className="h-0.5 w-8 bg-teal-400" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-300">
               Insights &amp; Growth
             </span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
-            Insights &amp; <span className="text-teal-600">Growth</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+            Insights &amp; <span className="text-gradient-teal">Growth</span>
           </h2>
-          <span className="mt-4 block h-1 w-16 rounded-full bg-teal-500" />
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-500 sm:text-base">
+          <span className="mt-4 block h-1 w-16 rounded-full bg-gradient-to-r from-teal-400 to-teal-600" />
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-silver sm:text-base">
             Explore our blogs for ideas and insights, or get in touch to build, launch, and grow your
             business with us.
           </p>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            {/* Blogs & Articles - dark gradient */}
+            {/* Blogs & Articles - teal feature */}
             <Link
               href="/blogs"
               data-aos="fade-up"
-              className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-teal-700 to-teal-900 p-8 text-white shadow-lg transition-all duration-300 hover:shadow-xl"
+              className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl border border-teal-400/20 bg-gradient-to-br from-teal-600/25 via-teal-800/10 to-black p-8 text-white transition-all duration-300 hover:border-teal-400/40 hover:shadow-[0_30px_70px_-30px_rgba(20,184,166,0.5)]"
             >
-              <span className="pointer-events-none absolute -right-4 -top-4 h-32 w-32 rounded-full text-white opacity-20" style={DOTS} />
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 text-white">
+              <span className="pointer-events-none absolute -right-4 -top-4 h-32 w-32 rounded-full text-teal-300 opacity-20" style={DOTS} />
+              <span className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-teal-400/15 blur-3xl transition-opacity duration-500 group-hover:opacity-150" />
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-white">
                 <BookOpen className="h-7 w-7" />
               </span>
               <div className="mt-auto pt-16">
                 <h3 className="text-2xl font-bold">Blogs &amp; Articles</h3>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-teal-50/90">
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-silver-light">
                   Read articles, guides, and the latest industry updates on development, digital
                   trends, and marketing.
                 </p>
@@ -176,29 +177,29 @@ export default function AboutSection() {
               </div>
             </Link>
 
-            {/* Grow your brand - white */}
+            {/* Grow your brand - glass */}
             <div
               data-aos="fade-up"
               data-aos-delay="80"
-              className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
+              className="glass-card group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl p-8"
             >
-              <span className="pointer-events-none absolute -right-4 -top-4 h-32 w-32 rounded-full text-teal-400 opacity-25" style={DOTS} />
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-teal-600">
+              <span className="pointer-events-none absolute -right-4 -top-4 h-32 w-32 rounded-full text-teal-400 opacity-20" style={DOTS} />
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-400/20 bg-teal-400/10 text-teal-300">
                 <TrendingUp className="h-7 w-7" />
               </span>
               <div className="mt-auto pt-16">
-                <h3 className="text-2xl font-bold text-gray-900">Grow your brand</h3>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-gray-500">
+                <h3 className="text-2xl font-bold text-white">Grow your brand</h3>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-silver">
                   Let&apos;s build something that stands out. Get in touch and let&apos;s scale your
                   brand to new heights.
                 </p>
                 <button
                   type="button"
                   onClick={openContactModal}
-                  className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-teal-600"
+                  className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-teal-300"
                 >
                   Get in touch
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-teal-300 transition-all duration-300 group-hover:border-teal-500 group-hover:bg-teal-500 group-hover:text-white">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-teal-400/40 transition-all duration-300 group-hover:border-teal-400 group-hover:bg-teal-400 group-hover:text-black">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </button>

@@ -12,9 +12,9 @@ interface LayoutWrapperProps {
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   return (
     <ContactModalProvider>
-      <div id="layout-root" className="page-bg relative min-h-screen text-gray-800">
+      <div id="layout-root" className="home-bg text-white relative min-h-screen">
         <div className="relative z-10">
-          <Navbar />
+          <Navbar isHome />
           <main className="flex-1 pt-20 lg:pt-0">{children}</main>
           <Footer />
           <WhatsAppButton />

@@ -19,12 +19,12 @@ export default function PrivacySections() {
       <PrivacySection icon={Database} title="2. Information We Collect" delay={0.1} altBg>
         <p className="mb-4 sm:mb-6">We may collect information about you in a variety of ways. The information we may collect includes:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-          <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 shadow-md">
-            <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
-              <UserCheck className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+          <div className="glass p-4 sm:p-5 lg:p-6 rounded-2xl">
+            <h3 className="font-bold text-sm sm:text-base text-white mb-2 sm:mb-3 flex items-center gap-2">
+              <UserCheck className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-teal-400" />
               Personal Information
             </h3>
-            <ul className="text-xs sm:text-sm text-gray-700 space-y-1.5 sm:space-y-2">
+            <ul className="text-xs sm:text-sm text-silver-light space-y-1.5 sm:space-y-2 marker:text-teal-300">
               <li>• Name and contact information (email, phone number)</li>
               <li>• Business name and website URL</li>
               <li>• Billing address and payment information</li>
@@ -32,12 +32,12 @@ export default function PrivacySections() {
               <li>• Account credentials (username, password)</li>
             </ul>
           </div>
-          <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 shadow-md">
-            <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
-              <Eye className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+          <div className="glass p-4 sm:p-5 lg:p-6 rounded-2xl">
+            <h3 className="font-bold text-sm sm:text-base text-white mb-2 sm:mb-3 flex items-center gap-2">
+              <Eye className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-teal-400" />
               Usage & Technical Data
             </h3>
-            <ul className="text-xs sm:text-sm text-gray-700 space-y-1.5 sm:space-y-2">
+            <ul className="text-xs sm:text-sm text-silver-light space-y-1.5 sm:space-y-2 marker:text-teal-300">
               <li>• IP address and device information</li>
               <li>• Browser type and version</li>
               <li>• Pages visited and time spent</li>
@@ -46,16 +46,16 @@ export default function PrivacySections() {
             </ul>
           </div>
         </div>
-        <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 shadow-md mb-4 sm:mb-6">
-          <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
-            <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+        <div className="glass p-4 sm:p-5 lg:p-6 rounded-2xl mb-4 sm:mb-6">
+          <h3 className="font-bold text-sm sm:text-base text-white mb-2 sm:mb-3 flex items-center gap-2">
+            <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-teal-400" />
             User-Generated Content &amp; Submission Data
           </h3>
           <p className="mb-2 sm:mb-3">When you create content on our platform or participate in our &quot;Write for Us&quot; program, we may collect: blogs, posts, and stories you publish; author bio and profile; website URLs for backlinks; social media profiles (if provided); and communication history regarding submissions. We also collect data related to your use of our definitions, stories, and posts pages.</p>
         </div>
-        <div className="bg-gray-50 p-4 sm:p-5 lg:p-6 rounded-lg border border-gray-200 shadow-md">
-          <h3 className="font-bold text-sm sm:text-base text-black mb-2 sm:mb-3 flex items-center gap-2">
-            <Cookie className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+        <div className="glass p-4 sm:p-5 lg:p-6 rounded-2xl">
+          <h3 className="font-bold text-sm sm:text-base text-white mb-2 sm:mb-3 flex items-center gap-2">
+            <Cookie className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-teal-400" />
             Cookies and Tracking Technologies
           </h3>
           <p className="mb-2 sm:mb-3">We use cookies and similar tracking technologies to track activity on our Service and hold certain information. Types of cookies we use: Essential cookies, Analytics cookies, Functionality cookies, and Marketing cookies.</p>

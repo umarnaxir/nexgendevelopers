@@ -6,19 +6,21 @@ export default function ServicesHero() {
       className="text-center mb-12 sm:mb-16 md:mb-20"
       data-aos="fade-up"
     >
+      <span className="eyebrow">
+        <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+        What We Offer
+      </span>
       <h1
         id="services-heading"
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-black mb-4 sm:mb-6 tracking-tight"
-        style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7), 0 0 45px rgba(255, 255, 255, 0.5)' }}
+        className="text-gradient-light mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 tracking-tight"
       >
-        Our Services
+        Our <span className="text-gradient-teal">Services</span>
       </h1>
-      <p 
-        className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-5xl mx-auto leading-relaxed px-4"
-        style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)' }}
+      <p
+        className="text-lg sm:text-xl md:text-2xl text-silver max-w-5xl mx-auto leading-relaxed px-4"
       >
         The goal is not just to build a website or an app, but to{" "}
-        <span className="font-bold text-black">grow your business</span>.
+        <span className="font-bold text-white">grow your business</span>.
         {" "}
         Explore our full range of development, digital marketing, and support services.
       </p>
