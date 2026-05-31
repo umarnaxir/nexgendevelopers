@@ -527,6 +527,30 @@ body {
 .animate-spin-slow { animation: spinSlow 28s linear infinite; }
 .animate-spin-slow-rev { animation: spinSlow 34s linear infinite reverse; }
 
+/* Hero sphere — revolving orbit particles */
+@keyframes orbitRevolve { to { transform: rotate(360deg); } }
+.animate-orbit { animation: orbitRevolve 16s linear infinite; }
+.animate-orbit-rev { animation: orbitRevolve 22s linear infinite reverse; }
+.animate-orbit-slow { animation: orbitRevolve 30s linear infinite; }
+
+/* Hero sphere — pulsing teal shadow halo */
+@keyframes spherePulse {
+  0%, 100% {
+    box-shadow: 0 0 55px rgba(20, 184, 166, 0.35), 0 0 110px rgba(20, 184, 166, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 95px rgba(20, 184, 166, 0.6), 0 0 170px rgba(20, 184, 166, 0.32);
+  }
+}
+.animate-sphere-pulse { animation: spherePulse 5s ease-in-out infinite; }
+
+/* Hero sphere — gentle vertical float */
+@keyframes heroFloatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.animate-hero-float { animation: heroFloatY 6.5s ease-in-out infinite; }
+
 /* Marquee for logo / tech strips */
 @keyframes marqueeX {
   from { transform: translateX(0); }
@@ -541,6 +565,11 @@ body {
   .animate-glow-pulse,
   .animate-spin-slow,
   .animate-spin-slow-rev,
+  .animate-orbit,
+  .animate-orbit-rev,
+  .animate-orbit-slow,
+  .animate-sphere-pulse,
+  .animate-hero-float,
   .animate-marquee,
   .beam-border::after {
     animation: none !important;
