@@ -39,15 +39,23 @@ const spaceGrotesk = localFont({
   display: "swap",
 });
 
-// Root layout uses default home SEO
 export const metadata = {
   ...getHomeSEO(),
   verification: {
     google: "K5WPaPu_n40Lp7BlSC2vph3oTrM3QzSlCbkCSZpA2iE",
   },
+  icons: {
+    icon: "/ndlogo.png",
+    shortcut: "/ndlogo.png",
+    apple: "/ndlogo.png",
+  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body
@@ -58,9 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ScrollToTop />
         <AOSInit />
         <Toaster position="top-right" richColors />
-        <LayoutWrapper>
-          {children}
-        </LayoutWrapper>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

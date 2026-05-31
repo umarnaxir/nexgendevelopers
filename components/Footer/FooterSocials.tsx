@@ -13,7 +13,7 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
   {
     icon: <MessageCircle className="w-5 h-5" />,
-    href: "https://api.whatsapp.com/message/X7TDAPSVHSFNC1?autoload=1&app_absent=0",
+    href: "https://wa.me/916006161726?text=Hi%20NexGen%20Developers%2C%20I%20want%20to%20discuss%20a%20project.",
     ariaLabel: "WhatsApp"
   },
   {
