@@ -1,4 +1,4 @@
-import { Building2, Globe, Heart, Briefcase, Users, Code2, Calendar,Brain,Eye,Trophy, Share2,BarChart3 } from "lucide-react";
+import { Building2, Globe, Heart, Briefcase, Users, Calendar,Brain,Eye,Trophy, Share2,BarChart3 } from "lucide-react";
 
 export const projects = [
   {
@@ -319,11 +319,4 @@ export const projects = [
   icon: Users,
   color: "bg-violet-500",
 }
-];
-
-export const stats = [
-  { label: "Projects Completed", value: "20+", icon: Briefcase },
-  { label: "Happy Clients", value: "10+", icon: Users },
-  { label: "Technologies Used", value: "30+", icon: Code2 },
-  { label: "Years Experience", value: "2+", icon: Calendar }
 ];

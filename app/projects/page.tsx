@@ -1,6 +1,6 @@
 import ProjectsHero from "./components/ProjectsHero";
 import ProjectsList from "./components/ProjectsList";
-import ProjectsStats from "./components/ProjectsStats";
+import StatsBar from "@/components/StatsBar";
 import ClientReviewsSection from "@/app/home/ClientReviewsSection";
 import FAQSection from "@/app/home/FAQSection";
 import { getProjectsSEO } from "@/lib/seo/page-seo";
@@ -12,7 +12,7 @@ export default function ProjectsPage() {
     <div className="min-h-screen">
       <ProjectsHero />
       <ProjectsList />
-      <ProjectsStats />
+      <StatsBar />
       <ClientReviewsSection />
       <FAQSection />
     </div>

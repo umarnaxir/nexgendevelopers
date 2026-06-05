@@ -3,7 +3,7 @@ import AboutContent from "./components/AboutContent";
 import WhyChooseUsSection from "./components/WhyChooseUsSection";
 import ValuesSection from "./components/ValuesSection";
 import ContactCTA from "./components/ContactCTA";
-import ProjectsStats from "@/app/projects/components/ProjectsStats";
+import StatsBar from "@/components/StatsBar";
 import { getAboutSEO } from "@/lib/seo/page-seo";
 
 export const metadata = getAboutSEO();
@@ -16,7 +16,7 @@ export default function AboutPage() {
           <AboutContent />
           <WhyChooseUsSection dark />
           <ValuesSection />
-          <ProjectsStats />
+          <StatsBar />
           <ContactCTA />
         </div>
     </div>

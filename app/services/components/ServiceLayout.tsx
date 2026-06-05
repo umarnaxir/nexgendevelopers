@@ -18,7 +18,6 @@ import {
   Users,
   Clock,
   Target,
-  Award,
   Code,
   Globe,
   Smartphone,
@@ -92,14 +91,6 @@ export default function ServiceLayout({
 }: ServiceLayoutProps) {
   const { open: openContactModal } = useContactModal();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
-  // Stats for the service page - black/white accents
-  const stats = [
-    { icon: Rocket, value: "20+", label: "Projects Completed" },
-    { icon: Users, value: "10+", label: "Happy Clients" },
-    { icon: Code, value: "30+", label: "Technologies Used" },
-    { icon: Award, value: "2+", label: "Years Experience" },
-  ];
 
   // Detailed content sections
   const detailedFeatures = [
@@ -183,31 +174,6 @@ export default function ServiceLayout({
             <p className="text-lg sm:text-xl text-silver-light leading-loose sm:leading-8 text-center font-medium">
               {description}
             </p>
-          </div>
-
-          {/* Stats Section - No bg/border, less padding, big icons and font */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-16 justify-items-center">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <div
-                  key={index}
-                  className="w-full max-w-[220px] px-2 py-3 flex flex-col items-center justify-center text-center transition-transform duration-300 hover:-translate-y-0.5"
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 80}
-                >
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mb-3">
-                    <IconComponent className="w-10 h-10 sm:w-12 sm:h-12 text-teal-300" />
-                  </div>
-                  <div className="text-gradient-light text-6xl sm:text-7xl font-bold mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-lg sm:text-xl text-silver font-medium leading-snug">
-                    {stat.label}
-                  </div>
-                </div>
-              );
-            })}
           </div>
 
           {/* Detailed Overview Section */}

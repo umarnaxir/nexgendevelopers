@@ -13,10 +13,10 @@ const FAQSection = dynamic(() => import("@/app/home/FAQSection"), {
   ssr: true,
   loading: () => <div className="min-h-[200px]" />,
 });
-const ProjectsStats = dynamic(
-  () => import("@/app/projects/components/ProjectsStats"),
-  { ssr: true, loading: () => <div className="min-h-[120px]" /> }
-);
+const StatsBar = dynamic(() => import("@/components/StatsBar"), {
+  ssr: true,
+  loading: () => <div className="min-h-[120px]" />,
+});
 const ContactCTA = dynamic(() => import("../about/components/ContactCTA"), {
   ssr: true,
   loading: () => <div className="min-h-[100px]" />,
@@ -33,7 +33,7 @@ export default function ServicesPage() {
       </section>
       <ClientReviewsSection />
       <FAQSection />
-      <ProjectsStats />
+      <StatsBar />
       <ContactCTA />
     </main>
   );
