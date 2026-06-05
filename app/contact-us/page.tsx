@@ -8,7 +8,7 @@ export const metadata = getContactUsSEO();
 export default function ContactUsPage() {
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto py-6 sm:py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="container mx-auto pb-6 sm:pb-8 md:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl">
         <ContactUsHero />
         <ContactUsContent />
         <ContactSection />

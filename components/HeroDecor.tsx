@@ -30,7 +30,7 @@ export default function HeroDecor() {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
       {/* Ambient glows */}
-      <div className="absolute left-1/2 top-0 h-[340px] w-[600px] -translate-x-1/2 rounded-full bg-teal-500/[0.18] blur-[120px] animate-glow-pulse" />
+      <div className="absolute inset-x-0 -top-20 h-[300px] bg-teal-500/[0.18] blur-[120px] animate-glow-pulse" />
       <div className="absolute -left-24 bottom-0 h-[300px] w-[300px] rounded-full bg-teal-600/[0.14] blur-[110px]" />
       <div className="absolute -right-20 top-1/4 h-[260px] w-[260px] rounded-full bg-teal-400/[0.12] blur-[100px]" />
 
