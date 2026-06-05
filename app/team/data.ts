@@ -31,7 +31,7 @@ export const teamMembers = [
     image: "/images/team/mohsin-jan.jpeg",
   },
   {
-    name: "Ishfaq Ahmad",
+    name: "Ishfaq Nazir",
     title: "Full Stack Software Engineer",
     image: "/images/team/ishfaq.png",
   },

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Play, Pause, Building2, Globe, Heart, Briefcase } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause, Building2, Globe, Heart, Briefcase, Brain, Eye, Users, BarChart3, Share2 } from "lucide-react";
 import ProjectCarouselCard from "@/components/ProjectCarouselCard";
 
 // Helper function to generate slug from title
@@ -75,7 +75,143 @@ export default function FeaturedWorkSection() {
       icon: Briefcase,
       color: "bg-purple-500",
       slug: generateSlug("Saibbyweb Office Management Dashboard")
-    }
+    },
+    {
+      id: 5,
+      title: "Code2Concept AI",
+      description: "An AI-powered platform that converts code and technical concepts into engaging animated videos using LLMs and Manim.",
+      image: "/images/projects/code2concept.png",
+      link: "https://your-project-link.com",
+      technologies: [
+        "Python",
+        "FastAPI",
+        "React",
+        "Manim",
+        "LLM Integration",
+        "OpenAI API",
+        "Tailwind CSS",
+        "Video Processing"
+      ],
+      category: "AI Application",
+      duration: "1 month",
+      client: "Personal Project",
+      icon: Brain,
+      color: "bg-indigo-500",
+      slug: generateSlug("Code2Concept AI")
+    },
+    {
+  id: 6,
+  title: "EyeAmHere AI",
+  description: "An AI-powered attendance system that automatically tracks and marks student attendance based on classroom presence and engagement.",
+  image: "/images/projects/eyeamhere.png",
+  link: "https://your-project-link.com",
+  technologies: [
+    "Python",
+    "OpenCV",
+    "Computer Vision",
+    "Machine Learning",
+    "React",
+    "FastAPI",
+    "MongoDB",
+    "Tailwind CSS"
+  ],
+  category: "AI Application",
+  duration: "1 month",
+  client: "Personal Project",
+  icon: Eye,
+  color: "bg-blue-500",
+  slug: generateSlug("EyeAmHere AI")
+},
+{
+  id: 7,
+  title: "AlgoArena - AI-Powered Learning Platform",
+  description: "An intelligent learning platform that personalizes education through AI-driven roadmaps, coding challenges, skill assessments, and adaptive learning experiences.",
+  image: "/images/projects/algoarena.png",
+  link: "https://your-project-link.com",
+  technologies: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "MongoDB",
+    "OpenAI API",
+    "Python",
+    "Tailwind CSS"
+  ],
+  category: "AI & EdTech Platform",
+  duration: "4 months",
+  client: "Personal Project",
+  icon: Brain,
+  color: "bg-orange-500",
+  slug: generateSlug("AlgoArena")
+},
+{
+  id: 8,
+  title: "ShareStore - Smart Resource Sharing Platform",
+  description: "A centralized platform for students and professionals to securely store, organize, and share notes, documents, and learning resources.",
+  image: "/images/projects/sharestore.png",
+  link: "https://your-project-link.com",
+  technologies: [
+    "Next.js",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "Express.js",
+    "Cloud Storage",
+    "JWT Authentication",
+    "Tailwind CSS"
+  ],
+  category: "Knowledge Sharing Platform",
+  duration: "2 months",
+  client: "Personal Project",
+  icon: Share2,
+  color: "bg-emerald-500",
+  slug: generateSlug("ShareStore")
+},
+{
+  id: 9,
+  title: "Sales Analytics - AI Business Intelligence Dashboard",
+  description: "An intelligent analytics platform that transforms raw business data into actionable insights through interactive dashboards and AI-driven recommendations.",
+  image: "/images/projects/salesanalytics.png",
+  link: "https://your-project-link.com",
+  technologies: [
+    "Python",
+    "Streamlit",
+    "Pandas",
+    "Plotly",
+    "Machine Learning",
+    "Data Analytics"
+  ],
+  category: "Business Intelligence",
+  duration: "1 month",
+  client: "Personal Project",
+  icon: BarChart3,
+  color: "bg-green-500",
+  slug: generateSlug("Sales Analytics")
+},
+{
+  id: 10,
+  title: "DevVerse - Developer Social Network",
+  description: "A social platform built for developers to connect, share ideas, discuss technologies, and collaborate on projects.",
+  image: "/images/projects/devverse.png",
+  link: "https://your-project-link.com",
+  technologies: [
+    "Next.js",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "Socket.io",
+    "JWT Authentication",
+    "Tailwind CSS"
+  ],
+  category: "Social Networking Platform",
+  duration: "2 months",
+  client: "Personal Project",
+  icon: Users,
+  color: "bg-violet-500",
+  slug: generateSlug("DevVerse")
+}
+
   ];
 
   const totalProjects = projects.length;
@@ -83,7 +219,7 @@ export default function FeaturedWorkSection() {
   // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % totalProjects);
     }, 5000); // Change slide every 5 seconds
@@ -120,7 +256,7 @@ export default function FeaturedWorkSection() {
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    
+
     if (isLeftSwipe) {
       nextSlide();
     }
@@ -161,7 +297,7 @@ export default function FeaturedWorkSection() {
         </div>
 
         {/* Carousel Container */}
-        <div 
+        <div
           className="relative flex flex-col"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
@@ -248,11 +384,10 @@ export default function FeaturedWorkSection() {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`rounded-full transition-all duration-300 ${
-                  index === currentIndex
+                className={`rounded-full transition-all duration-300 ${index === currentIndex
                     ? 'w-7 h-1.5 bg-gradient-to-r from-teal-400 to-teal-500'
                     : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
