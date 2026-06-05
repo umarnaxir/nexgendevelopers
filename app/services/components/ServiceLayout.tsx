@@ -439,35 +439,41 @@ export default function ServiceLayout({
             </div>
           )}
 
-          {/* CTA Section - large fonts and spacing */}
-          <div className="relative text-center pt-4 pb-12 sm:pb-16" data-aos="fade-up">
-            <div className="p-8 sm:p-12">
-              <div className="eyebrow mb-6">
-                <Rocket className="w-4 h-4 text-teal-300" />
-                <span>Ready to Get Started?</span>
-              </div>
+          {/* CTA Section - silver card, black/teal content */}
+          <div className="pt-4 pb-12 sm:pb-16" data-aos="fade-up">
+            <div className="relative overflow-hidden rounded-3xl bg-silver border border-teal-700/15 p-6 sm:p-12 text-left sm:text-center shadow-xl">
+              {/* Subtle teal glow accents */}
+              <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-teal-500/15 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-teal-600/10 blur-3xl" />
 
-              <h2 className="text-gradient-light text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
-                {ctaHeading}
-              </h2>
-              <p className="text-lg sm:text-xl text-silver mb-8 max-w-3xl mx-auto leading-relaxed">
-                {ctaDescription}
-              </p>
+              <div className="relative z-10">
+                <span className="inline-flex items-center gap-2 rounded-full border border-teal-700/25 bg-teal-700/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-teal-700 mb-5">
+                  <Rocket className="w-3.5 h-3.5" />
+                  Ready to Get Started?
+                </span>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button
-                  onClick={openContactModal}
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-lg sm:text-xl font-bold rounded-lg shadow-lg shadow-teal-500/25 transition-all duration-300 hover:from-teal-400 hover:to-teal-500"
-                >
-                  <span>Contact Us Now</span>
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <a
-                  href="/services"
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4 border border-white/15 bg-white/[0.06] text-white text-lg sm:text-xl font-bold rounded-lg backdrop-blur transition-all duration-300 hover:border-teal-400/50 hover:bg-white/[0.1]"
-                >
-                  <span>Explore All Services</span>
-                </a>
+                <h2 className="text-black text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6 tracking-tight">
+                  {ctaHeading}
+                </h2>
+                <p className="text-base sm:text-xl text-black/70 mb-8 max-w-3xl sm:mx-auto leading-relaxed">
+                  {ctaDescription}
+                </p>
+
+                <div className="flex flex-row items-stretch justify-center gap-3 sm:gap-4">
+                  <button
+                    onClick={openContactModal}
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-3.5 sm:px-10 sm:py-4 bg-gradient-to-r from-teal-600 to-teal-700 text-white text-sm sm:text-xl font-bold rounded-xl shadow-lg shadow-teal-700/30 transition-all duration-300 hover:from-teal-500 hover:to-teal-600 hover:scale-[1.02] active:scale-95"
+                  >
+                    <span>Contact Us Now</span>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                  </button>
+                  <a
+                    href="/services"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-3.5 sm:px-10 sm:py-4 border border-teal-700/30 bg-black/5 text-teal-700 text-sm sm:text-xl font-bold rounded-xl transition-all duration-300 hover:border-teal-600/60 hover:bg-black/10 hover:scale-[1.02] active:scale-95"
+                  >
+                    <span>Explore All Services</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

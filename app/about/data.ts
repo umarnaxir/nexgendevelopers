@@ -1,20 +1,26 @@
+import { Lightbulb, Award, Users, TrendingUp } from "lucide-react";
+
 export const aboutValues = [
   {
+    icon: Lightbulb,
     title: "Innovation",
     description: "We stay ahead of the curve by adopting the latest technologies and best practices.",
     isFeatured: true
   },
   {
+    icon: Award,
     title: "Excellence",
     description: "We deliver high-quality solutions that exceed expectations and drive results.",
     isFeatured: false
   },
   {
+    icon: Users,
     title: "Collaboration",
     description: "We work closely with our clients to understand their needs and deliver tailored solutions.",
     isFeatured: false
   },
   {
+    icon: TrendingUp,
     title: "Growth",
     description: "We help businesses grow by building scalable and sustainable digital solutions.",
     isFeatured: false

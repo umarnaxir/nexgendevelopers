@@ -31,7 +31,7 @@ export default function HeroSection() {
         <div className="absolute right-0 top-1/4 h-[460px] w-[460px] rounded-full bg-teal-500/[0.08] blur-[120px] animate-glow-pulse" />
         <div className="absolute -left-32 bottom-0 h-[380px] w-[380px] rounded-full bg-teal-700/[0.07] blur-[120px]" />
         <div
-          className="absolute right-10 top-24 h-40 w-40 opacity-40"
+          className="absolute right-10 top-6 h-40 w-40 opacity-40"
           style={{
             backgroundImage:
               "radial-gradient(circle, rgba(45,212,191,0.5) 1.5px, transparent 1.5px)",

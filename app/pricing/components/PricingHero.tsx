@@ -1,6 +1,7 @@
 "use client";
 
 import { serviceLabels, type PricingServiceType } from "../data";
+import HeroDecor from "@/components/HeroDecor";
 
 interface PricingHeroProps {
   service: PricingServiceType;
@@ -16,17 +17,20 @@ const heroSubtitles: Record<PricingServiceType, string> = {
 
 export default function PricingHero({ service }: PricingHeroProps) {
   return (
-    <div className="text-center mb-8 md:mb-10" data-aos="fade-up">
-      <h1 className="text-gradient-light text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4">
-        Transparent{" "}
-        <span className="text-gradient-teal">Pricing Models</span>
-      </h1>
-      <p className="text-lg sm:text-xl text-silver-light max-w-3xl mx-auto mb-2">
-        {heroSubtitles[service]}
-      </p>
-      <p className="text-sm text-silver-dark">
-        Showing pricing for: <strong className="text-white">{serviceLabels[service]}</strong>
-      </p>
+    <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden min-h-[50vh] flex items-center justify-center mb-8 md:mb-10" data-aos="fade-up">
+      <HeroDecor />
+      <div className="relative z-10 w-full container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+        <h1 className="text-gradient-light text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4">
+          Transparent{" "}
+          <span className="text-gradient-teal">Pricing Models</span>
+        </h1>
+        <p className="text-lg sm:text-xl text-silver-light max-w-3xl mx-auto mb-2">
+          {heroSubtitles[service]}
+        </p>
+        <p className="text-sm text-silver-dark">
+          Showing pricing for: <strong className="text-white">{serviceLabels[service]}</strong>
+        </p>
+      </div>
     </div>
   );
 }

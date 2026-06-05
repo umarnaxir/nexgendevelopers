@@ -1,12 +1,15 @@
 "use client";
 
+import HeroDecor from "@/components/HeroDecor";
+
 export default function TeamHero() {
   return (
-    <section 
-      className="pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12 md:pb-16"
+    <section
+      className="relative overflow-hidden min-h-[50vh] flex items-center justify-center py-12"
       data-aos="fade-up"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center" data-aos="zoom-in">
+      <HeroDecor />
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center" data-aos="zoom-in">
         <h1 
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6"
         >

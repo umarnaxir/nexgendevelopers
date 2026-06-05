@@ -13,8 +13,8 @@ export default function PricingContent() {
 
   return (
     <>
-      <PricingServiceSelector currentService={selectedService} onSelect={setSelectedService} />
       <PricingHero service={selectedService} />
+      <PricingServiceSelector currentService={selectedService} onSelect={setSelectedService} />
       <PricingCards service={selectedService} />
       <EnterpriseSection service={selectedService} />
       <div className="mt-16 md:mt-20 pt-8 border-t border-white/10">
