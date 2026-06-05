@@ -11,7 +11,7 @@ export default function PrivacySectionsPart2() {
       </PrivacySection>
 
       <PrivacySection icon={Database} title="7. Data Retention" delay={0.6}>
-        <p className="mb-3 sm:mb-4">We will retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy. Retention periods: Account Information (while active + 3 years after closure), Published Content including blogs, posts, and stories (indefinitely unless removed), Transaction Records (7 years), Marketing Data (until unsubscribe), Analytics Data (aggregated indefinitely).</p>
+        <p className="mb-3 sm:mb-4">We will retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy. Retention periods: Client &amp; Inquiry Information (for the duration of our engagement + 3 years), Transaction Records (7 years), Marketing Data (until unsubscribe), Analytics Data (aggregated indefinitely).</p>
       </PrivacySection>
 
       <PrivacySection icon={Globe} title="8. International Data Transfers" delay={0.7} altBg>

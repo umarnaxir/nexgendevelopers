@@ -2,7 +2,6 @@
 
 import { FileText, Shield, Users, BookOpen } from "lucide-react";
 import TermsSection from "./TermsSection";
-import TermsSectionWriteForUs from "./TermsSectionWriteForUs";
 
 export default function TermsSections() {
   return (
@@ -12,13 +11,10 @@ export default function TermsSections() {
           In these Terms, the following definitions apply:
         </p>
         <ul className="list-disc pl-5 sm:pl-6 space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 marker:text-teal-300">
-          <li><strong className="text-white">&quot;Service&quot;</strong> means our website, applications, and all related features, including definitions, stories, posts, and blogs pages.</li>
-          <li><strong className="text-white">&quot;Platform&quot;</strong> means NexGen — a creative platform to build, launch, and grow your business, helping startups and local brands with AI/ML, chatbots, web &amp; app development, and digital marketing.</li>
-          <li><strong className="text-white">&quot;User Content&quot;</strong> means any content you create or submit on the Platform, including blogs, posts, and stories.</li>
-          <li><strong className="text-white">&quot;Blogs&quot;</strong> means long-form articles or posts published on our blogs section, typically focused on technology, business development, and related topics.</li>
-          <li><strong className="text-white">&quot;Posts&quot;</strong> means content published on our posts feed, including tech and business-related updates and ideas.</li>
-          <li><strong className="text-white">&quot;Stories&quot;</strong> means short-lived or permanent story-style content published on our stories page.</li>
-          <li><strong className="text-white">&quot;Definitions&quot;</strong> means our definitions page and related reference content on the Platform.</li>
+          <li><strong className="text-white">&quot;Service&quot;</strong> means our website, our blog, and all related features and pages.</li>
+          <li><strong className="text-white">&quot;NexGen&quot;</strong> means our service-based team of freelance developers and designers, helping startups and local brands with AI/ML, chatbots, web &amp; app development, and digital marketing.</li>
+          <li><strong className="text-white">&quot;Services&quot;</strong> means the development, design, marketing, and support services we provide to clients under separate service agreements.</li>
+          <li><strong className="text-white">&quot;Blog&quot;</strong> means the articles and guides we publish on our blog section, typically focused on technology, business development, and related topics.</li>
         </ul>
         <p>
           References to &quot;we,&quot; &quot;our,&quot; or &quot;us&quot; mean NexGen. &quot;You&quot; and &quot;your&quot; refer to the user of the Service.
@@ -27,7 +23,7 @@ export default function TermsSections() {
 
       <TermsSection icon={FileText} title="2. Acceptance of Terms" delay={0.05}>
         <p className="mb-3 sm:mb-4">
-          By accessing and using the NexGen website, services, or platform (including our definitions, stories, posts, and blogs pages), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by the above, please do not use this service.
+          By accessing and using the NexGen website, our blog, or our services, you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by the above, please do not use this service.
         </p>
         <p>
           These Terms of Service (&quot;Terms&quot;) govern your access to and use of our website, services, and any related applications (collectively, the &quot;Service&quot;). Your use of the Service constitutes your acceptance of these Terms.
@@ -51,7 +47,7 @@ export default function TermsSections() {
       </TermsSection>
 
       <TermsSection icon={Users} title="4. Services" delay={0.2}>
-        <p className="mb-3 sm:mb-4">NexGen is a creative platform to build, launch, and grow your business. We help startups and local brands with comprehensive digital solutions including:</p>
+        <p className="mb-3 sm:mb-4">NexGen is a service-based team of freelance developers and designers. We help startups and local brands with comprehensive digital solutions including:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
           <div className="glass p-3 sm:p-4 rounded-2xl">
             <h3 className="font-bold text-sm sm:text-base text-white mb-2">Development Services</h3>
@@ -77,34 +73,15 @@ export default function TermsSections() {
         </p>
       </TermsSection>
 
-      <TermsSectionWriteForUs />
-
-      <TermsSection icon={Shield} title="6. Intellectual Property" delay={0.4} altBg>
+      <TermsSection icon={Shield} title="5. Intellectual Property" delay={0.4} altBg>
         <p className="mb-3 sm:mb-4">
           The materials on this website, including but not limited to text, graphics, logos, images, audio clips, digital downloads, and software, are the property of NexGen or its content suppliers and are protected by international copyright and trademark laws.
         </p>
         <p className="mb-3 sm:mb-4">
-          <strong className="text-white">For User Content (Blogs, Posts, Stories) and Guest Contributors:</strong> By creating or submitting content (blogs, posts, stories, or Write for Us submissions) on our platform, you grant NexGen a non-exclusive, royalty-free, perpetual, and worldwide license to use, reproduce, modify, adapt, publish, translate, and distribute your content in any media. You retain ownership of your original content but grant us the right to publish and promote it on our platform.
+          <strong className="text-white">For Client Work:</strong> Ownership of deliverables we create for clients (such as websites, applications, designs, and other custom work) is governed by the separate service agreement for that project. Unless otherwise agreed in writing, ownership of final deliverables transfers to the client upon full payment, while NexGen retains the right to showcase the work in our portfolio.
         </p>
         <p>
           Unauthorized use of any materials on this website may violate copyright, trademark, and other laws. If you violate any of these restrictions, your permission to use the materials automatically terminates and you must immediately destroy any downloaded materials in your possession.
-        </p>
-      </TermsSection>
-
-      <TermsSection icon={Users} title="7. User Accounts and Registration" delay={0.5}>
-        <p className="mb-3 sm:mb-4">
-          To access certain features of our Service, including creating blogs, posts, or stories and the &quot;Write for Us&quot; program, you may be required to register for an account. When you register, you agree to:
-        </p>
-        <ul className="list-disc pl-5 sm:pl-6 space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 marker:text-teal-300">
-          <li>Provide accurate, current, and complete information during registration</li>
-          <li>Maintain and promptly update your account information</li>
-          <li>Maintain the security of your password and identification</li>
-          <li>Accept all responsibility for activities that occur under your account</li>
-          <li>Notify us immediately of any unauthorized use of your account</li>
-          <li>Not share your account credentials with third parties</li>
-        </ul>
-        <p>
-          We reserve the right to suspend or terminate your account at any time if you violate these Terms or engage in any fraudulent, abusive, or illegal activity.
         </p>
       </TermsSection>
     </div>

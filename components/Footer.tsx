@@ -44,8 +44,7 @@ export default function Footer() {
   ];
 
   const workLinks: FooterLink[] = [
-    { label: 'Work with us', href: '/work-with-us' },
-    { label: 'Write for us', href: '/write-for-us' }
+    { label: 'Work with us', href: '/contact-us' }
   ];
 
   return (

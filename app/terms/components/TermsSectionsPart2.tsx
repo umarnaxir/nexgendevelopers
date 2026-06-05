@@ -6,24 +6,21 @@ import TermsSection from "./TermsSection";
 export default function TermsSectionsPart2() {
   return (
     <>
-      <TermsSection icon={CheckCircle} title="8. Content Guidelines and Prohibited Uses" delay={0.6} altBg>
-        <p className="mb-3 sm:mb-4">When you add blogs, posts, or stories on our Platform, you must follow these rules. You agree not to use the Service to:</p>
+      <TermsSection icon={CheckCircle} title="6. Acceptable Use" delay={0.6} altBg>
+        <p className="mb-3 sm:mb-4">When you access or use our website and services, you must follow these rules. You agree not to:</p>
         <ul className="list-disc pl-5 sm:pl-6 space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 marker:text-teal-300">
-          <li>Post, upload, or transmit any content that is illegal, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, invasive of another&apos;s privacy, or otherwise inappropriate (&quot;bad&quot; or harmful content)</li>
-          <li>Upload or share any 18+ content, adult material, or content unsuitable for a business and technology platform</li>
-          <li>Post content that is not related to technology, business ideas development, or tech-related topics — our Platform is for tech posts and business development content only</li>
+          <li>Use the Service for any unlawful purpose or in violation of any applicable local, state, national, or international law</li>
           <li>Impersonate any person or entity or falsely state or misrepresent your affiliation with a person or entity</li>
-          <li>Upload or transmit any content that infringes any patent, trademark, trade secret, copyright, or other proprietary rights</li>
-          <li>Upload or transmit any unsolicited or unauthorized advertising, promotional materials, spam, or junk mail</li>
-          <li>Upload or transmit any material containing software viruses or other harmful computer code</li>
-          <li>Interfere with or disrupt the Service or servers or networks connected to the Service</li>
-          <li>Violate any applicable local, state, national, or international law</li>
+          <li>Infringe any patent, trademark, trade secret, copyright, or other proprietary rights</li>
+          <li>Transmit any unsolicited or unauthorized advertising, promotional materials, spam, or junk mail</li>
+          <li>Transmit any material containing software viruses or other harmful computer code</li>
+          <li>Interfere with or disrupt the Service or the servers or networks connected to it</li>
+          <li>Attempt to gain unauthorized access to any part of the Service or any systems or networks connected to it</li>
         </ul>
-        <p className="mb-3 sm:mb-4 font-semibold text-white">If you upload bad, inappropriate, 18+, or off-topic content, your account may be blocked, suspended, or terminated, and you may be subject to further action, including reporting to authorities where applicable.</p>
-        <p>We reserve the right to remove any content that violates these guidelines without prior notice and to take action against your account.</p>
+        <p>We reserve the right to restrict or block access to anyone who violates these rules, without prior notice, and to take further action, including reporting to the relevant authorities where applicable.</p>
       </TermsSection>
 
-      <TermsSection icon={AlertCircle} title="9. Limitation of Liability" delay={0.7}>
+      <TermsSection icon={AlertCircle} title="7. Limitation of Liability" delay={0.7}>
         <p className="mb-3 sm:mb-4">
           In no event shall NexGen, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
         </p>
@@ -39,28 +36,28 @@ export default function TermsSectionsPart2() {
         </p>
       </TermsSection>
 
-      <TermsSection icon={Shield} title="10. Indemnification" delay={0.8} altBg>
+      <TermsSection icon={Shield} title="8. Indemnification" delay={0.8} altBg>
         <p>
-          You agree to defend, indemnify, and hold harmless NexGen and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney&apos;s fees), resulting from or arising out of: (a) your use and access of the Service; (b) your violation of any term of these Terms; (c) your violation of any third party right, including without limitation any copyright, property, or privacy right; or (d) any claim that your content (including blogs, posts, or stories) caused damage to a third party.
+          You agree to defend, indemnify, and hold harmless NexGen and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney&apos;s fees), resulting from or arising out of: (a) your use and access of the Service; (b) your violation of any term of these Terms; or (c) your violation of any third party right, including without limitation any copyright, property, or privacy right.
         </p>
       </TermsSection>
 
-      <TermsSection icon={AlertCircle} title="11. Termination" delay={0.9}>
+      <TermsSection icon={AlertCircle} title="9. Termination" delay={0.9}>
         <p className="mb-3 sm:mb-4">
-          We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.
+          We may restrict or terminate your access to the Service immediately, without prior notice or liability, at our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.
         </p>
         <p>
-          If you wish to terminate your account, you may simply discontinue using the Service. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.
+          You may stop using the Service at any time. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.
         </p>
       </TermsSection>
 
-      <TermsSection icon={FileText} title="12. Changes to Terms" delay={1.0} altBg>
+      <TermsSection icon={FileText} title="10. Changes to Terms" delay={1.0} altBg>
         <p>
           We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.
         </p>
       </TermsSection>
 
-      <TermsSection icon={Users} title="13. Contact Information" delay={1.1} dark>
+      <TermsSection icon={Users} title="11. Contact Information" delay={1.1} dark>
         <p className="mb-4 sm:mb-6">If you have any questions about these Terms of Service, please contact us:</p>
         <div className="glass p-4 sm:p-5 lg:p-6 rounded-2xl">
           <p className="mb-2"><strong className="text-white">Email:</strong> info@nexgendevelopers.in</p>

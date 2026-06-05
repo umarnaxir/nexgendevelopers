@@ -9,23 +9,19 @@ export default function FAQSection() {
   const faqs = [
     {
       question: "What services does NexGen Developers offer?",
-      answer: "We offer a comprehensive range of services including web development, mobile app development, AI/ML solutions, chatbot development, SEO & digital marketing, graphic design, deployment & DevOps, and ongoing maintenance & support. We also provide a platform where you can share ideas, post stories, publish blogs, and promote your brand to reach startups and local businesses."
+      answer: "We're a service-based team of freelance developers and designers offering web development, mobile app development, AI/ML solutions, chatbot development, SEO & digital marketing, graphic design, deployment & DevOps, and ongoing maintenance & support. We work with startups and local businesses to build, launch, and grow their products."
     },
     {
-      question: "How can I share my ideas and promote my project on your platform?",
-      answer: "You can share your ideas, tips, updates, and insights through our posts feature. Simply visit the posts section to view existing content or create your own post to promote your project or business. This helps you connect with our community of startups, developers, and local brands while gaining visibility for your work."
+      question: "How do I get started or request a quote?",
+      answer: "Reach out through our contact page or send us an email with a short description of what you need. We'll get back to you to discuss your requirements, scope, timeline, and pricing, and share a proposal before any work begins."
     },
     {
-      question: "What are stories and how can I use them for promotion?",
-      answer: "Stories are short, visual content pieces perfect for launching products, events, or promotions. They're quick and engaging, designed to capture attention quickly. You can post stories to share time-sensitive updates, behind-the-scenes content, or promotional announcements. Stories are ideal for creating urgency and driving immediate engagement with your audience."
+      question: "Do you work with startups and small businesses?",
+      answer: "Yes. We specialize in helping startups and local brands. Whether you need a single landing page, a full web or mobile app, or ongoing marketing and support, we tailor our services to your goals and budget."
     },
     {
-      question: "Can I write and publish blogs on your platform?",
-      answer: "Yes! Our platform allows you to read and write articles, guides, and thought leadership content. You can publish blogs to share your expertise, promote your brand, and contribute to the community. Quality blog content helps you establish authority, gain backlinks, and reach startups and local brands looking for valuable insights."
-    },
-    {
-      question: "How can I promote my brand through your platform?",
-      answer: "You can promote your brand through multiple channels: share ideas via posts, create engaging stories for quick promotions, publish detailed blogs and articles, and leverage our community to reach startups and local brands. Quality content on our platform provides visibility, backlinks, and helps establish your brand as a thought leader in your industry."
+      question: "Do you share resources or insights?",
+      answer: "Yes, we publish articles and guides on our blog covering technology, development, and business topics. It's a free resource — no account or sign-up needed — to help startups and businesses learn and stay updated."
     },
     {
       question: "What is your pricing model?",

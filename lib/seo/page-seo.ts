@@ -249,7 +249,7 @@ export function getPricingSEO(): Metadata {
 export function getPrivacySEO(): Metadata {
   return generateMetadata({
     title: "Privacy Policy - NexGen",
-    description: "Read our privacy policy to understand how NexGen collects, uses, and protects your personal information when you use our services, blogs, posts, and stories.",
+    description: "Read our privacy policy to understand how NexGen collects, uses, and protects your personal information when you use our services, browse our website, or read our blog.",
     keywords: [
       "privacy policy",
       "data protection",
@@ -263,7 +263,7 @@ export function getPrivacySEO(): Metadata {
     openGraph: {
       type: "website",
       title: "Privacy Policy - NexGen",
-      description: "Read our privacy policy to understand how NexGen collects, uses, and protects your personal information when you use our services, blogs, posts, and stories.",
+      description: "Read our privacy policy to understand how NexGen collects, uses, and protects your personal information when you use our services, browse our website, or read our blog.",
       url: "/privacy",
     },
   });
@@ -275,7 +275,7 @@ export function getPrivacySEO(): Metadata {
 export function getTermsSEO(): Metadata {
   return generateMetadata({
     title: "Terms of Service - NexGen",
-    description: "Read our terms of service for using NexGen — a creative platform to build, launch, and grow your business. blogs, posts, stories, and more.",
+    description: "Read our terms of service for using NexGen — a service-based team of freelance developers and designers helping startups and local brands build, launch, and grow.",
     keywords: [
       "terms of service",
       "terms and conditions",
@@ -289,7 +289,7 @@ export function getTermsSEO(): Metadata {
     openGraph: {
       type: "website",
       title: "Terms of Service - NexGen",
-      description: "Read our terms of service for using NexGen — a creative platform to build, launch, and grow your business. blogs, posts, stories, and content guidelines.",
+      description: "Read our terms of service for using NexGen — a service-based team of freelance developers and designers helping startups and local brands build, launch, and grow.",
       url: "/terms",
     },
   });

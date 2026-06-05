@@ -11,7 +11,7 @@ export default function PrivacyHero() {
       </h1>
       <p className="text-base sm:text-lg text-silver-dark">Last updated: February 2, 2026</p>
       <p className="text-sm sm:text-base text-silver-light leading-relaxed mt-2 max-w-3xl mx-auto px-2">
-        Your privacy is important to us. This policy explains how we collect, use, protect, and share your personal information when you use our services, including when you create blogs, posts, or stories on our platform.
+        Your privacy is important to us. This policy explains how we collect, use, protect, and share your personal information when you browse our website, read our blog, or contact us about our services.
       </p>
     </div>
   );

@@ -14,7 +14,7 @@ export default function TermsHero() {
         Please read these terms carefully before using our services. By accessing or using NexGen, you agree to be bound by these terms.
       </p>
       <p className="text-sm sm:text-base text-silver-light leading-relaxed mt-2 max-w-3xl mx-auto px-2">
-        NexGen is a creative platform to build, launch, and grow your business. We help startups and local brands with AI/ML, chatbots, web &amp; app development, and digital marketing — crafting digital experiences that stand out and deliver results.
+        NexGen is a service-based team of freelance developers and designers. We help startups and local brands with AI/ML, chatbots, web &amp; app development, and digital marketing — crafting digital experiences that stand out and deliver results.
       </p>
     </div>
   );
