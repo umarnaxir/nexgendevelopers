@@ -37,12 +37,6 @@ import {
   Palette,
   BarChart3,
   Target,
-  // why choose us
-  Gem,
-  ShieldCheck,
-  BadgeCheck,
-  Zap,
-  Headphones,
 } from "lucide-react";
 import FooterSocials from "./FooterSocials";
 import {
@@ -81,13 +75,6 @@ const dmIcon = (href: string): React.ElementType =>
   : href.includes("graphic") ? Palette
   : href.includes("google-ads") ? BarChart3
   : Target;
-
-const whyChooseUs = [
-  { icon: ShieldCheck, label: "Reliable & Secure" },
-  { icon: BadgeCheck, label: "Quality Assurance" },
-  { icon: Zap, label: "On-Time Delivery" },
-  { icon: Headphones, label: "24/7 Support" },
-];
 
 function LinkColumn({
   title,
@@ -192,15 +179,14 @@ export default function Footer() {
           <LinkColumn title="Digital Marketing" icon={Megaphone} links={digitalMarketingServices} />
         </div>
 
-        {/* ===== Get in touch / Why choose us / Newsletter ===== */}
-        <div className="grid grid-cols-1 gap-8 border-t border-white/10 py-10 md:grid-cols-3 md:divide-x md:divide-white/10">
+        {/* ===== Get in touch / Follow us / Newsletter ===== */}
+        <div className="grid grid-cols-1 gap-8 py-10 md:grid-cols-3">
           {/* Get in touch */}
           <div className="md:pr-8">
             <div className="mb-4 flex items-center gap-3">
-              <Phone className="h-6 w-6 text-white" />
               <h3 className="text-base font-bold text-white">Get in Touch</h3>
             </div>
-            <ul className="space-y-3 border-l-2 border-teal-500/40 pl-4 text-sm">
+            <ul className="space-y-3 text-sm">
               <li>
                 <a href="tel:+916006161726" className="flex items-center gap-2.5 text-gray-400 transition-colors hover:text-white">
                   <Phone className="h-4 w-4 text-teal-400" />
@@ -220,26 +206,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Why choose us */}
+          {/* Follow us */}
           <div className="md:px-8">
             <div className="mb-4 flex items-center gap-3">
-              <Gem className="h-6 w-6 text-white" />
-              <h3 className="text-base font-bold text-white">Why Choose Us?</h3>
+              <h3 className="text-base font-bold text-white">Follow Us</h3>
             </div>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-4 border-l-2 border-teal-500/40 pl-4">
-              {whyChooseUs.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-2 text-sm text-gray-300">
-                  <Icon className="h-4 w-4 shrink-0 text-teal-400" />
-                  {label}
-                </div>
-              ))}
+            <div>
+              <FooterSocials />
             </div>
           </div>
 
           {/* Newsletter */}
           <div className="relative md:pl-8">
             <div className="mb-4 flex items-center gap-3">
-              <Send className="h-6 w-6 text-white" />
               <h3 className="text-base font-bold text-white">Stay Updated</h3>
             </div>
             <p className="mb-4 text-sm text-gray-400">
@@ -277,13 +256,10 @@ export default function Footer() {
           <p className="order-2 text-xs text-gray-500 sm:order-1">
             © {currentYear} NexGen Developers. All rights reserved.
           </p>
-          <div className="order-1 sm:order-2">
-            <FooterSocials />
-          </div>
           <button
             type="button"
             onClick={scrollToTop}
-            className="order-3 inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-bold text-gray-300 transition-all hover:border-teal-400 hover:text-teal-400 hover:scale-105 active:scale-95"
+            className="order-1 inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-bold text-gray-300 transition-all hover:border-teal-400 hover:text-teal-400 hover:scale-105 active:scale-95 sm:order-2"
           >
             <ArrowUp className="h-4 w-4" />
             Back to Top

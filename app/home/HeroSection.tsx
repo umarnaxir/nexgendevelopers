@@ -41,11 +41,6 @@ export default function HeroSection() {
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Mobile: animated "N" graphic at the very top */}
-        <div className="mb-12 lg:hidden">
-          <HeroSphereMobile />
-        </div>
-
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-8">
           {/* LEFT */}
           <div className="text-left" data-aos="fade-right">
@@ -128,6 +123,11 @@ export default function HeroSection() {
                   Trusted by 30+ clients worldwide
                 </p>
               </div>
+            </div>
+
+            {/* Mobile: animated "N" graphic below the trusted-by block */}
+            <div className="mt-12 lg:hidden">
+              <HeroSphereMobile />
             </div>
           </div>
 

@@ -41,6 +41,61 @@ const services = [
   },
 ];
 
+/** Animated orbit graphic with the central code orb (shared by desktop & mobile). */
+function ExpertiseOrbit() {
+  return (
+    <div className="relative flex h-[30rem] w-[30rem] items-center justify-center">
+      {/* rotating conic glow halo */}
+      <span
+        className="absolute inset-6 rounded-full opacity-50 blur-3xl animate-spin-slow"
+        style={{
+          background:
+            "conic-gradient(from 0deg, transparent 0deg, rgba(45,212,191,0.5) 70deg, transparent 150deg, transparent 230deg, rgba(45,212,191,0.4) 310deg, transparent 360deg)",
+        }}
+      />
+
+      {/* concentric orbit rings */}
+      <span className="absolute inset-0 rounded-full border border-white/[0.07] animate-spin-slow" />
+      <span className="absolute inset-[12%] rounded-full border border-dashed border-teal-400/25 animate-spin-slow-rev" />
+      <span className="absolute inset-[26%] rounded-full border border-teal-400/15 animate-spin-slow" />
+
+      {/* revolving glowing particles */}
+      <span className="absolute inset-0 animate-orbit">
+        <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-300 shadow-[0_0_16px_rgba(45,212,191,0.95)]" />
+      </span>
+      <span className="absolute inset-[12%] animate-orbit-rev">
+        <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-200 shadow-[0_0_12px_rgba(45,212,191,0.85)]" />
+      </span>
+      <span className="absolute inset-[26%] animate-orbit-slow">
+        <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.8)]" />
+      </span>
+
+      {/* floating tech-icon chips */}
+      <span className="absolute left-2 top-12 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-teal-300 backdrop-blur animate-float">
+        <BrainCircuit className="h-7 w-7" />
+      </span>
+      <span className="absolute bottom-14 left-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-400/20 bg-teal-400/[0.06] text-teal-200 backdrop-blur animate-float-delayed">
+        <Bot className="h-6 w-6" />
+      </span>
+      <span className="absolute bottom-6 right-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-teal-300 backdrop-blur animate-float">
+        <TrendingUp className="h-6 w-6" />
+      </span>
+
+      {/* central code orb (BIG) */}
+      <div className="relative flex h-64 w-64 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] backdrop-blur animate-hero-float">
+        {/* pulsing teal shadow halo */}
+        <span className="absolute inset-0 rounded-full animate-sphere-pulse" />
+        {/* teal core */}
+        <span className="relative flex h-48 w-48 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-teal-600 to-teal-800 text-white shadow-[inset_0_3px_24px_rgba(255,255,255,0.28)] ring-1 ring-teal-300/30">
+          <Code2 className="h-24 w-24" strokeWidth={2.2} />
+          {/* glossy highlight */}
+          <span className="absolute left-[22%] top-[18%] h-10 w-16 -rotate-12 rounded-full bg-white/30 blur-md" />
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function AboutSection() {
   const { open: openContactModal } = useContactModal();
 
@@ -79,63 +134,22 @@ export default function AboutSection() {
               NexGen Developers is a collective of engineering professionals united to deliver premium
               services.
             </p>
+
+            {/* Mobile: scaled-down animated graphic below the content */}
+            <div className="mt-10 flex justify-center lg:hidden" aria-hidden>
+              <div className="flex h-[320px] w-[300px] items-center justify-center">
+                <div className="scale-[0.6] sm:scale-[0.7]">
+                  <ExpertiseOrbit />
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Decorative animated graphic */}
+          {/* Decorative animated graphic (desktop) */}
           <div className="relative hidden h-[520px] items-center justify-center lg:flex" data-aos="fade-left" aria-hidden>
             {/* dotted grid accent */}
             <span className="absolute right-0 top-2 h-32 w-32 text-teal-400/40" style={DOTS} />
-
-            {/* orbit system */}
-            <div className="relative flex h-[30rem] w-[30rem] items-center justify-center">
-              {/* rotating conic glow halo */}
-              <span
-                className="absolute inset-6 rounded-full opacity-50 blur-3xl animate-spin-slow"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, transparent 0deg, rgba(45,212,191,0.5) 70deg, transparent 150deg, transparent 230deg, rgba(45,212,191,0.4) 310deg, transparent 360deg)",
-                }}
-              />
-
-              {/* concentric orbit rings */}
-              <span className="absolute inset-0 rounded-full border border-white/[0.07] animate-spin-slow" />
-              <span className="absolute inset-[12%] rounded-full border border-dashed border-teal-400/25 animate-spin-slow-rev" />
-              <span className="absolute inset-[26%] rounded-full border border-teal-400/15 animate-spin-slow" />
-
-              {/* revolving glowing particles */}
-              <span className="absolute inset-0 animate-orbit">
-                <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-300 shadow-[0_0_16px_rgba(45,212,191,0.95)]" />
-              </span>
-              <span className="absolute inset-[12%] animate-orbit-rev">
-                <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-200 shadow-[0_0_12px_rgba(45,212,191,0.85)]" />
-              </span>
-              <span className="absolute inset-[26%] animate-orbit-slow">
-                <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.8)]" />
-              </span>
-
-              {/* floating tech-icon chips */}
-              <span className="absolute left-2 top-12 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-teal-300 backdrop-blur animate-float">
-                <BrainCircuit className="h-7 w-7" />
-              </span>
-              <span className="absolute bottom-14 left-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-400/20 bg-teal-400/[0.06] text-teal-200 backdrop-blur animate-float-delayed">
-                <Bot className="h-6 w-6" />
-              </span>
-              <span className="absolute bottom-6 right-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-teal-300 backdrop-blur animate-float">
-                <TrendingUp className="h-6 w-6" />
-              </span>
-
-              {/* central code orb (BIG) */}
-              <div className="relative flex h-64 w-64 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] backdrop-blur animate-hero-float">
-                {/* pulsing teal shadow halo */}
-                <span className="absolute inset-0 rounded-full animate-sphere-pulse" />
-                {/* teal core */}
-                <span className="relative flex h-48 w-48 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-teal-600 to-teal-800 text-white shadow-[inset_0_3px_24px_rgba(255,255,255,0.28)] ring-1 ring-teal-300/30">
-                  <Code2 className="h-24 w-24" strokeWidth={2.2} />
-                  {/* glossy highlight */}
-                  <span className="absolute left-[22%] top-[18%] h-10 w-16 -rotate-12 rounded-full bg-white/30 blur-md" />
-                </span>
-              </div>
-            </div>
+            <ExpertiseOrbit />
           </div>
         </div>
 
