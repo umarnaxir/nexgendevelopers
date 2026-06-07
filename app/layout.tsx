@@ -6,6 +6,7 @@ import { Toaster } from "sonner";
 import { getHomeSEO } from "@/lib/seo/page-seo";
 import { OrganizationSchema, WebsiteSchema } from "@/lib/seo/structured-data";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import ThemeProvider from "@/components/theme/ThemeProvider";
 
 const spaceGrotesk = localFont({
   src: [
@@ -57,16 +58,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${spaceGrotesk.variable} ${spaceGrotesk.className} antialiased`}
       >
-        <OrganizationSchema />
-        <WebsiteSchema />
-        <ScrollToTop />
-        <AOSInit />
-        <Toaster position="top-right" richColors />
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <ThemeProvider>
+          <OrganizationSchema />
+          <WebsiteSchema />
+          <ScrollToTop />
+          <AOSInit />
+          <Toaster position="top-right" richColors />
+          <LayoutWrapper>{children}</LayoutWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );

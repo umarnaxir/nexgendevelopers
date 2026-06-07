@@ -113,7 +113,7 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
       aria-label="Get in touch"
     >
       <div
-        className="relative grid w-full max-w-3xl grid-cols-1 overflow-hidden rounded-2xl border border-white/10 shadow-2xl md:grid-cols-[0.85fr_1fr] max-h-[92vh] overflow-y-auto"
+        className="relative grid w-full max-w-3xl grid-cols-1 overflow-hidden rounded-2xl border border-white/10 light:border-gray-200 shadow-2xl md:grid-cols-[0.85fr_1fr] max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ===== Left: silver "reach us" panel — desktop only ===== */}
@@ -186,13 +186,13 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
         </div>
 
         {/* ===== Right: form panel — black (only side on mobile) ===== */}
-        <div className="relative bg-[#070809] p-6 sm:p-7">
+        <div className="relative bg-[#070809] light:bg-white p-6 sm:p-7">
           {/* Close button */}
           <button
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-silver-light transition-all hover:rotate-90 hover:border-teal-400/40 hover:text-white"
+            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 light:border-gray-200 bg-white/[0.04] light:bg-gray-100 text-silver-light light:text-gray-700 transition-all hover:rotate-90 hover:border-teal-400/40 hover:text-white light:hover:text-gray-900"
           >
             <X className="h-4 w-4" />
           </button>
@@ -201,20 +201,20 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
             <span className="h-0.5 w-7 bg-teal-400" />
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-teal-300">Get Started</span>
           </div>
-          <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
+          <h2 className="text-2xl font-extrabold text-white light:text-gray-900 sm:text-3xl">
             Let&apos;s <span className="text-gradient-teal">connect!</span>
           </h2>
-          <p className="mt-1.5 text-sm leading-relaxed text-silver">
+          <p className="mt-1.5 text-sm leading-relaxed text-silver light:text-gray-600">
             Drop your details and we&apos;ll call you back shortly.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-5 space-y-3.5">
             <div className="group/field">
-              <label htmlFor="git-name" className="mb-1.5 block text-xs font-bold text-silver-light">
+              <label htmlFor="git-name" className="mb-1.5 block text-xs font-bold text-silver-light light:text-gray-700">
                 Your Name <span className="text-teal-400">*</span>
               </label>
               <div className="relative">
-                <User className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-silver-dark transition-colors group-focus-within/field:text-teal-300" />
+                <User className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-silver-dark light:text-gray-500 transition-colors group-focus-within/field:text-teal-300" />
                 <input
                   id="git-name"
                   type="text"
@@ -222,17 +222,17 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Ex. John Doe"
                   required
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] py-3 pl-10 pr-4 text-sm text-white outline-none transition-all placeholder:text-silver-dark focus:border-teal-400/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-teal-400/20"
+                  className="w-full rounded-xl border border-white/10 light:border-gray-300 bg-white/[0.04] light:bg-white py-3 pl-10 pr-4 text-sm text-white light:text-gray-900 outline-none transition-all placeholder:text-silver-dark light:placeholder:text-gray-400 focus:border-teal-400/60 focus:bg-white/[0.06] light:focus:bg-white focus:ring-2 focus:ring-teal-400/20"
                 />
               </div>
             </div>
 
             <div className="group/field">
-              <label htmlFor="git-phone" className="mb-1.5 block text-xs font-bold text-silver-light">
+              <label htmlFor="git-phone" className="mb-1.5 block text-xs font-bold text-silver-light light:text-gray-700">
                 Contact Number <span className="text-teal-400">*</span>
               </label>
               <div className="relative">
-                <Phone className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-silver-dark transition-colors group-focus-within/field:text-teal-300" />
+                <Phone className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-silver-dark light:text-gray-500 transition-colors group-focus-within/field:text-teal-300" />
                 <input
                   id="git-phone"
                   type="tel"
@@ -240,7 +240,7 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+91 600-616-1726"
                   required
-                  className="w-full rounded-xl border border-white/10 bg-white/[0.04] py-3 pl-10 pr-4 text-sm text-white outline-none transition-all placeholder:text-silver-dark focus:border-teal-400/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-teal-400/20"
+                  className="w-full rounded-xl border border-white/10 light:border-gray-300 bg-white/[0.04] light:bg-white py-3 pl-10 pr-4 text-sm text-white light:text-gray-900 outline-none transition-all placeholder:text-silver-dark light:placeholder:text-gray-400 focus:border-teal-400/60 focus:bg-white/[0.06] light:focus:bg-white focus:ring-2 focus:ring-teal-400/20"
                 />
               </div>
             </div>
@@ -259,7 +259,7 @@ export default function GetInTouchModal({ isOpen, onClose }: GetInTouchModalProp
             </button>
           </form>
 
-          <p className="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-silver-dark">
+          <p className="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-silver-dark light:text-gray-500">
             <ShieldCheck className="h-3.5 w-3.5" />
             We respect your privacy. Your information is safe with us.
           </p>

@@ -12,7 +12,10 @@ interface LayoutWrapperProps {
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   return (
     <ContactModalProvider>
-      <div id="layout-root" className="home-bg text-white relative min-h-screen">
+      <div
+        id="layout-root"
+        className="home-bg text-white light:text-gray-800 relative min-h-screen"
+      >
         <div className="relative z-10">
           <Navbar isHome />
           <main className="flex-1 pt-20 lg:pt-0">{children}</main>

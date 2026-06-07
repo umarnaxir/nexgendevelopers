@@ -56,10 +56,10 @@ export default function MobileNav({
 
   return (
     <div
-      className="lg:hidden fixed left-0 right-0 top-0 bottom-0 z-[99] h-[100vh] min-h-[100vh] w-[100vw] bg-black overflow-y-auto animate-mobile-nav-in"
+      className="lg:hidden fixed left-0 right-0 top-0 bottom-0 z-[99] h-[100vh] min-h-[100vh] w-[100vw] bg-black light:bg-white overflow-y-auto animate-mobile-nav-in"
     >
       {/* Top bar with logo and close button */}
-      <div className="sticky top-0 z-10 flex items-center justify-between h-20 px-4 sm:px-6 bg-black/80 backdrop-blur-xl border-b border-white/[0.06] shrink-0">
+      <div className="sticky top-0 z-10 flex items-center justify-between h-20 px-4 sm:px-6 bg-black/80 light:bg-white border-b border-white/[0.06] light:border-gray-200 backdrop-blur-xl shrink-0">
         <div onClick={onClose}>
           <NavLogo light />
         </div>
@@ -77,9 +77,9 @@ export default function MobileNav({
               <a
                 key={href}
                 href={href}
-                className="flex min-w-0 items-center gap-3 text-sm font-bold tracking-wide text-white"
+                className="flex min-w-0 items-center gap-3 text-sm font-bold tracking-wide text-white light:text-gray-900"
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-teal-400/20 bg-teal-400/10 text-teal-300">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-teal-400/20 light:border-teal-200 bg-teal-400/10 light:bg-teal-50 text-teal-300 light:text-teal-700">
                   <Icon className="h-4 w-4" />
                 </span>
                 <span className="truncate">{label}</span>
@@ -95,7 +95,7 @@ export default function MobileNav({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-silver-light transition-all duration-300 hover:border-teal-400/50 hover:bg-teal-500 hover:text-white active:scale-95"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 light:border-gray-200 bg-white/[0.04] light:bg-white light:shadow-sm text-silver-light light:text-gray-700 transition-all duration-300 hover:border-teal-400/50 hover:bg-teal-500 hover:text-white active:scale-95"
               >
                 <Icon className="h-4 w-4" />
               </a>

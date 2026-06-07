@@ -5,14 +5,14 @@ import React from "react";
 export default function FooterContact() {
   return (
     <div className="w-full md:w-[360px] text-center md:text-right space-y-1.5">
-      <h4 className="text-sm font-extrabold uppercase text-white mb-3">
+      <h4 className="text-sm font-extrabold uppercase text-white light:text-gray-900 mb-3">
         Contact
       </h4>
-      <div className="text-sm font-medium text-silver space-y-1">
+      <div className="text-sm font-medium text-silver light:text-gray-600 space-y-1">
         <div>
           <a
             href="tel:+91600-616-1726"
-            className="text-silver hover:text-white underline-offset-2 transition-colors duration-200 block font-medium"
+            className="text-silver light:text-gray-600 hover:text-white light:hover:text-teal-700 underline-offset-2 transition-colors duration-200 block font-medium"
           >
             +91 6006161726
           </a>
@@ -20,16 +20,16 @@ export default function FooterContact() {
         <div>
           <a
             href="tel:+917889629640"
-            className="text-silver hover:text-white underline-offset-2 transition-colors duration-200 block font-medium"
+            className="text-silver light:text-gray-600 hover:text-white light:hover:text-teal-700 underline-offset-2 transition-colors duration-200 block font-medium"
           >
             +91 788-962-9640
           </a>
         </div>
       </div>
-      <div className="text-sm font-medium text-silver">
+      <div className="text-sm font-medium text-silver light:text-gray-600">
         <a
           href="mailto:info@nexgendevelopers.in"
-          className="text-silver hover:text-white underline-offset-2 transition-colors duration-200 font-medium"
+          className="text-silver light:text-gray-600 hover:text-white light:hover:text-teal-700 underline-offset-2 transition-colors duration-200 font-medium"
         >
           info@nexgendevelopers.in
         </a>

@@ -17,7 +17,7 @@ export default function PricingContent() {
       <PricingServiceSelector currentService={selectedService} onSelect={setSelectedService} />
       <PricingCards service={selectedService} />
       <EnterpriseSection service={selectedService} />
-      <div className="mt-16 md:mt-20 pt-8 border-t border-white/10">
+      <div className="mt-16 md:mt-20 pt-8 border-t border-white/10 light:border-gray-200">
         <ContactCTA />
       </div>
     </>

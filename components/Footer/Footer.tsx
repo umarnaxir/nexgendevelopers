@@ -88,10 +88,10 @@ function LinkColumn({
   return (
     <div>
       <div className="mb-5 flex items-center gap-2.5">
-        <TitleIcon className="h-6 w-6 text-white" />
+        <TitleIcon className="h-6 w-6 text-white light:text-teal-700" />
         <div>
-          <h3 className="text-base font-bold text-white">{title}</h3>
-          <span className="mt-1 block h-0.5 w-8 rounded-full bg-white" />
+          <h3 className="text-base font-bold text-white light:text-gray-900">{title}</h3>
+          <span className="mt-1 block h-0.5 w-8 rounded-full bg-white light:bg-teal-600" />
         </div>
       </div>
       <ul className="space-y-3">
@@ -99,9 +99,9 @@ function LinkColumn({
           <li key={href}>
             <Link
               href={href}
-              className="group flex items-center gap-2.5 text-sm text-gray-400 transition-colors hover:text-white"
+              className="group flex items-center gap-2.5 text-sm text-gray-400 light:text-gray-600 transition-colors hover:text-white light:hover:text-teal-700"
             >
-              <Icon className="h-4 w-4 text-gray-500 transition-colors group-hover:text-white" />
+              <Icon className="h-4 w-4 text-gray-500 light:text-gray-500 transition-colors group-hover:text-white light:group-hover:text-teal-700" />
               {label}
             </Link>
           </li>
@@ -167,7 +167,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative border-t border-white/[0.06] bg-[#050607] text-gray-300 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-teal-500/40 before:to-transparent"
+      className="relative border-t border-white/[0.06] light:border-gray-200 bg-[#050607] light:bg-white text-gray-300 light:text-gray-600 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-teal-500/40 before:to-transparent"
       data-aos="fade-up"
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -184,23 +184,23 @@ export default function Footer() {
           {/* Get in touch */}
           <div className="md:pr-8">
             <div className="mb-4 flex items-center gap-3">
-              <h3 className="text-base font-bold text-white">Get in Touch</h3>
+              <h3 className="text-base font-bold text-white light:text-gray-900">Get in Touch</h3>
             </div>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="tel:+916006161726" className="flex items-center gap-2.5 text-gray-400 transition-colors hover:text-white">
-                  <Phone className="h-4 w-4 text-teal-400" />
+                <a href="tel:+916006161726" className="flex items-center gap-2.5 text-gray-400 light:text-gray-600 transition-colors hover:text-white light:hover:text-teal-700">
+                  <Phone className="h-4 w-4 text-teal-400 light:text-teal-700" />
                   +91 600-616-1726
                 </a>
               </li>
               <li>
-                <a href="mailto:info@nexgendevelopers.in" className="flex items-center gap-2.5 break-all text-gray-400 transition-colors hover:text-white">
-                  <Mail className="h-4 w-4 text-teal-400" />
+                <a href="mailto:info@nexgendevelopers.in" className="flex items-center gap-2.5 break-all text-gray-400 light:text-gray-600 transition-colors hover:text-white light:hover:text-teal-700">
+                  <Mail className="h-4 w-4 text-teal-400 light:text-teal-700" />
                   info@nexgendevelopers.in
                 </a>
               </li>
-              <li className="flex items-center gap-2.5 text-gray-400">
-                <MapPin className="h-4 w-4 text-teal-400" />
+              <li className="flex items-center gap-2.5 text-gray-400 light:text-gray-600">
+                <MapPin className="h-4 w-4 text-teal-400 light:text-teal-700" />
                 Srinagar, Jammu and Kashmir, India
               </li>
             </ul>
@@ -209,7 +209,7 @@ export default function Footer() {
           {/* Follow us */}
           <div className="md:px-8">
             <div className="mb-4 flex items-center gap-3">
-              <h3 className="text-base font-bold text-white">Follow Us</h3>
+              <h3 className="text-base font-bold text-white light:text-gray-900">Follow Us</h3>
             </div>
             <div>
               <FooterSocials />
@@ -219,9 +219,9 @@ export default function Footer() {
           {/* Newsletter */}
           <div className="relative md:pl-8">
             <div className="mb-4 flex items-center gap-3">
-              <h3 className="text-base font-bold text-white">Stay Updated</h3>
+              <h3 className="text-base font-bold text-white light:text-gray-900">Stay Updated</h3>
             </div>
-            <p className="mb-4 text-sm text-gray-400">
+            <p className="mb-4 text-sm text-gray-400 light:text-gray-600">
               Subscribe to our newsletter for the latest updates, insights and offers.
             </p>
             <form onSubmit={handleSubscribe} className="flex items-center gap-2">
@@ -232,7 +232,7 @@ export default function Footer() {
                 placeholder="Enter your email"
                 required
                 disabled={isSubscribing}
-                className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white outline-none transition-all placeholder:text-gray-500 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
+                className="w-full rounded-xl border border-white/15 light:border-gray-200 bg-white/5 light:bg-gray-100 px-4 py-2.5 text-sm text-white light:text-gray-900 outline-none transition-all placeholder:text-gray-500 light:placeholder:text-gray-500 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20"
               />
               <button
                 type="submit"
@@ -252,14 +252,14 @@ export default function Footer() {
         </div>
 
         {/* ===== Bottom bar ===== */}
-        <div className="flex flex-col items-center gap-4 border-t border-white/10 py-5 sm:flex-row sm:justify-between">
-          <p className="order-2 text-xs text-gray-500 sm:order-1">
+        <div className="flex flex-col items-center gap-4 border-t border-white/10 light:border-gray-200 py-5 sm:flex-row sm:justify-between">
+          <p className="order-2 text-xs text-gray-500 light:text-gray-500 sm:order-1">
             © {currentYear} NexGen Developers. All rights reserved.
           </p>
           <button
             type="button"
             onClick={scrollToTop}
-            className="order-1 inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-bold text-gray-300 transition-all hover:border-teal-400 hover:text-teal-400 hover:scale-105 active:scale-95 sm:order-2"
+            className="order-1 inline-flex items-center gap-2 rounded-full border border-white/15 light:border-gray-200 px-4 py-2 text-xs font-bold text-gray-300 light:text-gray-600 transition-all hover:border-teal-400 hover:text-teal-400 light:hover:border-teal-600 light:hover:text-teal-700 hover:scale-105 active:scale-95 sm:order-2"
           >
             <ArrowUp className="h-4 w-4" />
             Back to Top

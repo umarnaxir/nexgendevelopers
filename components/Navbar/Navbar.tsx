@@ -6,6 +6,7 @@ import NavLogo from "./NavLogo";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 import Hamburger from "./Hamburger";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 import { useContactModal } from "@/components/modals/ContactModalProvider";
 import { getServicesNavItems } from "@/app/services/config";
 
@@ -62,8 +63,8 @@ export default function Navbar({ isHome = false }: { isHome?: boolean }) {
   const headerClass = isHome
     ? `fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl transition-all duration-300 lg:sticky lg:z-50 ${
         isScrolled
-          ? "bg-black/70 border-b border-white/[0.06] shadow-[0_8px_30px_-12px_rgba(0,0,0,0.7)]"
-          : "bg-black/40 border-b border-transparent lg:bg-transparent lg:backdrop-blur-0"
+          ? "bg-black/70 border-b border-white/[0.06] shadow-[0_8px_30px_-12px_rgba(0,0,0,0.7)] light:bg-white/85 light:border-gray-200 light:shadow-[0_8px_30px_-12px_rgba(15,118,110,0.25)]"
+          : "bg-black/40 border-b border-transparent lg:bg-transparent lg:backdrop-blur-0 light:bg-white/70 lg:light:bg-transparent"
       }`
     : `fixed top-0 left-0 right-0 z-[100] bg-white transition-all duration-300 lg:sticky lg:z-50 ${
         isScrolled
@@ -79,14 +80,15 @@ export default function Navbar({ isHome = false }: { isHome?: boolean }) {
           <NavLogo light={isHome} />
 
           {/* Desktop Navigation Links + CTA - Right Side */}
-          <div className="hidden lg:flex items-center gap-8 ml-auto">
+          <div className="hidden lg:flex items-center gap-6 ml-auto">
             <DesktopNav links={navLinks} isHome={isHome} />
+            <ThemeToggle />
             <button
               type="button"
               onClick={openContactModal}
               className={
                 isHome
-                  ? "group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.04] py-1.5 pl-6 pr-1.5 text-sm font-bold text-white backdrop-blur transition-all duration-300 hover:border-teal-400/60 hover:bg-white/[0.07] hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-teal-400/40"
+                  ? "group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.04] py-1.5 pl-6 pr-1.5 text-sm font-bold text-white backdrop-blur transition-all duration-300 hover:border-teal-400/60 hover:bg-white/[0.07] hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-teal-400/40 light:border-gray-200 light:bg-white light:text-gray-900 light:shadow-sm light:hover:border-teal-500"
                   : "group inline-flex items-center gap-2.5 rounded-full border-2 border-gray-200 bg-white py-1.5 pl-6 pr-1.5 text-sm font-bold text-gray-900 transition-all duration-300 hover:border-teal-400 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-teal-400/40"
               }
             >
@@ -103,9 +105,12 @@ export default function Navbar({ isHome = false }: { isHome?: boolean }) {
             </button>
           </div>
 
-          {/* Mobile Hamburger - aligned with logo row */}
-          <div className="lg:hidden flex items-center justify-center shrink-0 w-10 h-10">
-            <Hamburger isOpen={isMobileMenuOpen} onClick={toggleMobileMenu} light={isHome} />
+          {/* Mobile: theme toggle + hamburger - aligned with logo row */}
+          <div className="lg:hidden flex items-center gap-1.5 shrink-0">
+            <ThemeToggle className="h-9 w-9" />
+            <div className="flex items-center justify-center shrink-0 w-10 h-10">
+              <Hamburger isOpen={isMobileMenuOpen} onClick={toggleMobileMenu} light={isHome} />
+            </div>
           </div>
         </div>
       </div>

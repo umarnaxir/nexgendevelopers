@@ -5,7 +5,7 @@ import HeroDecor from "@/components/HeroDecor";
 export default function ServicesHero() {
   return (
     <header
-      className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden min-h-[50vh] flex items-center justify-center mb-12 sm:mb-16 md:mb-20"
+      className="relative hero-grid left-1/2 w-screen -translate-x-1/2 overflow-hidden min-h-[50vh] flex items-center justify-center mb-12 sm:mb-16 md:mb-20"
       data-aos="fade-up"
     >
       <HeroDecor />
@@ -20,9 +20,9 @@ export default function ServicesHero() {
         >
           Our <span className="text-gradient-teal">Services</span>
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-silver max-w-5xl mx-auto leading-relaxed px-4">
+        <p className="text-lg sm:text-xl md:text-2xl text-silver light:text-gray-600 max-w-5xl mx-auto leading-relaxed px-4">
           The goal is not just to build a website or an app, but to{" "}
-          <span className="font-bold text-white">grow your business</span>.
+          <span className="font-bold text-white light:text-gray-900">grow your business</span>.
           {" "}
           Explore our full range of development, digital marketing, and support services.
         </p>

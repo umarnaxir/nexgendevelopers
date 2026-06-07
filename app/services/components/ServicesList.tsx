@@ -50,7 +50,7 @@ export default function ServicesList() {
                     ${
                       activeTab === category
                         ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-lg shadow-teal-500/25"
-                        : "bg-transparent text-silver-light hover:bg-white/[0.06] hover:text-white"
+                        : "bg-transparent text-silver-light light:text-gray-700 hover:bg-white/[0.06] light:hover:bg-gray-100 hover:text-white light:hover:text-gray-900"
                     }
                   `}
                 >

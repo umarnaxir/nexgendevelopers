@@ -25,7 +25,7 @@ export default function HeroSection() {
   const { open: openContactModal } = useContactModal();
 
   return (
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-24 pb-10 sm:pt-28 lg:min-h-[calc(100vh-5rem)] lg:pt-0 lg:pb-6">
+    <section className="relative hero-grid flex min-h-screen flex-col justify-center overflow-hidden pt-24 pb-10 sm:pt-28 lg:min-h-[calc(100vh-5rem)] lg:pt-0 lg:pb-6">
       {/* Ambient hero glows */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute right-0 top-1/4 h-[460px] w-[460px] rounded-full bg-teal-500/[0.08] blur-[120px] animate-glow-pulse" />
@@ -54,7 +54,7 @@ export default function HeroSection() {
             </span>
 
             {/* Heading */}
-            <h1 className="mt-5 text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white light:text-gray-900 sm:text-5xl lg:text-6xl">
               We build digital products that{" "}
               <span className="relative whitespace-nowrap text-gradient-teal">
                 drive growth
@@ -72,12 +72,12 @@ export default function HeroSection() {
             </h1>
 
             {/* Description */}
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-silver sm:text-lg lg:text-xl">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-silver light:text-gray-600 sm:text-lg lg:text-xl">
               We help startups and local brands with{" "}
-              <span className="font-semibold text-white">AI/ML</span>,{" "}
-              <span className="font-semibold text-white">chatbots</span>,{" "}
-              <span className="font-semibold text-white">web &amp; app development</span>, and{" "}
-              <span className="font-semibold text-white">digital marketing</span> — crafting
+              <span className="font-semibold text-white light:text-gray-900">AI/ML</span>,{" "}
+              <span className="font-semibold text-white light:text-gray-900">chatbots</span>,{" "}
+              <span className="font-semibold text-white light:text-gray-900">web &amp; app development</span>, and{" "}
+              <span className="font-semibold text-white light:text-gray-900">digital marketing</span> — crafting
               digital experiences that stand out and deliver results.
             </p>
 
@@ -92,7 +92,7 @@ export default function HeroSection() {
               </button>
               <Link
                 href="/services"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-all duration-300 hover:border-teal-400/50 hover:bg-white/[0.07] hover:scale-[1.03] active:scale-[0.98] sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 light:border-gray-200 bg-white/[0.04] light:bg-white light:shadow-sm px-7 py-3.5 text-sm font-bold text-white light:text-gray-900 backdrop-blur transition-all duration-300 hover:border-teal-400/50 hover:bg-white/[0.07] light:hover:bg-gray-100 hover:scale-[1.03] active:scale-[0.98] sm:w-auto"
               >
                 <LayoutGrid className="h-4 w-4 text-teal-400" />
                 Explore Services
@@ -109,7 +109,7 @@ export default function HeroSection() {
                     src={src}
                     alt={`Client ${i + 1}`}
                     loading="lazy"
-                    className="h-10 w-10 rounded-full object-cover ring-2 ring-black"
+                    className="h-10 w-10 rounded-full object-cover ring-2 ring-black light:ring-white"
                   />
                 ))}
               </div>
@@ -119,7 +119,7 @@ export default function HeroSection() {
                     <Star key={i} className="h-4 w-4 text-teal-400" fill="currentColor" />
                   ))}
                 </div>
-                <p className="mt-0.5 text-sm font-medium text-silver">
+                <p className="mt-0.5 text-sm font-medium text-silver light:text-gray-600">
                   Trusted by 30+ clients worldwide
                 </p>
               </div>
@@ -149,12 +149,12 @@ export default function HeroSection() {
         >
           {stats.map(({ icon: Icon, value, label }) => (
             <div key={label} className="group flex items-center gap-3 sm:gap-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-teal-400/20 bg-teal-400/10 text-teal-300 transition-all duration-300 group-hover:scale-110 group-hover:bg-teal-400/20">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-teal-400/20 light:border-teal-200 bg-teal-400/10 light:bg-teal-50 text-teal-300 light:text-teal-700 transition-all duration-300 group-hover:scale-110 group-hover:bg-teal-400/20 light:group-hover:bg-teal-100">
                 <Icon className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-2xl font-extrabold text-white">{value}</p>
-                <p className="text-xs text-silver-dark sm:text-sm">{label}</p>
+                <p className="text-2xl font-extrabold text-white light:text-gray-900">{value}</p>
+                <p className="text-xs text-silver-dark light:text-gray-500 sm:text-sm">{label}</p>
               </div>
             </div>
           ))}

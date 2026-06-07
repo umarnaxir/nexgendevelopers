@@ -127,7 +127,7 @@ export default function ClientReviewsSection() {
             <span className="text-gradient-light">Client</span>{" "}
             <span className="text-gradient-teal">Reviews</span>
           </h2>
-          <p className="text-sm md:text-lg text-silver max-w-3xl mx-auto px-2 md:px-4">
+          <p className="text-sm md:text-lg text-silver light:text-gray-600 max-w-3xl mx-auto px-2 md:px-4">
             See what our clients have to say about working with NexGen Developers
           </p>
         </div>
@@ -144,7 +144,7 @@ export default function ClientReviewsSection() {
           {currentPage > 0 && (
             <button
               onClick={() => setCurrentPage((prev) => Math.max(0, prev - 1))}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:-translate-x-8 z-10 p-2 md:p-4 rounded-full border border-white/10 bg-black/60 text-silver-light backdrop-blur transition-all duration-300 hover:border-teal-400/40 hover:bg-teal-400/10 hover:text-teal-300 shadow-xl flex items-center justify-center group"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:-translate-x-8 z-10 p-2 md:p-4 rounded-full border border-white/10 light:border-gray-200 bg-black/60 light:bg-white light:shadow-sm text-silver-light light:text-gray-700 backdrop-blur transition-all duration-300 hover:border-teal-400/40 light:hover:border-teal-200 hover:bg-teal-400/10 light:hover:bg-teal-50 hover:text-teal-300 light:hover:text-teal-700 shadow-xl flex items-center justify-center group"
               aria-label="Previous reviews"
             >
               <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:scale-110" />
@@ -172,7 +172,7 @@ export default function ClientReviewsSection() {
                 <div className="flex items-start gap-3 md:gap-4 mb-3 md:mb-4 relative z-10">
                   {/* Avatar */}
                   <div className="relative flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/15 flex items-center justify-center overflow-hidden group-hover:border-teal-400/40 transition-colors duration-300">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/15 light:border-gray-200 flex items-center justify-center overflow-hidden group-hover:border-teal-400/40 light:group-hover:border-teal-200 transition-colors duration-300">
                       <Image
                         src={review.image}
                         alt={review.name}
@@ -183,7 +183,7 @@ export default function ClientReviewsSection() {
                     </div>
                     {/* Verification Checkmark */}
                     {review.verified && (
-                      <div className="absolute -bottom-1 -right-1 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full p-1 border-2 border-black hover:scale-110 transition-transform duration-200">
+                      <div className="absolute -bottom-1 -right-1 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full p-1 border-2 border-black light:border-white hover:scale-110 transition-transform duration-200">
                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
@@ -193,10 +193,10 @@ export default function ClientReviewsSection() {
 
                   {/* Name and Details */}
                   <div className="flex-1">
-                    <h4 className="font-bold text-white text-base md:text-lg mb-0.5 md:mb-1">
+                    <h4 className="font-bold text-white light:text-gray-900 text-base md:text-lg mb-0.5 md:mb-1">
                       {review.name}
                     </h4>
-                    <p className="text-xs md:text-sm text-silver-dark mb-1.5 md:mb-2">
+                    <p className="text-xs md:text-sm text-silver-dark light:text-gray-600 mb-1.5 md:mb-2">
                       {review.project}
                     </p>
                     {/* Rating */}
@@ -212,23 +212,23 @@ export default function ClientReviewsSection() {
                           </svg>
                         ))}
                       </div>
-                      <span className="text-xs md:text-sm text-silver-dark">({review.rating}.0)</span>
+                      <span className="text-xs md:text-sm text-silver-dark light:text-gray-600">({review.rating}.0)</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Review Text */}
-                <p className="text-silver mb-4 md:mb-6 leading-relaxed text-sm md:text-base relative z-10 group-hover:text-silver-light transition-colors duration-300 flex-grow">
+                <p className="text-silver light:text-gray-600 mb-4 md:mb-6 leading-relaxed text-sm md:text-base relative z-10 group-hover:text-silver-light light:group-hover:text-gray-700 transition-colors duration-300 flex-grow">
                   {review.review}
                 </p>
 
                 {/* Verified Client Badge */}
                 {review.verified && (
-                  <div className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 border border-white/10 rounded-lg w-fit group-hover:border-teal-400/40 group-hover:bg-teal-400/10 transition-all duration-300 mt-auto hover:scale-105">
+                  <div className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 border border-white/10 light:border-gray-200 rounded-lg w-fit group-hover:border-teal-400/40 light:group-hover:border-teal-200 group-hover:bg-teal-400/10 light:group-hover:bg-teal-50 transition-all duration-300 mt-auto hover:scale-105">
                     <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-300" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                     </svg>
-                    <span className="text-xs md:text-sm font-medium text-silver-light">
+                    <span className="text-xs md:text-sm font-medium text-silver-light light:text-gray-700">
                       Verified Client
                     </span>
                   </div>
@@ -241,7 +241,7 @@ export default function ClientReviewsSection() {
           {currentPage < totalPages - 1 && (
             <button
               onClick={() => setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:translate-x-8 z-10 p-2 md:p-4 rounded-full border border-white/10 bg-black/60 text-silver-light backdrop-blur transition-all duration-300 hover:border-teal-400/40 hover:bg-teal-400/10 hover:text-teal-300 shadow-xl flex items-center justify-center group"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:translate-x-8 z-10 p-2 md:p-4 rounded-full border border-white/10 light:border-gray-200 bg-black/60 light:bg-white light:shadow-sm text-silver-light light:text-gray-700 backdrop-blur transition-all duration-300 hover:border-teal-400/40 light:hover:border-teal-200 hover:bg-teal-400/10 light:hover:bg-teal-50 hover:text-teal-300 light:hover:text-teal-700 shadow-xl flex items-center justify-center group"
               aria-label="Next reviews"
             >
               <ChevronRight className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:scale-110" />
@@ -257,7 +257,7 @@ export default function ClientReviewsSection() {
                 className={`rounded-full transition-all duration-300 hover:scale-125 ${
                   index === currentPage
                     ? 'w-6 md:w-8 h-2 md:h-2.5 bg-gradient-to-r from-teal-400 to-teal-500'
-                    : 'w-2 md:w-2.5 h-2 md:h-2.5 bg-white/20 hover:bg-white/40'
+                    : 'w-2 md:w-2.5 h-2 md:h-2.5 bg-white/20 light:bg-gray-300 hover:bg-white/40 light:hover:bg-gray-400'
                 }`}
                 aria-label={`Go to page ${index + 1}`}
               />

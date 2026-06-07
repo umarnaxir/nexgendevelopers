@@ -342,7 +342,7 @@ export default function FeaturedWorkSection() {
             {/* Left: Play/Pause Button */}
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 bg-white/[0.04] text-silver-light backdrop-blur transition-all duration-300 hover:border-teal-400/40 hover:text-teal-300"
+              className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 light:border-gray-200 bg-white/[0.04] light:bg-white light:shadow-sm text-silver-light light:text-gray-700 backdrop-blur transition-all duration-300 hover:border-teal-400/40 light:hover:border-teal-200 hover:text-teal-300 light:hover:text-teal-700"
               aria-label={isAutoPlaying ? "Pause carousel" : "Play carousel"}
             >
               {isAutoPlaying ? (
@@ -354,8 +354,8 @@ export default function FeaturedWorkSection() {
 
             {/* Center: Slide Indicator */}
             <div className="flex items-center gap-2">
-              <span className="text-xs sm:text-sm font-semibold text-silver">
-                <span className="text-white">{currentIndex + 1}</span>/{totalProjects}
+              <span className="text-xs sm:text-sm font-semibold text-silver light:text-gray-600">
+                <span className="text-white light:text-gray-900">{currentIndex + 1}</span>/{totalProjects}
               </span>
             </div>
 
@@ -363,7 +363,7 @@ export default function FeaturedWorkSection() {
             <div className="flex items-center gap-2">
               <button
                 onClick={prevSlide}
-                className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 bg-white/[0.04] text-silver-light backdrop-blur transition-all duration-300 hover:border-teal-400/40 hover:bg-teal-400/10 hover:text-teal-300"
+                className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 light:border-gray-200 bg-white/[0.04] light:bg-white light:shadow-sm text-silver-light light:text-gray-700 backdrop-blur transition-all duration-300 hover:border-teal-400/40 light:hover:border-teal-200 hover:bg-teal-400/10 light:hover:bg-teal-50 hover:text-teal-300 light:hover:text-teal-700"
                 aria-label="Previous project"
               >
                 <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -386,7 +386,7 @@ export default function FeaturedWorkSection() {
                 onClick={() => goToSlide(index)}
                 className={`rounded-full transition-all duration-300 ${index === currentIndex
                     ? 'w-7 h-1.5 bg-gradient-to-r from-teal-400 to-teal-500'
-                    : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'
+                    : 'w-1.5 h-1.5 bg-white/20 light:bg-gray-300 hover:bg-white/40 light:hover:bg-gray-400'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

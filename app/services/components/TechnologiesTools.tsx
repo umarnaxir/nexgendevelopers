@@ -14,7 +14,7 @@ export default function TechnologiesTools({ technologies }: TechnologiesToolsPro
 
   return (
     <div className="mb-16" data-aos="fade-up">
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+      <h2 className="text-2xl sm:text-3xl font-bold text-white light:text-gray-900 mb-6">
         Technologies & Tools
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
@@ -23,7 +23,7 @@ export default function TechnologiesTools({ technologies }: TechnologiesToolsPro
             key={idx}
             className="glass-card group p-4 rounded-xl cursor-default"
           >
-            <span className="font-semibold text-silver-light text-sm sm:text-base group-hover:text-white transition-colors block text-center">
+            <span className="font-semibold text-silver-light light:text-gray-700 text-sm sm:text-base group-hover:text-white light:group-hover:text-gray-900 transition-colors block text-center">
               {tech}
             </span>
           </div>

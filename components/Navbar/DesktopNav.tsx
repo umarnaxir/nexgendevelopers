@@ -32,10 +32,10 @@ export default function DesktopNav({ links, isHome = false }: DesktopNavProps) {
               className={`relative text-sm font-semibold tracking-wide py-4 px-2 transition-all duration-300 group rounded-md ${
                 pathname === link.href
                   ? isHome
-                    ? "text-teal-300"
+                    ? "text-teal-300 light:text-teal-700"
                     : "text-teal-600"
                   : isHome
-                    ? "text-silver-light hover:text-white"
+                    ? "text-silver-light light:text-gray-700 hover:text-white light:hover:text-gray-900"
                     : "text-gray-700 hover:text-teal-600"
               }`}
               aria-current={pathname === link.href ? "page" : undefined}

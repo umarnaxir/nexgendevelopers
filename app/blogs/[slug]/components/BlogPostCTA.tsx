@@ -10,8 +10,8 @@ export default function BlogPostCTA() {
       className="glass-card mt-12 p-8 rounded-2xl text-center"
       data-aos="fade-up"
     >
-      <h2 className="text-2xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
-      <p className="text-silver mb-6">
+      <h2 className="text-2xl font-bold text-white light:text-gray-900 mb-4">Ready to Start Your Project?</h2>
+      <p className="text-silver light:text-gray-600 mb-6">
         Let's discuss how we can help bring your ideas to life.
       </p>
       <button

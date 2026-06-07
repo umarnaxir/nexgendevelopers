@@ -14,10 +14,10 @@ const socialLinks = [
 
 export default function ContactUsSocials() {
   return (
-    <section className="py-8 sm:py-12 border-t border-white/10" data-aos="fade-up">
+    <section className="py-8 sm:py-12 border-t border-white/10 light:border-gray-200" data-aos="fade-up">
       <div className="text-center">
-        <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-2 sm:mb-3">Connect with us</h2>
-        <p className="text-silver text-sm sm:text-base mb-6 sm:mb-8 max-w-md mx-auto">
+        <h2 className="text-xl sm:text-2xl font-extrabold text-white light:text-gray-900 mb-2 sm:mb-3">Connect with us</h2>
+        <p className="text-silver light:text-gray-600 text-sm sm:text-base mb-6 sm:mb-8 max-w-md mx-auto">
           Follow us on social media or drop a message. We&apos;re here to help.
         </p>
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
@@ -28,7 +28,7 @@ export default function ContactUsSocials() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/10 bg-white/[0.04] text-silver-light transition-all duration-200 hover:border-teal-400/50 hover:bg-teal-500 hover:text-white hover:scale-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40"
+              className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/10 light:border-gray-200 bg-white/[0.04] light:bg-white light:shadow-sm text-silver-light light:text-gray-700 transition-all duration-200 hover:border-teal-400/50 light:hover:border-teal-200 hover:bg-teal-500 hover:text-white hover:scale-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40"
             >
               <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>

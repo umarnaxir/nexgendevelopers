@@ -8,22 +8,22 @@ export default function ContactCTA() {
 
   return (
     <div className="pb-12 sm:pb-16" data-aos="fade-up">
-      <div className="relative overflow-hidden rounded-3xl bg-silver border border-teal-700/15 px-6 py-10 sm:px-10 sm:py-14 text-center shadow-xl">
+      <div className="relative overflow-hidden rounded-3xl bg-silver light:bg-white border border-teal-700/15 light:border-gray-200 px-6 py-10 sm:px-10 sm:py-14 text-center shadow-xl light:shadow-sm">
         {/* Subtle teal glow accents */}
         <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-teal-500/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-teal-600/10 blur-3xl" />
 
         <div className="relative z-10">
           {/* Eyebrow badge */}
-          <span className="inline-flex items-center gap-2 rounded-full border border-teal-700/25 bg-teal-700/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-teal-700 mb-5">
+          <span className="inline-flex items-center gap-2 rounded-full border border-teal-700/25 light:border-teal-200 bg-teal-700/10 light:bg-teal-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-teal-700 mb-5">
             <Sparkles className="h-3.5 w-3.5" />
             Let&apos;s Build Together
           </span>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black mb-3 sm:mb-4 px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black light:text-gray-900 mb-3 sm:mb-4 px-2">
             Ready to Start Your <span className="text-teal-700">Project?</span>
           </h2>
-          <p className="text-base sm:text-lg text-black/70 mb-7 sm:mb-9 max-w-2xl mx-auto px-2 leading-relaxed">
+          <p className="text-base sm:text-lg text-black/70 light:text-gray-700 mb-7 sm:mb-9 max-w-2xl mx-auto px-2 leading-relaxed">
             Get in touch with us today for a free consultation and custom quote. Let&apos;s discuss how we can help bring your digital vision to life.
           </p>
 

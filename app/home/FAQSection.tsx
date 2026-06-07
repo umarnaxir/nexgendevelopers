@@ -50,7 +50,7 @@ export default function FAQSection() {
             <span className="text-gradient-light">Frequently Asked</span>{" "}
             <span className="text-gradient-teal">Questions</span>
           </h2>
-          <p className="text-base sm:text-lg text-silver max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg text-silver light:text-gray-600 max-w-3xl mx-auto px-4">
             Find answers to common questions about our services and process
           </p>
         </div>
@@ -69,12 +69,12 @@ export default function FAQSection() {
                   onClick={() => toggleFAQ(index)}
                   className="w-full px-6 sm:px-8 py-4 sm:py-6 text-left flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40"
                 >
-                  <h3 className={`text-lg sm:text-xl font-bold pr-4 transition-colors duration-300 ${isOpen ? "text-white" : "text-silver-light"}`}>
+                  <h3 className={`text-lg sm:text-xl font-bold pr-4 transition-colors duration-300 ${isOpen ? "text-white light:text-gray-900" : "text-silver-light light:text-gray-700"}`}>
                     {faq.question}
                   </h3>
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
-                      isOpen ? "rotate-180 border-teal-400/40 bg-teal-400/10 text-teal-300" : "border-white/10 text-silver"
+                      isOpen ? "rotate-180 border-teal-400/40 light:border-teal-200 bg-teal-400/10 light:bg-teal-50 text-teal-300 light:text-teal-700" : "border-white/10 light:border-gray-200 text-silver light:text-gray-700"
                     }`}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@ export default function FAQSection() {
                 >
                   <div className="min-h-0 overflow-hidden">
                     <div className="px-6 sm:px-8 pb-4 sm:pb-6">
-                      <p className="text-silver leading-relaxed text-sm sm:text-base">
+                      <p className="text-silver light:text-gray-600 leading-relaxed text-sm sm:text-base">
                         {faq.answer}
                       </p>
                     </div>

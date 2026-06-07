@@ -39,7 +39,7 @@ export default function ContactUsContent() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gradient-light mb-3 sm:mb-4">
           Why work <span className="text-gradient-teal">with us</span>
         </h2>
-        <p className="text-silver text-sm sm:text-base max-w-2xl mx-auto px-2">
+        <p className="text-silver light:text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-2">
           A remote team of freelancers ready to bring your ideas to life. Interactive, responsive, and focused on delivery.
         </p>
       </div>
@@ -57,18 +57,18 @@ export default function ContactUsContent() {
               onMouseLeave={() => setActiveIndex(null)}
               className={`glass-card text-left w-full min-h-[200px] sm:min-h-[220px] lg:min-h-[240px] p-6 sm:p-7 lg:p-8 rounded-2xl transition-[border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/40 ${
                 isActive
-                  ? "border-teal-400/50 shadow-lg"
-                  : "hover:border-teal-400/40"
+                  ? "border-teal-400/50 light:border-teal-200 shadow-lg"
+                  : "hover:border-teal-400/40 light:hover:border-teal-200"
               }`}
             >
               <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                <span className={`p-2.5 sm:p-3 rounded-xl border transition-colors duration-300 ${isActive ? "border-teal-400/40 bg-teal-500 text-white" : "border-teal-400/20 bg-teal-400/10 text-teal-300"}`}>
+                <span className={`p-2.5 sm:p-3 rounded-xl border transition-colors duration-300 ${isActive ? "border-teal-400/40 light:border-teal-200 bg-teal-500 text-white" : "border-teal-400/20 light:border-teal-200 bg-teal-400/10 light:bg-teal-50 text-teal-300 light:text-teal-700"}`}>
                   <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </span>
-                <h3 className="font-bold text-white text-base sm:text-lg">{item.title}</h3>
+                <h3 className="font-bold text-white light:text-gray-900 text-base sm:text-lg">{item.title}</h3>
               </div>
-              <p className="text-silver-light text-sm sm:text-base font-medium mb-2">{item.description}</p>
-              <p className={`text-silver text-sm sm:text-base transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-80"}`}>
+              <p className="text-silver-light light:text-gray-700 text-sm sm:text-base font-medium mb-2">{item.description}</p>
+              <p className={`text-silver light:text-gray-600 text-sm sm:text-base transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-80"}`}>
                 {item.detail}
               </p>
             </button>

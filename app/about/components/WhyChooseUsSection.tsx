@@ -23,10 +23,10 @@ export default function WhyChooseUsSection({ dark = false }: { dark?: boolean })
               <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
               Why Us
             </span>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-white light:text-gray-900 sm:text-4xl md:text-5xl">
               Why Choose <span className="text-gradient-teal">NexGen Developers</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm text-silver sm:text-base">
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-silver light:text-gray-600 sm:text-base">
               A team built to help you build, launch, and grow — with the speed, skill, and care your
               business deserves.
             </p>
@@ -44,13 +44,13 @@ export default function WhyChooseUsSection({ dark = false }: { dark?: boolean })
                   className="glass-card beam-border group relative flex flex-col overflow-hidden rounded-2xl p-6"
                 >
                   <span className="absolute inset-x-0 top-0 h-px w-0 bg-gradient-to-r from-teal-400 to-teal-500 transition-all duration-500 group-hover:w-full" />
-                  <ArrowUpRight className="absolute right-5 top-5 h-5 w-5 -translate-y-1 text-teal-300 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-silver-light transition-all duration-300 group-hover:scale-110 group-hover:border-teal-400/30 group-hover:bg-teal-400/10 group-hover:text-teal-300">
+                  <ArrowUpRight className="absolute right-5 top-5 h-5 w-5 -translate-y-1 text-teal-300 light:text-teal-700 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 light:border-gray-200 bg-white/[0.04] light:bg-gray-100 text-silver-light light:text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:border-teal-400/30 light:group-hover:border-teal-200 group-hover:bg-teal-400/10 light:group-hover:bg-teal-50 group-hover:text-teal-300 light:group-hover:text-teal-700">
                     <Icon className="h-6 w-6" />
                   </span>
-                  <div className="mt-5 text-xs font-bold tracking-[0.2em] text-silver-dark">{card.number}</div>
-                  <h3 className="mt-1.5 text-lg font-bold text-white">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-silver">{card.description}</p>
+                  <div className="mt-5 text-xs font-bold tracking-[0.2em] text-silver-dark light:text-gray-500">{card.number}</div>
+                  <h3 className="mt-1.5 text-lg font-bold text-white light:text-gray-900">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-silver light:text-gray-600">{card.description}</p>
                 </div>
               );
             })}

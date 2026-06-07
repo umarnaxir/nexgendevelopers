@@ -88,8 +88,8 @@ export default function SkillsSection() {
           <p className="text-xs sm:text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
             -SKILLS
           </p>
-          <h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-black mb-2 sm:mb-3 px-4"
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-black light:text-gray-900 mb-2 sm:mb-3 px-4"
             style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)' }}
           >
             AREA OF EXPERTISE
@@ -110,7 +110,7 @@ export default function SkillsSection() {
             >
               {/* Icon container */}
               <div className="relative flex justify-center mb-3 sm:mb-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center relative text-black">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center relative text-black light:text-gray-900">
                   <Image 
                     src={skill.iconUrl} 
                     alt={skill.name} 
@@ -124,8 +124,8 @@ export default function SkillsSection() {
               </div>
               
               {/* Skill name */}
-              <h3 
-                className="text-xs sm:text-sm font-bold text-black uppercase tracking-wide"
+              <h3
+                className="text-xs sm:text-sm font-bold text-black light:text-gray-900 uppercase tracking-wide"
                 style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6)' }}
               >
                 {skill.name}

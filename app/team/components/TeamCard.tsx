@@ -13,7 +13,7 @@ interface TeamCardProps {
 export default function TeamCard({ member }: TeamCardProps) {
   return (
     <article className="group" data-aos="zoom-in">
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-white/20 bg-gradient-to-br from-gray-900 to-black transition-all duration-300 group-hover:border-white/40 group-hover:-translate-y-1">
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-white/20 light:border-gray-200 bg-gradient-to-br from-gray-900 to-black transition-all duration-300 group-hover:border-white/40 light:group-hover:border-teal-300 group-hover:-translate-y-1">
         <Image
           src={member.image}
           alt={member.name}

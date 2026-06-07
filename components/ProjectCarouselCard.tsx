@@ -65,10 +65,10 @@ export default function ProjectCarouselCard({
           <div className="p-4 sm:p-6 lg:p-10 flex flex-col h-full">
             {/* Header */}
             <div className="mb-3 sm:mb-6">
-              <h2 className="text-lg sm:text-3xl lg:text-4xl font-extrabold text-white mb-2 sm:mb-4 leading-tight">
+              <h2 className="text-lg sm:text-3xl lg:text-4xl font-extrabold text-white light:text-gray-900 mb-2 sm:mb-4 leading-tight">
                 {title}
               </h2>
-              <p className="text-silver text-sm sm:text-lg leading-relaxed mb-3 sm:mb-6">
+              <p className="text-silver light:text-gray-600 text-sm sm:text-lg leading-relaxed mb-3 sm:mb-6">
                 {description}
               </p>
             </div>
@@ -77,13 +77,13 @@ export default function ProjectCarouselCard({
             <div className="mb-3 sm:mb-6 hidden sm:block">
               <div className="flex items-center gap-2 mb-3">
                 <Code2 className="w-5 h-5 text-teal-300" />
-                <h3 className="font-bold text-silver-light text-sm uppercase tracking-wide">Technologies</h3>
+                <h3 className="font-bold text-silver-light light:text-gray-700 text-sm uppercase tracking-wide">Technologies</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1.5 border border-white/10 bg-white/[0.04] text-silver-light text-xs font-semibold rounded-md transition-colors hover:border-teal-400/30 hover:text-white"
+                    className="px-3 py-1.5 border border-white/10 light:border-gray-200 bg-white/[0.04] light:bg-gray-100 text-silver-light light:text-gray-700 text-xs font-semibold rounded-md transition-colors hover:border-teal-400/30 light:hover:border-teal-200 hover:text-white light:hover:text-teal-700"
                   >
                     {tech}
                   </span>
@@ -92,7 +92,7 @@ export default function ProjectCarouselCard({
             </div>
 
             {/* Project Meta */}
-            <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 text-xs sm:text-sm text-silver-dark">
+            <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 text-xs sm:text-sm text-silver-dark light:text-gray-600">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-teal-300/80" />
                 <span className="font-semibold">{duration}</span>
@@ -116,7 +116,7 @@ export default function ProjectCarouselCard({
               </a>
               <Link
                 href={`/projects`}
-                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-bold rounded-lg border border-white/15 bg-white/[0.04] text-white backdrop-blur transition-all hover:border-teal-400/40 hover:bg-white/[0.07] hover:scale-105 active:scale-95"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-bold rounded-lg border border-white/15 light:border-gray-200 bg-white/[0.04] light:bg-white light:shadow-sm text-white light:text-gray-900 backdrop-blur transition-all hover:border-teal-400/40 light:hover:border-teal-200 hover:bg-white/[0.07] light:hover:bg-gray-100 hover:scale-105 active:scale-95"
               >
                 <span>View Details</span>
                 <ArrowRight className="w-4 h-4" />

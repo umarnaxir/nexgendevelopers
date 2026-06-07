@@ -57,24 +57,24 @@ export default function ProjectCard({ project, index, isExpanded, onToggleExpand
             <div className="h-px w-full bg-gradient-to-r from-teal-400/60 via-teal-500/30 to-transparent" />
             <div className="p-6 sm:p-8 lg:p-10 flex flex-col">
               <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white light:text-gray-900 mb-4 leading-tight">
                   {project.title}
                 </h2>
-                <p className="text-silver text-base sm:text-lg leading-relaxed mb-6">
+                <p className="text-silver light:text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
                   {project.description}
                 </p>
               </div>
 
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <Code2 className="w-5 h-5 text-teal-300" />
-                  <h3 className="font-bold text-silver-light text-sm uppercase tracking-wide">Technologies</h3>
+                  <Code2 className="w-5 h-5 text-teal-300 light:text-teal-700" />
+                  <h3 className="font-bold text-silver-light light:text-gray-700 text-sm uppercase tracking-wide">Technologies</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1.5 border border-white/10 bg-white/[0.04] text-silver-light text-xs font-semibold rounded-md transition-colors hover:border-teal-400/30 hover:text-white"
+                      className="px-3 py-1.5 border border-white/10 light:border-gray-200 bg-white/[0.04] light:bg-gray-100 text-silver-light light:text-gray-700 text-xs font-semibold rounded-md transition-colors hover:border-teal-400/30 hover:text-white light:hover:text-teal-700"
                     >
                       {tech}
                     </span>
@@ -82,13 +82,13 @@ export default function ProjectCard({ project, index, isExpanded, onToggleExpand
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-4 mb-6 text-sm text-silver-dark">
+              <div className="flex flex-wrap gap-4 mb-6 text-sm text-silver-dark light:text-gray-500">
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-teal-300/80" />
+                  <Calendar className="w-4 h-4 text-teal-300/80 light:text-teal-700" />
                   <span className="font-semibold">{project.duration}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-teal-300/80" />
+                  <Users className="w-4 h-4 text-teal-300/80 light:text-teal-700" />
                   <span className="font-semibold">{project.client}</span>
                 </div>
               </div>
@@ -97,21 +97,21 @@ export default function ProjectCard({ project, index, isExpanded, onToggleExpand
                   <div
                     className="overflow-hidden mb-6"
                   >
-                    <div className="pt-6 border-t border-white/10">
-                      <h3 className="font-bold text-white mb-3 text-lg">Project Details</h3>
-                      <p className="text-silver leading-relaxed mb-6">
+                    <div className="pt-6 border-t border-white/10 light:border-gray-200">
+                      <h3 className="font-bold text-white light:text-gray-900 mb-3 text-lg">Project Details</h3>
+                      <p className="text-silver light:text-gray-600 leading-relaxed mb-6">
                         {project.detailedDescription}
                       </p>
                       <div>
-                        <h4 className="font-bold text-white mb-3 flex items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-teal-300" />
+                        <h4 className="font-bold text-white light:text-gray-900 mb-3 flex items-center gap-2">
+                          <CheckCircle2 className="w-5 h-5 text-teal-300 light:text-teal-700" />
                           Key Features
                         </h4>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {project.features.map((feature, featureIndex) => (
                             <div key={featureIndex} className="flex items-start gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-teal-300 mt-0.5 flex-shrink-0" />
-                              <span className="text-sm text-silver-light">{feature}</span>
+                              <CheckCircle2 className="w-4 h-4 text-teal-300 light:text-teal-700 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-silver-light light:text-gray-700">{feature}</span>
                             </div>
                           ))}
                         </div>
@@ -132,7 +132,7 @@ export default function ProjectCard({ project, index, isExpanded, onToggleExpand
                 </a>
                 <button
                   onClick={onToggleExpand}
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/15 bg-white/[0.06] text-white font-bold rounded-lg backdrop-blur transition-all hover:border-teal-400/50 hover:bg-white/[0.1] hover:scale-105 active:scale-95"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/15 light:border-gray-200 bg-white/[0.06] light:bg-white light:shadow-sm text-white light:text-gray-900 font-bold rounded-lg backdrop-blur transition-all hover:border-teal-400/50 hover:bg-white/[0.1] light:hover:bg-gray-100 hover:scale-105 active:scale-95"
                 >
                   <span>{isExpanded ? "Show Less" : "View Details"}</span>
                   <ArrowRight className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-90" : ""}`} />

@@ -12,7 +12,7 @@ const chips = [
 export default function ContactUsHero() {
   return (
     <section
-      className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden min-h-[50vh] flex items-center justify-center mb-6 sm:mb-10"
+      className="relative hero-grid left-1/2 w-screen -translate-x-1/2 overflow-hidden min-h-[50vh] flex items-center justify-center mb-6 sm:mb-10"
       data-aos="fade-up"
     >
       {/* Interactive decorative layer */}
@@ -32,7 +32,7 @@ export default function ContactUsHero() {
           <span className="text-gradient-teal">conversation</span>
         </h1>
 
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-silver sm:text-base lg:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-silver light:text-gray-600 sm:text-base lg:text-lg">
           We work remotely with a team of freelancers. Reach out — we&apos;d love to hear about your
           idea and help bring it to life.
         </p>
@@ -41,9 +41,9 @@ export default function ContactUsHero() {
           {chips.map(({ icon: Icon, label }) => (
             <span
               key={label}
-              className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-silver-light transition-colors duration-300 hover:border-teal-400/40 hover:text-white sm:text-sm"
+              className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-silver-light light:text-gray-700 transition-colors duration-300 hover:border-teal-400/40 light:hover:border-teal-200 hover:text-white light:hover:text-gray-900 sm:text-sm"
             >
-              <Icon className="h-4 w-4 text-teal-300" />
+              <Icon className="h-4 w-4 text-teal-300 light:text-teal-700" />
               {label}
             </span>
           ))}

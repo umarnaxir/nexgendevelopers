@@ -48,7 +48,7 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
         <div className="flex-1 p-6 sm:p-8 flex flex-col min-h-[280px] sm:min-h-0">
           {/* Title */}
           <h2
-            className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-silver-light transition-colors"
+            className="text-xl sm:text-2xl font-bold text-white light:text-gray-900 mb-3 group-hover:text-silver-light light:group-hover:text-teal-700 transition-colors"
           >
             <Link
               href={service.href}
@@ -60,7 +60,7 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
 
           {/* Description */}
           <p
-            className="text-silver text-sm sm:text-base leading-relaxed mb-5 flex-grow"
+            className="text-silver light:text-gray-600 text-sm sm:text-base leading-relaxed mb-5 flex-grow"
           >
             {service.shortDescription}
           </p>
@@ -73,7 +73,7 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
                 e.preventDefault();
                 setIsExpanded(!isExpanded);
               }}
-              className="flex items-center gap-2 text-sm font-semibold text-teal-300 hover:text-teal-200 transition-colors"
+              className="flex items-center gap-2 text-sm font-semibold text-teal-300 light:text-teal-700 hover:text-teal-200 light:hover:text-teal-800 transition-colors"
               aria-expanded={isExpanded}
             >
               <span>{isExpanded ? "Hide features" : "View key features"}</span>
@@ -98,9 +98,9 @@ export default function ServiceCard({ service, index, category }: ServiceCardPro
                 {service.features.slice(0, 5).map((feature, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start text-silver text-sm"
+                    className="flex items-start text-silver light:text-gray-600 text-sm"
                   >
-                    <span className="text-teal-300 mr-2 font-bold mt-0.5">✓</span>
+                    <span className="text-teal-300 light:text-teal-700 mr-2 font-bold mt-0.5">✓</span>
                     <span>{feature}</span>
                   </li>
                 ))}

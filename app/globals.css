@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 :root {
   /* Tertiary: teal — use sparingly for accents, borders, focus */
@@ -376,19 +377,37 @@ body {
   animation: auraDrift 22s ease-in-out infinite;
 }
 
-.home-bg::after {
+/* Grid is no longer painted across the whole body — it now lives only
+   inside hero sections via the `.hero-grid` helper below. */
+
+/* ============================================================
+   HERO GRID — small-box grid, scoped to hero sections only.
+   Add `hero-grid` to a hero's (relatively-positioned) wrapper.
+   ============================================================ */
+.hero-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-grid::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
-  opacity: 0.5;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse 110% 70% at 50% -5%, #000 35%, transparent 85%);
-  mask-image: radial-gradient(ellipse 110% 70% at 50% -5%, #000 35%, transparent 85%);
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 35%, #000 45%, transparent 85%);
+  mask-image: radial-gradient(ellipse 90% 85% at 50% 35%, #000 45%, transparent 85%);
+}
+
+/* Light theme — dark-teal grid lines, clearly visible on the silver canvas */
+.light .hero-grid::before {
+  background-image:
+    linear-gradient(to right, rgba(15, 118, 110, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 118, 110, 0.12) 1px, transparent 1px);
 }
 
 @keyframes auraDrift {
@@ -575,3 +594,108 @@ body {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   THEME SWITCH TRANSITIONS
+   Smooth 400ms cross-fade of colors/surfaces when toggling
+   between Dark and Light. Elements that declare their own
+   `transition` (e.g. .glass-card) keep it via higher specificity.
+   ============================================================ */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke,
+    box-shadow;
+  transition-duration: 400ms;
+  transition-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   PREMIUM LIGHT THEME
+   Silver / Light-Gray canvas · Teal accent · Near-black text
+   Scoped under `.light` (set on <html> by next-themes).
+   Dark theme is the default and is left completely untouched.
+   ============================================================ */
+
+/* Light canvas — silver gradient replacing the black home-bg */
+.light .home-bg {
+  background-color: #f3f4f6 !important;
+  background-image: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+}
+
+/* Soft teal aura — kept subtle so it reads as premium, not noisy */
+.light .home-bg::before {
+  background:
+    radial-gradient(55% 45% at 82% -8%, rgba(20, 184, 166, 0.16), transparent 60%),
+    radial-gradient(48% 42% at -5% 28%, rgba(15, 118, 110, 0.12), transparent 60%),
+    radial-gradient(42% 40% at 50% 112%, rgba(20, 184, 166, 0.1), transparent 60%);
+}
+
+/* Frosted white glass surfaces */
+/* Glass surfaces (FAQ items, stat strips, panels) — solid white cards
+   with a soft shadow so they lift off the silver background */
+.light .glass {
+  background: #ffffff;
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  box-shadow: 0 6px 20px -6px rgba(15, 23, 42, 0.12),
+    0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+/* All cards: solid white on the silver canvas with a soft drop shadow */
+.light .glass-card {
+  background: #ffffff;
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  box-shadow: 0 6px 20px -6px rgba(15, 23, 42, 0.12),
+    0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+.light .glass-card:hover {
+  border-color: rgba(15, 118, 110, 0.4);
+  background: #ffffff;
+  box-shadow: 0 24px 48px -16px rgba(15, 118, 110, 0.3),
+    0 6px 16px rgba(15, 23, 42, 0.1);
+}
+
+.light .glass-card::before {
+  background: linear-gradient(90deg, transparent, rgba(15, 118, 110, 0.25), transparent);
+}
+
+/* Heading gradient flips to dark ink */
+.light .text-gradient-light {
+  background: linear-gradient(180deg, #111827 0%, #374151 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Teal heading gradient — deepen for AA contrast on light */
+.light .text-gradient-teal {
+  background: linear-gradient(110deg, #0d9488, #0f766e 55%, #115e59);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow / section pill on light */
+.light .eyebrow {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #0f766e;
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.05);
+}
+
+/* Hero highlight words — darker teal for contrast on light */
+.light .hero-highlight-word,
+.light .hero-service-word {
+  color: #0f766e;
+}
+
+/* Beam border glow — warm teal works on light too, keep as-is */

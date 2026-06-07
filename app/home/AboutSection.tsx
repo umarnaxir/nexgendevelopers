@@ -116,19 +116,19 @@ export default function AboutSection() {
               Our Expertise
             </span>
 
-            <h2 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-white light:text-gray-900 sm:text-5xl">
               Where Innovation
               <br />
               Meets <span className="text-gradient-teal">Excellence</span>
             </h2>
             <span className="mt-5 block h-1 w-16 rounded-full bg-gradient-to-r from-teal-400 to-teal-600" />
 
-            <p className="mt-6 text-lg text-silver-light">
-              A creative platform to <strong className="font-bold text-white">build</strong>,{" "}
-              <strong className="font-bold text-white">launch</strong>, and{" "}
-              <strong className="font-bold text-white">grow</strong> your business.
+            <p className="mt-6 text-lg text-silver-light light:text-gray-700">
+              A creative platform to <strong className="font-bold text-white light:text-gray-900">build</strong>,{" "}
+              <strong className="font-bold text-white light:text-gray-900">launch</strong>, and{" "}
+              <strong className="font-bold text-white light:text-gray-900">grow</strong> your business.
             </p>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-silver sm:text-base">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-silver light:text-gray-600 sm:text-base">
               We help startups and local brands with AI/ML, chatbots, web &amp; app development, and
               digital marketing — crafting digital experiences that stand out and deliver results.
               NexGen Developers is a collective of engineering professionals united to deliver premium
@@ -165,19 +165,19 @@ export default function AboutSection() {
                 data-aos-delay={(i % 2) * 80}
                 className="glass-card group flex items-start gap-5 rounded-2xl p-6"
               >
-                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-teal-300 transition-all duration-300 group-hover:border-teal-400/30 group-hover:bg-teal-400/15 group-hover:text-teal-200">
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/10 light:border-teal-200 bg-white/[0.04] light:bg-teal-50 text-teal-300 light:text-teal-700 transition-all duration-300 group-hover:border-teal-400/30 group-hover:bg-teal-400/15 group-hover:text-teal-200">
                   <Icon className="h-7 w-7" />
                 </span>
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2 text-xs font-bold text-teal-300">
+                  <div className="flex items-center gap-2 text-xs font-bold text-teal-300 light:text-teal-700">
                     {s.num}
                     <span className="h-px w-5 bg-teal-400/50" />
                   </div>
-                  <h3 className="mt-1 text-lg font-bold text-white">{s.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-silver">{s.desc}</p>
-                  <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-teal-300">
+                  <h3 className="mt-1 text-lg font-bold text-white light:text-gray-900">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-silver light:text-gray-600">{s.desc}</p>
+                  <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-teal-300 light:text-teal-700">
                     Explore Services
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-teal-400/40 transition-all duration-300 group-hover:border-teal-400 group-hover:bg-teal-400 group-hover:text-black">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-teal-400/40 light:border-teal-200 transition-all duration-300 group-hover:border-teal-400 group-hover:bg-teal-400 group-hover:text-black">
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </span>
@@ -191,15 +191,15 @@ export default function AboutSection() {
         <div className="mt-16 lg:mt-20">
           <div className="mb-3 flex items-center gap-3">
             <span className="h-0.5 w-8 bg-teal-400" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-300">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-300 light:text-teal-700">
               Insights &amp; Growth
             </span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-white light:text-gray-900 sm:text-4xl md:text-5xl">
             Insights &amp; <span className="text-gradient-teal">Growth</span>
           </h2>
           <span className="mt-4 block h-1 w-16 rounded-full bg-gradient-to-r from-teal-400 to-teal-600" />
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-silver sm:text-base">
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-silver light:text-gray-600 sm:text-base">
             Explore our blogs for ideas and insights, or get in touch to build, launch, and grow your
             business with us.
           </p>
@@ -209,22 +209,22 @@ export default function AboutSection() {
             <Link
               href="/blogs"
               data-aos="fade-up"
-              className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl border border-teal-400/20 bg-gradient-to-br from-teal-600/25 via-teal-800/10 to-black p-8 text-white transition-all duration-300 hover:border-teal-400/40 hover:shadow-[0_30px_70px_-30px_rgba(20,184,166,0.5)]"
+              className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl border border-teal-400/20 light:border-teal-200 bg-gradient-to-br from-teal-600/25 via-teal-800/10 to-black light:from-teal-50 light:via-white light:to-white p-8 text-white light:text-gray-900 transition-all duration-300 hover:border-teal-400/40 hover:shadow-[0_30px_70px_-30px_rgba(20,184,166,0.5)]"
             >
               <span className="pointer-events-none absolute -right-4 -top-4 h-32 w-32 rounded-full text-teal-300 opacity-20" style={DOTS} />
               <span className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-teal-400/15 blur-3xl transition-opacity duration-500 group-hover:opacity-150" />
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-white">
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 light:border-teal-200 bg-white/10 light:bg-teal-50 text-white light:text-teal-700">
                 <BookOpen className="h-7 w-7" />
               </span>
               <div className="mt-auto pt-16">
-                <h3 className="text-2xl font-bold">Blogs &amp; Articles</h3>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-silver-light">
+                <h3 className="text-2xl font-bold light:text-gray-900">Blogs &amp; Articles</h3>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-silver-light light:text-gray-700">
                   Read articles, guides, and the latest industry updates on development, digital
                   trends, and marketing.
                 </p>
-                <span className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-white">
+                <span className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-white light:text-teal-700">
                   Read Blogs
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/40 transition-all duration-300 group-hover:bg-white group-hover:text-teal-700">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/40 light:border-teal-200 transition-all duration-300 group-hover:bg-white group-hover:text-teal-700">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </span>
@@ -238,22 +238,22 @@ export default function AboutSection() {
               className="glass-card group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl p-8"
             >
               <span className="pointer-events-none absolute -right-4 -top-4 h-32 w-32 rounded-full text-teal-400 opacity-20" style={DOTS} />
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-400/20 bg-teal-400/10 text-teal-300">
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-400/20 light:border-teal-200 bg-teal-400/10 light:bg-teal-50 text-teal-300 light:text-teal-700">
                 <TrendingUp className="h-7 w-7" />
               </span>
               <div className="mt-auto pt-16">
-                <h3 className="text-2xl font-bold text-white">Grow your brand</h3>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-silver">
+                <h3 className="text-2xl font-bold text-white light:text-gray-900">Grow your brand</h3>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-silver light:text-gray-600">
                   Let&apos;s build something that stands out. Get in touch and let&apos;s scale your
                   brand to new heights.
                 </p>
                 <button
                   type="button"
                   onClick={openContactModal}
-                  className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-teal-300"
+                  className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-teal-300 light:text-teal-700"
                 >
                   Get in touch
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-teal-400/40 transition-all duration-300 group-hover:border-teal-400 group-hover:bg-teal-400 group-hover:text-black">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-teal-400/40 light:border-teal-200 transition-all duration-300 group-hover:border-teal-400 group-hover:bg-teal-400 group-hover:text-black">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </button>

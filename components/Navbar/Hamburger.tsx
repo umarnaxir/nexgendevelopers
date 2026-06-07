@@ -13,7 +13,7 @@ interface HamburgerProps {
 
 export default function Hamburger({ isOpen, onClick, spinOnMount = false, light = false }: HamburgerProps) {
   const bar = `absolute left-0 h-[2.5px] rounded-full transition-all duration-300 ease-in-out ${
-    light ? "bg-white" : "bg-black"
+    light ? "bg-white light:bg-gray-900" : "bg-black"
   }`;
   return (
     <button

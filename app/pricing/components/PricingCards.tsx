@@ -6,19 +6,19 @@ import { getPricingForService, type PricingPlan, type PricingServiceType } from 
 
 const accentStyles = {
   green: {
-    name: "text-teal-300",
+    name: "text-teal-300 light:text-teal-700",
     button:
-      "border border-white/15 bg-white/[0.06] text-white hover:border-teal-400/50 hover:bg-white/[0.1]",
+      "border border-white/15 light:border-gray-200 bg-white/[0.06] light:bg-white light:shadow-sm text-white light:text-gray-900 hover:border-teal-400/50 light:hover:border-teal-200 hover:bg-white/[0.1] light:hover:bg-gray-100",
   },
   blue: {
-    name: "text-teal-300",
+    name: "text-teal-300 light:text-teal-700",
     button:
-      "border border-white/15 bg-white/[0.06] text-white hover:border-teal-400/50 hover:bg-white/[0.1]",
+      "border border-white/15 light:border-gray-200 bg-white/[0.06] light:bg-white light:shadow-sm text-white light:text-gray-900 hover:border-teal-400/50 light:hover:border-teal-200 hover:bg-white/[0.1] light:hover:bg-gray-100",
   },
   purple: {
-    name: "text-teal-300",
+    name: "text-teal-300 light:text-teal-700",
     button:
-      "border border-white/15 bg-white/[0.06] text-white hover:border-teal-400/50 hover:bg-white/[0.1]",
+      "border border-white/15 light:border-gray-200 bg-white/[0.06] light:bg-white light:shadow-sm text-white light:text-gray-900 hover:border-teal-400/50 light:hover:border-teal-200 hover:bg-white/[0.1] light:hover:bg-gray-100",
   },
 } as const;
 
@@ -39,18 +39,18 @@ function PlanCard({ plan, styles }: { plan: PricingPlan; styles: (typeof accentS
         <h3 className={`text-sm font-bold uppercase tracking-wider mb-1 ${styles.name}`}>
           {plan.name}
         </h3>
-        <p className="text-2xl sm:text-3xl font-bold text-white mb-1">{plan.price}</p>
-        <p className="text-silver text-sm mb-4">{plan.description}</p>
-        <p className="text-silver-dark text-xs mb-6">Best for: {plan.bestFor}</p>
+        <p className="text-2xl sm:text-3xl font-bold text-white light:text-gray-900 mb-1">{plan.price}</p>
+        <p className="text-silver light:text-gray-600 text-sm mb-4">{plan.description}</p>
+        <p className="text-silver-dark light:text-gray-500 text-xs mb-6">Best for: {plan.bestFor}</p>
         <ul className="space-y-3 flex-1 mb-6">
           {plan.deliverables.map((item, idx) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-silver-light">
-              <Check className="w-5 h-5 text-teal-300 flex-shrink-0 mt-0.5" />
+            <li key={idx} className="flex items-start gap-2 text-sm text-silver-light light:text-gray-700">
+              <Check className="w-5 h-5 text-teal-300 light:text-teal-700 flex-shrink-0 mt-0.5" />
               <span>{item}</span>
             </li>
           ))}
         </ul>
-        <p className="text-silver text-sm italic mb-6">&ldquo;{plan.quote}&rdquo;</p>
+        <p className="text-silver light:text-gray-600 text-sm italic mb-6">&ldquo;{plan.quote}&rdquo;</p>
         <button
           onClick={openContactModal}
           className={`w-full py-3 px-6 rounded-xl font-bold text-sm uppercase tracking-wide transition-all duration-300 ${

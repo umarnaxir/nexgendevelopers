@@ -37,8 +37,8 @@ export default function ServicesDropdown({
           onClick={() => setIsOpen(!isOpen)}
           className={`relative flex items-center justify-between w-full py-3 px-4 text-sm font-extrabold tracking-wide rounded-xl transition-all duration-300 ${
             isServicesActive
-              ? "text-white bg-white/[0.06]"
-              : "text-silver-light hover:bg-white/[0.04] hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98]"
+              ? "text-white light:text-gray-900 bg-white/[0.06] light:bg-gray-100"
+              : "text-silver-light light:text-gray-700 hover:bg-white/[0.04] light:hover:bg-gray-100 hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98]"
           }`}
         >
           {label}
@@ -47,12 +47,12 @@ export default function ServicesDropdown({
           />
         </button>
         {isOpen && (
-          <div className="mt-1 pl-4 space-y-1 border-l-2 border-white/10">
+          <div className="mt-1 pl-4 space-y-1 border-l-2 border-white/10 light:border-gray-200">
             <Link
               href={href}
               onClick={onLinkClick}
               className={`block py-2.5 px-3 text-sm font-bold rounded-lg transition-colors ${
-                pathname === href ? "text-white bg-white/[0.06]" : "text-silver hover:bg-white/[0.04] hover:text-white"
+                pathname === href ? "text-white light:text-gray-900 bg-white/[0.06] light:bg-gray-100" : "text-silver light:text-gray-600 hover:bg-white/[0.04] light:hover:bg-gray-100 hover:text-white light:hover:text-gray-900"
               }`}
             >
               All Services
@@ -80,7 +80,7 @@ export default function ServicesDropdown({
                     onClick={() =>
                       setNestedOpen(nestedOpen === item.href ? null : item.href)
                     }
-                    className="flex items-center justify-between w-full py-2.5 px-3 text-sm font-bold text-silver rounded-lg hover:bg-white/[0.04] hover:text-white"
+                    className="flex items-center justify-between w-full py-2.5 px-3 text-sm font-bold text-silver light:text-gray-600 rounded-lg hover:bg-white/[0.04] light:hover:bg-gray-100 hover:text-white light:hover:text-gray-900"
                   >
                     {item.label}
                     <ChevronRight
@@ -88,7 +88,7 @@ export default function ServicesDropdown({
                     />
                   </button>
                   {nestedOpen === item.href && (
-                    <div className="pl-4 mt-1 space-y-1 border-l border-white/10">
+                    <div className="pl-4 mt-1 space-y-1 border-l border-white/10 light:border-gray-200">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
@@ -96,8 +96,8 @@ export default function ServicesDropdown({
                           onClick={onLinkClick}
                           className={`block py-2 px-3 text-sm font-medium rounded-lg transition-colors ${
                             pathname === child.href
-                              ? "text-white bg-white/10"
-                              : "text-silver hover:bg-white/[0.04] hover:text-white"
+                              ? "text-white light:text-gray-900 bg-white/10 light:bg-gray-100"
+                              : "text-silver light:text-gray-600 hover:bg-white/[0.04] light:hover:bg-gray-100 hover:text-white light:hover:text-gray-900"
                           }`}
                         >
                           {child.label}
@@ -113,8 +113,8 @@ export default function ServicesDropdown({
                   onClick={onLinkClick}
                   className={`block py-2.5 px-3 text-sm font-bold rounded-lg transition-colors ${
                     pathname === item.href
-                      ? "text-white bg-white/[0.06]"
-                      : "text-silver hover:bg-white/[0.04] hover:text-white"
+                      ? "text-white light:text-gray-900 bg-white/[0.06] light:bg-gray-100"
+                      : "text-silver light:text-gray-600 hover:bg-white/[0.04] light:hover:bg-gray-100 hover:text-white light:hover:text-gray-900"
                   }`}
                 >
                   {item.label}
@@ -142,10 +142,10 @@ export default function ServicesDropdown({
         className={`relative flex items-center gap-0.5 text-sm font-semibold tracking-wide py-4 px-2 transition-all duration-300 rounded-md ${
           isServicesActive
             ? isHome
-              ? "text-teal-300"
+              ? "text-teal-300 light:text-teal-700"
               : "text-teal-600"
             : isHome
-              ? "text-silver-light hover:text-white"
+              ? "text-silver-light light:text-gray-700 hover:text-white light:hover:text-gray-900"
               : "text-gray-700 hover:text-teal-600"
         }`}
         aria-current={isServicesActive ? "page" : undefined}
@@ -160,7 +160,7 @@ export default function ServicesDropdown({
       />
       {isOpen && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
-          <div className="w-[760px] rounded-xl border border-white/10 bg-black shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col">
+          <div className="w-[760px] rounded-xl border border-white/10 light:border-gray-200 bg-black light:bg-white light:shadow-sm shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col">
             {/* Flat grid — every service, 3 per row */}
             <div className="grid grid-cols-3 gap-1 p-4">
               {(() => {
@@ -194,8 +194,8 @@ export default function ServicesDropdown({
                     href={service.href}
                     className={`block px-4 py-3.5 text-sm font-bold rounded-lg transition-all duration-200 ${
                       pathname === service.href
-                        ? "text-white bg-white/10"
-                        : "text-silver-light hover:bg-white/[0.06] hover:text-white hover:scale-[1.02] active:scale-[0.99]"
+                        ? "text-white light:text-gray-900 bg-white/10 light:bg-gray-100"
+                        : "text-silver-light light:text-gray-700 hover:bg-white/[0.06] light:hover:bg-gray-100 hover:text-white light:hover:text-gray-900 hover:scale-[1.02] active:scale-[0.99]"
                     }`}
                   >
                     {service.label}
@@ -203,10 +203,10 @@ export default function ServicesDropdown({
                 ));
               })()}
             </div>
-            <div className="border-t border-white/[0.06] px-4 py-3 bg-white/[0.02]">
+            <div className="border-t border-white/[0.06] light:border-gray-200 px-4 py-3 bg-white/[0.02] light:bg-gray-50">
               <Link
                 href={href}
-                className="text-sm font-semibold text-silver-light hover:text-white transition-colors inline-flex items-center gap-1.5 group/link"
+                className="text-sm font-semibold text-silver-light light:text-gray-700 hover:text-white light:hover:text-gray-900 transition-colors inline-flex items-center gap-1.5 group/link"
               >
                 View all services
                 <ChevronRight className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform" />

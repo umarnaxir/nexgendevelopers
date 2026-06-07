@@ -32,7 +32,7 @@ export default function PricingServiceSelector({
               className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 ${
                 isActive
                   ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-lg shadow-teal-500/25"
-                  : "border border-white/10 text-silver-light hover:text-white hover:bg-white/[0.06]"
+                  : "border border-white/10 light:border-gray-200 text-silver-light light:text-gray-700 hover:text-white light:hover:text-gray-900 hover:bg-white/[0.06] light:hover:bg-gray-100"
               }`}
             >
               {segmentLabels[service]}
