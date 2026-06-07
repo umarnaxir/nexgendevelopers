@@ -190,7 +190,7 @@ export default function ServicesSection() {
             <button
               type="button"
               onClick={openContactModal}
-              className="group inline-flex shrink-0 items-center gap-2.5 self-start rounded-full border border-white/15 light:border-gray-200 bg-white/[0.06] light:bg-white light:shadow-sm py-1.5 pl-6 pr-1.5 text-sm font-bold text-white light:text-gray-900 backdrop-blur transition-all duration-300 hover:border-teal-400/50 hover:bg-white/[0.1] hover:scale-105 active:scale-95 lg:self-auto"
+              className="group inline-flex w-full justify-between lg:w-auto lg:justify-start shrink-0 items-center gap-2.5 self-start rounded-full border border-white/15 light:border-gray-200 bg-white/[0.06] light:bg-white light:shadow-sm py-1.5 pl-6 pr-1.5 text-sm font-bold text-white light:text-gray-900 backdrop-blur transition-all duration-300 hover:border-teal-400/50 hover:bg-white/[0.1] hover:scale-105 active:scale-95 lg:self-auto"
             >
               Let&apos;s Talk
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-teal-600 text-white transition-transform duration-300 group-hover:translate-x-0.5">
@@ -199,7 +199,7 @@ export default function ServicesSection() {
             </button>
           </div>
 
-          <div className="relative mt-6 flex flex-wrap gap-x-8 gap-y-2 border-t border-white/[0.08] light:border-gray-200 pt-5">
+          <div className="relative mt-6 flex flex-col gap-y-3 sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-2 border-t border-white/[0.08] light:border-gray-200 pt-5">
             {ctaFeatures.map((feature) => (
               <span key={feature} className="inline-flex items-center gap-2 text-sm font-medium text-silver-light light:text-gray-700">
                 <Check className="h-4 w-4 text-teal-300 light:text-teal-700" />

@@ -135,14 +135,7 @@ export default function AboutSection() {
               services.
             </p>
 
-            {/* Mobile: scaled-down animated graphic below the content */}
-            <div className="mt-10 flex justify-center lg:hidden" aria-hidden>
-              <div className="flex h-[320px] w-[300px] items-center justify-center">
-                <div className="scale-[0.6] sm:scale-[0.7]">
-                  <ExpertiseOrbit />
-                </div>
-              </div>
-            </div>
+            {/* Animated graphic is hidden on mobile (shown only on desktop) */}
           </div>
 
           {/* Decorative animated graphic (desktop) */}
